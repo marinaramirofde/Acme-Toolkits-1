@@ -20,7 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="29552922S: Paz Rivera, Roberto" action="https://github.com/"/>    
-      <acme:menu-suboption code="77925380T: SuÃ¡rez David, RubÃ©n" action="http://www.youtube.com/"/>
+      		<acme:menu-suboption code="77925380T: Suárez David, Rubén" action="http://www.youtube.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
