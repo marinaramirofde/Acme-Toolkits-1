@@ -19,8 +19,12 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="30238243M: Cordero D�az, Jes�s Javier" action="http://www.marca.com/"/>
+      
+			<acme:menu-suboption code="30238243M: Cordero Díaz, Jesús Javier" action="http://www.marca.com/"/>
+			<acme:menu-suboption code="29552922S: Paz Rivera, Roberto" action="https://github.com/"/>    
+      <acme:menu-suboption code="29566855X: Sánchez Mendoza, Nicolás" action="http://www.lsi.us.es/"/>
+      <acme:menu-suboption code="77925380T: Suárez David, Rubén" action="http://www.youtube.com/"/>
+  
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
