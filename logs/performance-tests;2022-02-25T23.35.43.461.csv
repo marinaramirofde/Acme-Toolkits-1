@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+2022-02-25 23:34:17.896,acme.testing.FavouriteLinkTest,favouriteLink,8180,"favouriteLink()",Cannot find 'By.xpath: //div[@id='mainMenu']/ul/li[a[normalize-space()='Anonymous']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='30238243M: Cordero Díaz, Jesús Javier']'

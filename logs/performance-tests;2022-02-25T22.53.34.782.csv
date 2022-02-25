@@ -1,0 +1,14 @@
+timestamp,test-class,test-method,time,description,result
+2022-02-25 22:44:13.594,acme.testing.FavouriteLinkTest,favouriteLink,4793,"favouriteLink()",Cannot find 'By.xpath: //div[@id='mainMenu']/ul/li[a[normalize-space()='45972333W: Álvarez Campanón, Juan José']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='Favourite link']'
+2022-02-25 22:44:31.635,acme.testing.SignUpTest,positiveSignUp,16429,"[1] username=johnny, password=johnny, name=Johnny, surname=López, email=john@mail.com, phone=Cash & Carry, Co",OK
+2022-02-25 22:44:44.021,acme.testing.SignUpTest,positiveSignUp,11720,"[2] username=lorraine, password=lorraine, name=Lorraine, surname=Williams, email=lorraine@yellow-house.com, phone=Cash & Carry, Co",OK
+2022-02-25 22:44:56.264,acme.testing.SignUpTest,positiveSignUp,11881,"[3] username=leslie, password=leslie, name=Leslie Marti, surname=Ramport, email=leslie@us.es, phone=Networks, Inc.",OK
+2022-02-25 22:45:09.129,acme.testing.SignUpTest,positiveSignUp,12533,"[4] username=robert, password=robert, name=Robert, surname=Johnson, email=robert@mail.server.com, phone=Networks, Inc.",OK
+2022-02-25 22:45:22.506,acme.testing.SignUpTest,positiveSignUp,12693,"[5] username=pepeluis, password=pepeluis, name=José Luis, surname=Sørensen, email=ppepe.sorensen@sweden.sw, phone=Baby Care, GmbH",OK
+2022-02-25 22:45:34.645,acme.testing.SignUpTest,positiveSignUp,11570,"[6] username=luisa, password=luisa, name=Luisa, surname=Martínez López, email=luisa@luisa.name, phone=Baby Care, GmbH",OK
+2022-02-25 22:45:46.771,acme.testing.SignUpTest,positiveSignUp,11639,"[7] username=lukas, password=lukas, name=Lukas, surname=Smith, email=lukas@mail.com, phone=Like children",OK
+2022-02-25 22:45:58.885,acme.testing.SignUpTest,positiveSignUp,11800,"[8] username=mary-dt, password=mary-dt, name=Mary, surname=Design-Testing, email=mary@email.com, phone=Good at WIS development",OK
+2022-02-25 22:46:11.535,acme.testing.SignUpTest,positiveSignUp,12301,"[9] username=jorge, password=jorge, name=Jorge, surname=Libertad, email=jorge@yahoo.com, phone=Good at playing the piano",OK
+2022-02-25 22:46:24.984,acme.testing.SignUpTest,positiveSignUp,12828,"[10] username=sonia, password=sonia, name=Snojia Guðrún, surname=Þor-Anaïs, email=sonja@liberty.de, phone=N/A",OK
+2022-02-25 22:46:38.434,acme.testing.SignUpTest,positiveSignUp,13074,"[11] username=parker, password=parker, name=Parker Sigurður, surname=Mañón-Perigüeñez, email=parker@outlook.com, phone=Like spiders",OK
+2022-02-25 22:46:51.076,acme.testing.SignUpTest,positiveSignUp,12026,"[12] username=manolo, password=manolo, name=Manuel Raúl, surname=Benítez López, email=manolo@engineer.com, phone=Java EE, HTML, CSS, JavaScript, JSP",OK

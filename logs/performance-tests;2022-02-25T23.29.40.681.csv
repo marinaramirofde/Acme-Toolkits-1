@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+2022-02-25 23:23:59.72,acme.testing.FavouriteLinkTest,favouriteLink,4818,"favouriteLink()",Cannot find 'By.xpath: //div[@id='mainMenu']/ul/li[a[normalize-space()='45972333W: Álvarez Campanón, Juan José']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='Favourite link']'

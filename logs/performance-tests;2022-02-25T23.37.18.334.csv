@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+2022-02-25 23:36:05.23,acme.testing.FavouriteLinkTest,favouriteLink,8496,"favouriteLink()",Current URL is 'https://www.marca.com', but 'http://www.marca.com' was expected
