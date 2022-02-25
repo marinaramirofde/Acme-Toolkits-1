@@ -13,5 +13,6 @@ This project was contributed by the following people:
 - Juan José Álvarez Campanón (juaalvcam@alum.us.es)
 - Jesús Javier Cordero Díaz (jescordia@alum.us.es)
 - Roberto Paz Rivera (robpazriv@us.es)
+- Miguel Angel Romalde Dorado (romalde3@gmail.com)
 - Nicolás Sánchez Mendoza (nicsanmen@alum.us.es)
 - Rubén Suárez David (rubsuadav@alum.us.es)
