@@ -275,7 +275,7 @@ Announcement
 + creation: Date {NotNull, Temporal(TIMESTAMP), Past}
 + title: String {NotBlank, Lenght(1,101)}
 + body: String {NotBlank, Lenght(1,256)}
-+ criticalFlag: boolean
++ criticalFlag: boolean {NotNull}
 + link: String {URL}
 
 bg=green</panel_attributes>
