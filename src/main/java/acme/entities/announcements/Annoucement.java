@@ -41,6 +41,7 @@ public class Annoucement extends AbstractEntity {
 	@Length (min=1, max=256)
 	protected String				body;
 	
+	@NotNull
 	protected Boolean				criticalFlag;
 	
 	@URL
