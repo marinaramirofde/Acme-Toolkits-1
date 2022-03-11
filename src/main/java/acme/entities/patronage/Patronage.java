@@ -1,8 +1,13 @@
 package acme.entities.patronage;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
@@ -37,7 +42,13 @@ public class Patronage extends AbstractEntity {
 	@Positive
 	protected Double budget;
 	
-	//FALTA ATRIBUTO PERIODOFTIME
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date initial;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date end;
 	
 	@URL
 	protected String link;

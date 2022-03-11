@@ -1,4 +1,4 @@
-package acme.entities.component;
+package acme.entities.tool_component;
 
 
 import javax.persistence.Column;
@@ -15,18 +15,19 @@ import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
-
-public class Component extends AbstractEntity{
+public class ToolComponent extends AbstractEntity{
 
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+	
+	@NotNull
+	protected Type  typeEntity; 
 	
 	@NotBlank
 	@Length (min=1, max=101)
