@@ -21,10 +21,8 @@ import lombok.Setter;
 @Entity
 public class Toolkit extends AbstractEntity{
 
-	//Serialisasion identifier
 	protected static final long serialVersionUID = 1L;
 	
-	//Atributes
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	@Column(unique = true)
 	protected String pattern;

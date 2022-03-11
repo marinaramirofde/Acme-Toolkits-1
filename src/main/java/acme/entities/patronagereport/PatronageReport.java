@@ -3,7 +3,9 @@ package acme.entities.patronagereport;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,26 +23,27 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PatronageReport extends AbstractEntity{
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long		serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
+	
+	protected static final long	serialVersionUID= 1L;
+	
+	//Poner el patron
 	@NotBlank
-	protected String 				automaticSequenceNumber;
+	protected String automaticSequenceNumber;
 	
 	@Past
-	protected Date 				creation;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date creation;
 	
 	@NotBlank
 	@Length (min=1, max=256)
-	protected String				memorandum;
+	protected String memorandum;
 	
 	@URL
-	protected String				link;
-
-	@OneToOne(optional=false)
+	protected String link;
+		
+	@ManyToOne
 	@Valid
 	@NotNull
-	protected Patronage 				patronage;
+	protected Patronage patronage;
 }

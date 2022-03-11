@@ -20,11 +20,7 @@ import lombok.Setter;
 @Setter
 public class Chirp extends AbstractEntity{
 
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long		serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
+	protected static final long	serialVersionUID= 1L;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull

@@ -22,16 +22,16 @@ public class ToolComponent extends AbstractEntity{
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long	serialVersionUID= 1L;
 
 	// Attributes -------------------------------------------------------------
 	
 	@NotNull
-	protected Type  typeEntity; 
+	protected Type typeEntity; 
 	
 	@NotBlank
 	@Length (min=1, max=101)
-	protected String				name;
+	protected String name;
 	
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
@@ -39,11 +39,11 @@ public class ToolComponent extends AbstractEntity{
 	
 	@NotBlank
 	@Length (min=1, max=101)
-	protected String				technology;
+	protected String technology;
 	
 	@NotBlank
 	@Length (min=1, max=256)
-	protected String				description;
+	protected String description;
 	
 	@Positive
 	@NotNull

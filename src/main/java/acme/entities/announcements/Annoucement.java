@@ -19,32 +19,27 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
 public class Annoucement extends AbstractEntity {
 	
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long		serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
+	protected static final long	serialVersionUID= 1L;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	protected Date					creationMoment;
+	protected Date creationMoment;
 	
 	@NotBlank
 	@Length (min=1, max=101)
-	protected String				title;
+	protected String title;
 	
 	@NotBlank
 	@Length (min=1, max=256)
-	protected String				body;
+	protected String body;
 	
 	@NotNull
-	protected Boolean				criticalFlag;
+	protected Boolean criticalFlag;
 	
 	@URL
-	protected String				link;
+	protected String link;
 
 }

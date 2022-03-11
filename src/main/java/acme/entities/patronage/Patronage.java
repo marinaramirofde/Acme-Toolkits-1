@@ -23,14 +23,12 @@ import lombok.Setter;
 @Entity
 public class Patronage extends AbstractEntity {
 	
-	// Serialisation identifier -----------------------------------------------
-
-	protected static final long		serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
+	protected static final long	serialVersionUID= 1L;
 	
+	@NotNull
 	protected Status status;
 	
+	@NotNull
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
@@ -40,13 +38,14 @@ public class Patronage extends AbstractEntity {
 	protected String legalStuff;
 	
 	@Positive
+	@NotNull
 	protected Double budget;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date initial;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@NotNull
 	protected Date end;
 	
