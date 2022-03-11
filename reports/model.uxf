@@ -587,4 +587,30 @@ Type
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>14</x>
+      <y>931</y>
+      <w>154</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>A toolkit may have several
+instances of the same component,
+but only one instance
+of a given tool
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>161</x>
+      <y>973</y>
+      <w>49</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
 </diagram>
