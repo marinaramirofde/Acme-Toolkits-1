@@ -18,7 +18,12 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link = Favourite link
+master.menu.anonymous.favourite-link-juanjose = 45972333W: Álvarez Campanón, Juan José
+master.menu.anonymous.favourite-link-jesusjavier = 30238243M: Cordero Díaz, Jesús Javier
+master.menu.anonymous.favourite-link-roberto = 29552922S: Paz Rivera, Roberto
+master.menu.anonymous.favourite-link-miguelangel = 49129488Q: Romalde Dorado, Miguel Angel
+master.menu.anonymous.favourite-link-nicolas = 29566855X: Sánchez Mendoza, Nicolás
+master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
 
 # master.menu.administrator ###################################################
 
@@ -39,6 +44,16 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.patron ##########################################################
+
+master.menu.patron = Patron
+master.menu.patron.favourite-link = Favourite link
+
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.favourite-link = Favourite link
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -47,3 +62,7 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron
+master.menu.user-account.inventor = Inventor data
+master.menu.user-account.become-inventor = Become an inventor
