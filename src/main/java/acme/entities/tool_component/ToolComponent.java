@@ -1,6 +1,5 @@
 package acme.entities.tool_component;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -20,11 +19,7 @@ import lombok.Setter;
 @Setter
 public class ToolComponent extends AbstractEntity{
 
-	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID= 1L;
-
-	// Attributes -------------------------------------------------------------
 	
 	@NotNull
 	protected Type typeEntity; 
