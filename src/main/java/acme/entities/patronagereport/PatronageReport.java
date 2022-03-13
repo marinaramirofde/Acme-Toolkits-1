@@ -27,8 +27,8 @@ public class PatronageReport extends AbstractEntity{
 	protected static final long	serialVersionUID= 1L;
 	
 	//Poner el patron
-	@NotBlank
-	protected String automaticSequenceNumber;
+//	@NotBlank
+//	protected String automaticSequenceNumber;
 	
 	@Past
 	@NotNull
