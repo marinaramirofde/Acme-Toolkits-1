@@ -1,0 +1,5 @@
+key,pattern,tittle,description,assemble-notes,link,key:tool-component
+toolkit-01,VGY-961-A,The first toolkit,You can see the description in this text,There isn't any notes,null,tool-component-01
+toolkit-02,IKW-106-C,The second toolkit,Here is the description,In the link you can find more information,https://www.amazon.es/kit-herramientas/s?k=kit+herramientas,tool-component-01
+toolkit-03,AMD-320,Another toolkit,Can't find in the market,There is no notes,null,tool-component-02
+toolkit-04,FTP-167,The last toolkit,There isn't any equals like this toolkit,It's exclusive toolkit,null,tool-component-02
