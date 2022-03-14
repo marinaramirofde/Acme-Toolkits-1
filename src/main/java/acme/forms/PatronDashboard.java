@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PatronDasboard implements Serializable {
+public class PatronDashboard implements Serializable {
 
 	protected static final long	serialVersionUID	= 1L;
 

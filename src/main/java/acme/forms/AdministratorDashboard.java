@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AdministratorDasboard implements Serializable {
+public class AdministratorDashboard implements Serializable {
 
 	protected static final long	serialVersionUID= 1L;
 
