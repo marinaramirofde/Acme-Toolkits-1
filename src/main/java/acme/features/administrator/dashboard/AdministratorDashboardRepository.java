@@ -54,10 +54,10 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Integer totalNumberOfProposedPatronagres();
 	
 	@Query("select count(p) from Patronage p where p.status = acme.entities.patronage.Status.ACCEPTED")
-	Integer totalNumberOfAcceptedPatronagres(); // total number of accepted patronages
+	Integer totalNumberOfAcceptedPatronagres();
 	
 	@Query("select count(p) from Patronage p where p.status = acme.entities.patronage.Status.DENIED")
-	Integer totalNumberOfDeniedPatronagres(); // total number of denied patronages
+	Integer totalNumberOfDeniedPatronagres();
 	
 	//average, deviation, minimum, and maximum budget of proposed patronages/////////////////////
 	
@@ -75,30 +75,30 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	//average, deviation, minimum, and maximum budget of accepted patronages////////////////////
 	
-	@Query()
+	@Query("select avg(select count(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.ACCEPTED)")
 	Double averageBudgetOfAcceptedPatronages();
 	
-	@Query()
+	@Query("select stddev(select count(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.ACCEPTED)")
 	Double deviationBudgetOfAcceptedPatronages();
 	
-	@Query()
+	@Query("select min(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.ACCEPTED")
 	Double minimumBudgetOfAcceptedPatronages();
 	
-	@Query()
+	@Query("select max(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.ACCEPTED")
 	Double maximumBudgetOfAcceptedPatronages();
 	
 	//average, deviation, minimum, and maximum budget of denied patronages
 	
-	@Query()
+	@Query("select avg(select count(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.DENIED)")
 	Double averageBudgetOfDeniedPatronages();
 	
-	@Query()
+	@Query("select stddev(select count(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.DENIED)")
 	Double deviationBudgetOfDeniedPatronages();
 	
-	@Query()
+	@Query("select min(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.DENIED")
 	Double minimumBudgetOfDeniedPatronages();
 	
-	@Query()
+	@Query("select max(p.budget) from Patronage p where p.status = acme.entities.patronage.Status.DENIED")
 	Double maximumBudgetOfDeniedPatronages();
 
 }
