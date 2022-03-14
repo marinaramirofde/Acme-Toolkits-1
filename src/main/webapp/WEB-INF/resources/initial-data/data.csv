@@ -1,0 +1,9 @@
+key,currency,strong-spam-terms,strong-spam-threshold,weak-spam-term,weak-spam-threshold
+data-01,EUR,sex,0.1,sexy,0.25
+data-02,USD,hard core,0.1,nigeria,0.25
+data-03,GBP,viagra,0.1,you’ve won,0.25
+data-04,EUR,cialis,0.1,one million,0.25
+data-05,EUR,sexo,0.1,sexy,0.25
+data-06,USD,hard core,0.1,nigeria,0.25
+data-07,GBP,viagra,0.1,has ganado,0.25
+data-08,EUR,cialis,0.1,un millón,0.25
