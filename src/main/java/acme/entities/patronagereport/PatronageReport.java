@@ -30,7 +30,7 @@ public class PatronageReport extends AbstractEntity{
 	@Pattern(regexp = "^<[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4,6}>$")
 	@NotBlank
 	protected String automaticSequenceNumber;
-
+	
 	@Past
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)

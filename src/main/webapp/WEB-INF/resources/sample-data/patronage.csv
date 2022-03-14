@@ -1,0 +1,4 @@
+key,status,code,legal-stuff,budget,initial,end,link
+patronage-01,PROPOSED,VGY-961-A,It's very expensive,78.9,"2020/01/01 12:23","2040/02/13 19:39",null
+patronage-02,ACCEPTED,IKW-106-C,It's very cheap,5.78,"2021/02/13 19:39","2050/12/12 21:29",null
+patronage-03,DENIED,AMD-320,It's very expensive,99.21,"2019/08/28 23:34","2030/11/29 13:31",null
