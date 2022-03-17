@@ -1,4 +1,4 @@
-package acme.entities.tool_component;
+package acme.entities.items;
 
 
 public enum Type {

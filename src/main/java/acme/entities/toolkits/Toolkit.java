@@ -1,4 +1,4 @@
-package acme.entities.toolkit;
+package acme.entities.toolkits;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.tool_component.ToolComponent;
+import acme.entities.items.Item;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,5 +45,5 @@ public class Toolkit extends AbstractEntity{
 	@ManyToOne
 	@NotNull
 	@Valid
-	protected ToolComponent toolComponent;
+	protected Item toolComponent;
 }

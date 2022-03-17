@@ -1,50 +1,56 @@
-package acme.entities.patronagereport;
+package acme.entities.patronages;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.patronage.Patronage;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class PatronageReport extends AbstractEntity{
-
-	protected static final long	serialVersionUID= 1L;
-
-	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4,6}$")
-	@NotBlank
-	protected String automaticSequenceNumber;
+@Entity
+public class Patronage extends AbstractEntity {
 	
-	@Past
+	protected static final long	serialVersionUID= 1L;
+	
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date creation;
-
+	protected Status status;
+	
+	@NotNull
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	protected String code;
+	
 	@NotBlank
-	@Length (min=1, max=256)
-	protected String memorandum;
-
+	@Length(min = 1, max = 256)
+	protected String legalStuff;
+	
+	@Positive
+	@NotNull
+	protected Double budget;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date initial;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date end;
+	
 	@URL
 	protected String link;
+	
 
-	@ManyToOne
-	@Valid
-	@NotNull
-	protected Patronage patronage;
 }
