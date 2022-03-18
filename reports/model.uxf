@@ -148,8 +148,8 @@ bg=green</panel_attributes>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Patron
 --
-+ company: String {NotBlank, Lenght(1,101)}
-+ statement: String {NotBlank, Lenght(1,256)}
++ company: String {NotBlank, Lenght(1,100)}
++ statement: String {NotBlank, Lenght(1,255)}
 + link: String {URL}
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -203,16 +203,16 @@ bg=green</panel_attributes>
       <x>0</x>
       <y>1116</y>
       <w>405</w>
-      <h>126</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Item
 --
-+ type_entity: Type {NotNull}
-+ name: String {NotBlank, Lenght(1,101)}
++ typeEntity: Type {NotNull}
++ name: String {NotBlank, Lenght(1,100)}
 + code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), Unique}
-+ technology: String {NotBlank, Lenght(1,101)}
-+ description : String {NotBlank, Lenght(1,256)}
++ technology: String {NotBlank, Lenght(1,100)}
++ description : String {NotBlank, Lenght(1,255)}
 + retailPrice: Money {(NotNull}
 + link: String {URL}
 
@@ -252,7 +252,7 @@ Patronage
 --
 + status: Status {NotNull}
 + code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), Unique, NotNull}
-+ legalStuff : String {NotBlank, Lenght(1,256)}
++ legalStuff : String {NotBlank, Lenght(1,255)}
 + budget: Money {NotNull}
 + initial: Date {NotNull, Temporal(TIMESTAMP)}
 + end: Date {NotNull, Temporal(TIMESTAMP)}
@@ -318,7 +318,7 @@ PatronageReport
 --
 + / automaticSequenceNumber: String {NotBlank}
 + creation: Date {NotNull, Temporal(TIMESTAMP), Past}
-+ memorandum : String {NotBlank, Lenght(1,256)}
++ memorandum : String {NotBlank, Lenght(1,255)}
 + link: String {URL}
 
 bg=green</panel_attributes>
@@ -441,8 +441,8 @@ m2=0..*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>1251</y>
+      <x>288</x>
+      <y>1269</y>
       <w>108</w>
       <h>72</h>
     </coordinates>
@@ -588,8 +588,8 @@ has &gt;</panel_attributes>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Inventor
 --
-+ company: String {NotBlank, Lenght(1,101)}
-+ statement: String {NotBlank, Lenght(1,256)}
++ company: String {NotBlank, Lenght(1,100)}
++ statement: String {NotBlank, Lenght(1,255)}
 + link: String {URL}
 bg=green</panel_attributes>
     <additional_attributes/>
