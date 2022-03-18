@@ -1,6 +1,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,29 +12,23 @@ public class PatronDashboard implements Serializable {
 
 	protected static final long	serialVersionUID	= 1L;
 	
-	Integer totalNumberOfProposedPatronagres; // total number of proposed patronages
-	Integer totalNumberOfAcceptedPatronagres; // total number of accepted patronages
-	Integer totalNumberOfDeniedPatronagres; // total number of denied patronages
-	
-	//average, deviation, minimum, and maximum budget of proposed patronages.
-	
-	Double averageBudgetOfProposedPatronages;
-	Double deviationBudgetOfProposedPatronages;
-	Double minimumBudgetOfProposedPatronages;
-	Double maximumBudgetOfProposedPatronages;
-	
-	//average, deviation, minimum, and maximum budget of accepted patronages
-	
-	Double averageBudgetOfAcceptedPatronages;
-	Double deviationBudgetOfAcceptedPatronages;
-	Double minimumBudgetOfAcceptedPatronages;
-	Double maximumBudgetOfAcceptedPatronages;
-	
-	//average, deviation, minimum, and maximum budget of denied patronages
-	
-	Double averageBudgetOfDeniedPatronages;
-	Double deviationBudgetOfDeniedPatronages;
-	Double minimumBudgetOfDeniedPatronages;
-	Double maximumBudgetOfDeniedPatronages;
+	int totalNumberOfProposedPatronagres;
+	int totalNumberOfAcceptedPatronagres;
+	int totalNumberOfDeniedPatronagres;
+
+	Map<String,Double> averageBudgetOfProposedPatronagesByCurrency;
+	Map<String,Double> deviationBudgetOfProposedPatronagesByCurrency;
+	Map<String,Double> minimumBudgetOfProposedPatronagesByCurrency;
+	Map<String,Double> maximumBudgetOfProposedPatronagesByCurrency;
+
+	Map<String,Double> averageBudgetOfAcceptedPatronagesByCurrency;
+	Map<String,Double> deviationBudgetOfAcceptedPatronagesByCurrency;
+	Map<String,Double> minimumBudgetOfAcceptedPatronagesByCurrency;
+	Map<String,Double> maximumBudgetOfAcceptedPatronagesByCurrency;
+
+	Map<String,Double> averageBudgetOfDeniedPatronagesByCurrency;
+	Map<String,Double> deviationBudgetOfDeniedPatronagesByCurrency;
+	Map<String,Double> minimumBudgetOfDeniedPatronagesByCurrency;
+	Map<String,Double> maximumBudgetOfDeniedPatronagesByCurrency;
 
 }
