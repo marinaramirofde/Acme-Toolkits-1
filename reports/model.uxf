@@ -245,16 +245,17 @@ bg=green</panel_attributes>
       <x>306</x>
       <y>558</y>
       <w>405</w>
-      <h>144</h>
+      <h>162</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Patronage
 --
 + status: Status {NotNull}
-+ code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), Unique, NotNull}
++ code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), Unique, NotBlank}
 + legalStuff : String {NotBlank, Lenght(1,255)}
 + budget: Money {NotNull}
 + initial: Date {NotNull, Temporal(TIMESTAMP)}
++ creation: Date {NotNull, Temporal(TIMESTAMP)}
 + end: Date {NotNull, Temporal(TIMESTAMP)}
 + link: String {URL}
 
