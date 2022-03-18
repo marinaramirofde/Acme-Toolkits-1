@@ -43,7 +43,7 @@ public class PatronageReport extends AbstractEntity{
 	@URL
 	protected String link;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
 	protected Patronage patronage;
