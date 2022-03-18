@@ -516,13 +516,13 @@ m2=0..*
     <coordinates>
       <x>522</x>
       <y>1152</y>
-      <w>180</w>
+      <w>216</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Quantity
 --
-+ number: Integer {Min(1)}
++ number: Integer {Min(1), NotNull}
 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -544,16 +544,16 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
+      <x>729</x>
       <y>1170</y>
-      <w>207</w>
+      <w>171</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
 m2=0..*
 has &gt;</panel_attributes>
-    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
