@@ -18,11 +18,11 @@ public class Inventor extends UserRole{
 	protected static final long	serialVersionUID = 1L;
 		
 	@NotBlank
-	@Length(min=1, max=101)
+	@Length(min=1, max=100)
 	protected String company;
 	
 	@NotBlank
-	@Length(min=1, max=256)
+	@Length(min=1, max=255)
 	protected String statement;
 	
 	@URL

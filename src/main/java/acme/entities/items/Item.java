@@ -21,31 +21,31 @@ import lombok.Setter;
 public class Item extends AbstractEntity{
 
 	protected static final long	serialVersionUID= 1L;
-	
+
 	@NotNull
 	protected Type typeEntity; 
-	
+
 	@NotBlank
 	@Length (min=1, max=100)
 	protected String name;
-	
+
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	@NotBlank
 	protected String code;
-	
+
 	@NotBlank
 	@Length (min=1, max=100)
 	protected String technology;
-	
+
 	@NotBlank
 	@Length (min=1, max=255)
 	protected String description;
-	
+
 	@Valid
 	@NotNull
 	protected Money retailPrice;
-	
+
 	@URL
 	protected String link;
 }
