@@ -2,6 +2,8 @@ key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
 user-account-patron-01,true,"UserIdentity{name: 'Rubén', surname: 'Suárez', email: 'rubsuadav@acme.com'}",patron1,patron1
-user-account-patron-02,true,"UserIdentity{name: 'Juanjosé', surname: 'Álvarez', email: 'juanalvcam@acme.com'}",patron2,patron2
+user-account-patron-02,true,"UserIdentity{name: 'Juanjosé', surname: 'Álvarez', email: 'juaalvcam@acme.com'}",patron2,patron2
 user-account-inventor-01,true,"UserIdentity{name: 'Jesús', surname: 'Cordero', email: 'jescordia@acme.com'}",inventor1,inventor1
 user-account-inventor-02,true,"UserIdentity{name: 'Nicolás', surname: 'Sánchez', email: 'nicsanmen@acme.com'}",inventor2,inventor2
+user-account-patron-03,true,"UserIdentity{name: 'Roberto', surname: 'Paz', email: 'robpazriv@acme.com'}",patron3,patron3
+user-account-inventor-03,true,"UserIdentity{name: 'Miguel Ángel', surname: 'Sánchez', email: 'mromalde@acme.com'}",inventor3,inventor3
