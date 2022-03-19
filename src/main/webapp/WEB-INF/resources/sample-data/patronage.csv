@@ -1,4 +1,5 @@
-key,status,code,legal-stuff,budget,initial,end,link
-patronage-01,PROPOSED,VGY-961-A,It's very expensive,78.9,"2020/01/01 12:23","2040/02/13 19:39",null
-patronage-02,ACCEPTED,IKW-106-C,It's very cheap,5.78,"2021/02/13 19:39","2050/12/12 21:29",null
-patronage-03,DENIED,AMD-320,It's very expensive,99.21,"2019/08/28 23:34","2030/11/29 13:31",null
+key,status,code,legal-stuff,budget,initial,creation,end,link,key:inventor,key:patron
+patronage-01,PROPOSED,BHG-532-S,there isn't any legal stuff,"GBP 30,000.00",2022/01/11 23:00,2022/02/11 23:00,2022/03/11 23:00,null,inventor-01,patron-01
+patronage-02,DENIED,WFA-389,this patronage has one legal stuff,"EUR 60,030.90",2020/11/07 23:00,2021/02/11 23:00,2022/03/11 23:00,null,inventor-01,patron-02
+patronage-03,ACCEPTED,ERF-006-M,this is another patronage with an important legal stuff,"USD 15,300.90",2022/01/05 12:00,2022/02/05 12:00,2022/03/05 12:00,null,inventor-02,patron-01
+patronage-04,DENIED,ANA-512,this is the last patronage without legal stuff,"USD 100,000.00",2017/09/12 17:44,2018/02/25 01:00,2019/12/25 22:30,null,inventor-02,patron-02
