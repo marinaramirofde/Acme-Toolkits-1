@@ -25,7 +25,7 @@ public class Toolkit extends AbstractEntity{
 	
 	@NotBlank
 	@Length(min=1, max= 100)
-	protected String tittle;
+	protected String title;
 	
 	@NotBlank
 	@Length(min=1, max= 255)
