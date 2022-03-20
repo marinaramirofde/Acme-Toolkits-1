@@ -2,4 +2,16 @@ key,number,key:toolkit,key:item
 quantity-01,3,toolkit-01,item-01
 quantity-02,13,toolkit-01,item-02
 quantity-03,5,toolkit-02,item-01
-quantity-04,80,toolkit-02,item-02
+quantity-04,60,toolkit-02,item-02
+quantity-05,9,toolkit-03,item-08
+quantity-06,10,toolkit-03,item-03
+quantity-07,1,toolkit-05,item-03
+quantity-08,30,toolkit-05,item-05
+quantity-09,67,toolkit-04,item-05
+quantity-10,8,toolkit-04,item-04
+quantity-11,2,toolkit-07,item-08
+quantity-12,3,toolkit-07,item-04
+quantity-13,5,toolkit-06,item-07
+quantity-14,7,toolkit-06,item-06
+quantity-15,44,toolkit-08,item-07
+quantity-16,11,toolkit-08,item-06
