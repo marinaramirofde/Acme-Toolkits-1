@@ -2,6 +2,7 @@ package acme.entities.patronageReports;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -29,6 +30,7 @@ public class PatronageReport extends AbstractEntity{
 
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4,6}$")
 	@NotBlank
+	@Column(unique = true)
 	protected String automaticSequenceNumber;
 	
 	@Past
