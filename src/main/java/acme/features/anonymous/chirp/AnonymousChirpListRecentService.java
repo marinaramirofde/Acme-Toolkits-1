@@ -1,6 +1,8 @@
 package acme.features.anonymous.chirp;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,14 +36,14 @@ public class AnonymousChirpListRecentService implements AbstractListService<Anon
 		assert request != null;
 
 		Collection<Chirp> result;
-		/*Calendar calendar;
+		Calendar calendar;
 		Date deadline;
 
 		calendar = Calendar.getInstance();
 		calendar.add(Calendar.MONTH, -1);
-		deadline = calendar.getTime();*/
+		deadline = calendar.getTime();
 
-		result = this.repository.findRecentChirps();
+		result = this.repository.findRecentChirps(deadline);
 
 		return result;
 	}
