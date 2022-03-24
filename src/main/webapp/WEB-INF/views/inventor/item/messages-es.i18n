@@ -1,0 +1,12 @@
+inventor.item.form.label.typeEntity = Tipo de Entidad
+inventor.item.form.label.name = Nombre:
+inventor.item.form.label.code = Código:
+inventor.item.form.label.technology = Tecnología:
+inventor.item.form.label.description = Descripción:
+inventor.item.form.label.retailPrice = RetailPrice
+inventor.item.form.label.link = Link:
+ 
+inventor.item.list.label.typeEntity = Tipo de Entidad
+inventor.item.list.label.name = Nombre
+inventor.item.list.label.code = Código
+inventor.item.list.label.technology = Tecnología

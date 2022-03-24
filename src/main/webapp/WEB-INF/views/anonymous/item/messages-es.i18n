@@ -1,0 +1,12 @@
+anonymous.item.form.label.typeEntity = Tipo de Entidad
+anonymous.item.form.label.name = Nombre:
+anonymous.item.form.label.code = Código:
+anonymous.item.form.label.technology = Tecnología:
+anonymous.item.form.label.description = Descripción:
+anonymous.item.form.label.retailPrice = RetailPrice
+anonymous.item.form.label.link = Link:
+ 
+anonymous.item.list.label.typeEntity = Tipo de Entidad
+anonymous.item.list.label.name = Nombre
+anonymous.item.list.label.code = Código
+anonymous.item.list.label.technology = Tecnología
