@@ -12,9 +12,9 @@ import acme.framework.repositories.AbstractRepository;
 public interface AdministratorItemRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.id = :id")
-	Item findOneComponentById(int id); //SHOW BY ID (COMPONENT)
+	Item findOneComponentById(int id);
 
 	@Query("select i from Item i where i.typeEntity =  acme.entities.items.Type.COMPONENT")
 	Collection<Item> findAllComponents();
-
+	
 }

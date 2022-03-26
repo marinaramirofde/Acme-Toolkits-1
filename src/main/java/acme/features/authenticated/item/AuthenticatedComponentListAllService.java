@@ -1,4 +1,4 @@
-package acme.features.inventor.item;
+package acme.features.authenticated.item;
 
 import java.util.Collection;
 
@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
 
 @Service
-public class InventorItemListAllService implements AbstractListService<Inventor, Item> {
+public class AuthenticatedComponentListAllService implements AbstractListService<Authenticated, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorItemRepository repository;
+	protected AuthenticatedItemRepository repository;
 
 	// AbstractListService<Administrator, Item> interface --------------
 

@@ -12,7 +12,7 @@ import acme.framework.roles.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousItemListAllService implements AbstractListService<Anonymous, Item> {
+public class AnonymousComponentListAllService implements AbstractListService<Anonymous, Item> {
 
 	// Internal state ---------------------------------------------------------
 

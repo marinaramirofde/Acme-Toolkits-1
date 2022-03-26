@@ -15,7 +15,7 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousItemListAllService		listAllService;
+	protected AnonymousComponentListAllService		componentListAllService;
 
 	@Autowired
 	protected AnonymousItemShowService			showService;
@@ -26,7 +26,7 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.componentListAllService);
 	}
 
 }

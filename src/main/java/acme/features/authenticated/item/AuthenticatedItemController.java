@@ -15,7 +15,7 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedItemListAllService		listAllService;
+	protected AuthenticatedComponentListAllService		componentListAllService;
 
 	@Autowired
 	protected AuthenticatedItemShowService			showService;
@@ -26,7 +26,7 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.componentListAllService);
 	}
 
 }
