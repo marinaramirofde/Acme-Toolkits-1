@@ -16,6 +16,9 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 
 	@Autowired
 	protected AuthenticatedComponentListAllService		componentListAllService;
+	
+	@Autowired
+	protected AuthenticatedToolListAllService		toolListAllService;
 
 	@Autowired
 	protected AuthenticatedItemShowService			showService;
@@ -27,6 +30,7 @@ public class AuthenticatedItemController extends AbstractController<Authenticate
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-components", "list", this.componentListAllService);
+		super.addCommand("list-all-tools", "list", this.toolListAllService);
 	}
 
 }
