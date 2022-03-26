@@ -15,7 +15,7 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorItemListAllService		listAllService;
+	protected InventorComponentListAllService		componentListAllService;
 
 	@Autowired
 	protected InventorItemShowService			showService;
@@ -26,7 +26,7 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.componentListAllService);
 	}
 
 }

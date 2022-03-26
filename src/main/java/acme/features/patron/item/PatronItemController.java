@@ -15,7 +15,7 @@ public class PatronItemController extends AbstractController<Patron, Item> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PatronItemListAllService		listAllService;
+	protected PatronComponentListAllService		componentListAllService;
 
 	@Autowired
 	protected PatronItemShowService			showService;
@@ -26,7 +26,7 @@ public class PatronItemController extends AbstractController<Patron, Item> {
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.componentListAllService);
 	}
 
 }

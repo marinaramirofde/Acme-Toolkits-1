@@ -15,7 +15,7 @@ public class AdministratorItemController extends AbstractController<Administrato
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorItemListAllService		listAllService;
+	protected AdministratorComponentListAllService		componentListAllService;
 
 	@Autowired
 	protected AdministratorItemShowService			showService;
@@ -26,7 +26,7 @@ public class AdministratorItemController extends AbstractController<Administrato
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all", "list", this.listAllService);
+		super.addCommand("list-all-components", "list", this.componentListAllService);
 	}
 
 }

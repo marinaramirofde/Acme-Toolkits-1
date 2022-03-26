@@ -1,4 +1,4 @@
-package acme.features.patron.item;
+package acme.features.inventor.item;
 
 import java.util.Collection;
 
@@ -9,15 +9,15 @@ import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
-import acme.roles.Patron;
+import acme.roles.Inventor;
 
 @Service
-public class PatronItemListAllService implements AbstractListService<Patron, Item> {
+public class InventorComponentListAllService implements AbstractListService<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PatronItemRepository repository;
+	protected InventorItemRepository repository;
 
 	// AbstractListService<Administrator, Item> interface --------------
 

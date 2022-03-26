@@ -15,7 +15,7 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedtemRepository repository;
+	protected AuthenticatedItemRepository repository;
 
 	// AbstractShowService<Administrator, Item> interface --------------
 
