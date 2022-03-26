@@ -1,0 +1,12 @@
+patron.item.form.label.typeEntity = Tipo de Entidad
+patron.item.form.label.name = Nombre:
+patron.item.form.label.code = Código:
+patron.item.form.label.technology = Tecnología:
+patron.item.form.label.description = Descripción:
+patron.item.form.label.retailPrice = RetailPrice
+patron.item.form.label.link = Link:
+ 
+patron.item.list.label.typeEntity = Tipo de Entidad
+patron.item.list.label.name = Nombre
+patron.item.list.label.code = Código
+patron.item.list.label.technology = Tecnología
