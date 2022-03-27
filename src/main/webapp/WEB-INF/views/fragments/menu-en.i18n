@@ -72,6 +72,7 @@ master.menu.inventor.favourite-link = Favourite link
 master.menu.inventor.chirp.list-recent = List recent chirps
 master.menu.inventor.item.list-all-components = List all components
 master.menu.inventor.item.list-all-tools = List all tools
+master.menu.inventor.my-components = My components
 
 # master.menu.user-account ####################################################
 
