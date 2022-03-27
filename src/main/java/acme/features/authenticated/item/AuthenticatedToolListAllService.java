@@ -1,5 +1,7 @@
 package acme.features.authenticated.item;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,18 +9,17 @@ import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedItemShowService implements AbstractShowService<Authenticated, Item> {
+public class AuthenticatedToolListAllService implements AbstractListService<Authenticated, Item>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuthenticatedItemRepository repository;
 
-	// AbstractShowService<Administrator, Item> interface --------------
-
+	// AbstractListService<Administrator, Item> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -28,14 +29,12 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 	}
 
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Collection<Item> findMany(final Request<Item> request) {
 		assert request != null;
 
-		Item result;
-		int id;
+		Collection<Item> result;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findAllTools();
 
 		return result;
 	}
@@ -46,9 +45,8 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "typeEntity", "name", "code", "technology", "description", "retailPrice", "link");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", true);
+		request.unbind(entity, model, "typeEntity", "name", "code", "technology");
+
 	}
-	
+
 }

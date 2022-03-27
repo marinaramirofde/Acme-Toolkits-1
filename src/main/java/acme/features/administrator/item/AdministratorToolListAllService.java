@@ -1,4 +1,6 @@
-package acme.features.inventor.item;
+package acme.features.administrator.item;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,19 +8,18 @@ import org.springframework.stereotype.Service;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
+import acme.framework.roles.Administrator;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class InventorItemShowService implements AbstractShowService<Inventor, Item> {
+public class AdministratorToolListAllService implements AbstractListService<Administrator, Item>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorItemRepository repository;
+	protected AdministratorItemRepository repository;
 
-	// AbstractShowService<Administrator, Item> interface --------------
-
+	// AbstractListService<Administrator, Item> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -28,14 +29,12 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	}
 
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Collection<Item> findMany(final Request<Item> request) {
 		assert request != null;
 
-		Item result;
-		int id;
+		Collection<Item> result;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findAllTools();
 
 		return result;
 	}
@@ -46,9 +45,8 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "typeEntity", "name", "code", "technology", "description", "retailPrice", "link");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", true);
+		request.unbind(entity, model, "typeEntity", "name", "code", "technology");
+
 	}
-	
+
 }

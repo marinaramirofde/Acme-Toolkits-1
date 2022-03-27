@@ -24,14 +24,16 @@ master.menu.anonymous.favourite-link-roberto = 29552922S: Paz Rivera, Roberto
 master.menu.anonymous.favourite-link-miguelangel = 49129488Q: Romalde Dorado, Miguel Angel
 master.menu.anonymous.favourite-link-nicolas = 29566855X: Sánchez Mendoza, Nicolás
 master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
-master.menu.anonymous.chirp.list-recent = List recent Chirps
+master.menu.anonymous.chirp.list-recent = List recent chirps
 master.menu.anonymous.item.list-all-components = List all components
+master.menu.anonymous.item.list-all-tools = List all tools
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.chirp.list-recent = List recent Chirps
+master.menu.authenticated.chirp.list-recent = List recent chirps
 master.menu.authenticated.item.list-all-components = List all components
+master.menu.authenticated.item.list-all-tools = List all tools
 
 # master.menu.administrator ###################################################
 
@@ -40,8 +42,9 @@ master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
-master.menu.administrator.chirp.list-recent = List recent Chirps
+master.menu.administrator.chirp.list-recent = List recent chirps
 master.menu.administrator.item.list-all-components = List all components
+master.menu.administrator.item.list-all-tools = List all tools
 master.menu.administrator.shut-down = Shut down
 
 # master.menu.provider ########################################################
@@ -58,15 +61,18 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.patron = Patron
 master.menu.patron.favourite-link = Favourite link
-master.menu.patron.chirp.list-recent = List recent Chirps
+master.menu.patron.chirp.list-recent = List recent chirps
 master.menu.patron.item.list-all-components = List all components
+master.menu.patron.item.list-all-tools = List all tools
 
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Favourite link
-master.menu.inventor.chirp.list-recent = List recent Chirps
+master.menu.inventor.chirp.list-recent = List recent chirps
 master.menu.inventor.item.list-all-components = List all components
+master.menu.inventor.item.list-all-tools = List all tools
+master.menu.inventor.my-components = My components
 
 # master.menu.user-account ####################################################
 

@@ -16,6 +16,9 @@ public class AdministratorItemController extends AbstractController<Administrato
 
 	@Autowired
 	protected AdministratorComponentListAllService		componentListAllService;
+	
+	@Autowired
+	protected AdministratorToolListAllService		toolListAllService;
 
 	@Autowired
 	protected AdministratorItemShowService			showService;
@@ -27,6 +30,7 @@ public class AdministratorItemController extends AbstractController<Administrato
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-components", "list", this.componentListAllService);
+		super.addCommand("list-all-tools", "list", this.toolListAllService);
 	}
 
 }
