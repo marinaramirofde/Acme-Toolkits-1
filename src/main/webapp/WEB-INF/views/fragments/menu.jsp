@@ -61,6 +61,8 @@
 			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/inventor/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-components" action="/inventor/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/inventor/item/list-all-tools"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
 			
 		</acme:menu-option>
 		
