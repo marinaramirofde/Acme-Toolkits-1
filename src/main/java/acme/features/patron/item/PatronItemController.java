@@ -16,6 +16,9 @@ public class PatronItemController extends AbstractController<Patron, Item> {
 
 	@Autowired
 	protected PatronComponentListAllService		componentListAllService;
+	
+	@Autowired
+	protected PatronToolListAllService		toolListAllService;
 
 	@Autowired
 	protected PatronItemShowService			showService;
@@ -27,6 +30,7 @@ public class PatronItemController extends AbstractController<Patron, Item> {
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-components", "list", this.componentListAllService);
+		super.addCommand("list-all-tools", "list", this.toolListAllService);
 	}
 
 }
