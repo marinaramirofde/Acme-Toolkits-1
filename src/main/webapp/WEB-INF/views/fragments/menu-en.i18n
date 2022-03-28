@@ -64,6 +64,7 @@ master.menu.inventor.item.list-all-components = List all components
 master.menu.inventor.item.list-all-tools = List all tools
 master.menu.inventor.my-components = My components
 master.menu.inventor.patronage-reports = List all patronage reports
+master.menu.inventor.my-patronages = My patronages
 
 # master.menu.user-account ####################################################
 
