@@ -16,6 +16,9 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 
 	@Autowired
 	protected AnonymousComponentListAllService		componentListAllService;
+	
+	@Autowired
+	protected AnonymousToolListAllService		toolListAllService;
 
 	@Autowired
 	protected AnonymousItemShowService			showService;
@@ -27,6 +30,7 @@ public class AnonymousItemController extends AbstractController<Anonymous, Item>
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list-all-components", "list", this.componentListAllService);
+		super.addCommand("list-all-tools", "list", this.toolListAllService);
 	}
 
 }

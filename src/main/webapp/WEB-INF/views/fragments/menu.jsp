@@ -16,11 +16,13 @@
       		<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.chirp.list-recent" action="/anonymous/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.item.list-all-components" action="/anonymous/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/anonymous/item/list-all-tools"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.chirp.list-recent" action="/authenticated/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.authenticated.item.list-all-components" action="/authenticated/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.authenticated.item.list-all-tools" action="/authenticated/item/list-all-tools"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -31,6 +33,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.chirp.list-recent" action="/administrator/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.administrator.item.list-all-components" action="/administrator/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.administrator.item.list-all-tools" action="/administrator/item/list-all-tools"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
@@ -48,7 +51,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.patron.chirp.list-recent" action="/patron/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.patron.item.list-all-components" action="/patron/item/list-all-components"/>
-			
+			<acme:menu-suboption code="master.menu.patron.item.list-all-tools" action="/patron/item/list-all-tools"/>
+				
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
@@ -56,6 +60,12 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/inventor/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-components" action="/inventor/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/inventor/item/list-all-tools"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
+			<acme:menu-suboption code="master.menu.inventor.patronage-reports" action="/inventor/patronage-report/list-all"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.my-patronages" action="/inventor/patronage/list-mine"/>
 			
 		</acme:menu-option>
 		

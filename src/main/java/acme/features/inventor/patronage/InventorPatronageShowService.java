@@ -1,37 +1,37 @@
-package acme.features.authenticated.item;
+package acme.features.inventor.patronage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.items.Item;
+import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
+import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedItemShowService implements AbstractShowService<Authenticated, Item> {
+public class InventorPatronageShowService implements AbstractShowService<Inventor, Patronage> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedItemRepository repository;
+	protected InventorPatronageRepository repository;
 
-	// AbstractShowService<Administrator, Item> interface --------------
+	// AbstractShowService<Administrator, Patronage> interface --------------
 
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Patronage findOne(final Request<Patronage> request) {
 		assert request != null;
 
-		Item result;
+		Patronage result;
 		int id;
 
 		id = request.getModel().getInteger("id");
@@ -41,12 +41,12 @@ public class AuthenticatedItemShowService implements AbstractShowService<Authent
 	}
 
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "typeEntity", "name", "code", "technology", "description", "retailPrice", "link");
+		request.unbind(entity, model,"status","code","legalStuff","budget","initial","creation","end","link","patron");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 	}
