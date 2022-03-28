@@ -1,13 +1,11 @@
 inventor.patronage.form.label.status = Status:
 inventor.patronage.form.label.code = Code:
-inventor.patronage.form.label.legal-stuff = Legal Stuff:
+inventor.patronage.form.label.legal-stuff = LegalStuff:
 inventor.patronage.form.label.budget = Budget:
 inventor.patronage.form.label.initial = Initial:
 inventor.patronage.form.label.creation = Creation:
 inventor.patronage.form.label.end = End:
 inventor.patronage.form.label.link = Link:
-inventor.patronage.form.label.inventor = Inventor:
-inventor.patronage.form.label.patron = Patron:
 
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code
