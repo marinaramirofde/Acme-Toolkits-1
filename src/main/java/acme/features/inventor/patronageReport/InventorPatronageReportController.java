@@ -11,11 +11,17 @@ import acme.roles.Inventor;
 
 @Controller
 public class InventorPatronageReportController extends AbstractController<Inventor, PatronageReport> {
+	
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected InventorPatronageReportListAllService listAllService;
+	
 	@Autowired
 	protected InventorPatronageReportShowService showService;
+	
+	// Constructors -----------------------------------------------------------
+
 	
 	@PostConstruct
 	protected void intialise() {

@@ -13,9 +13,14 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorPatronageReportListAllService implements AbstractListService<Inventor, PatronageReport> {
+	
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected InventorPatronageReportRepository repository;
+	
+	// AbstractListService<Inventor, PatronageReport> interface --------------
+	
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -30,7 +35,7 @@ public class InventorPatronageReportListAllService implements AbstractListServic
 
 		Collection<PatronageReport> result;
 
-		result = this.repository.findAll();
+		result = this.repository.findAllPatronagesReport();
 
 		return result;
 	}

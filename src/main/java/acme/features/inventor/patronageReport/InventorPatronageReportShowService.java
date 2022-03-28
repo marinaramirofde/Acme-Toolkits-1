@@ -12,8 +12,13 @@ import acme.roles.Inventor;
 @Service
 public class InventorPatronageReportShowService implements AbstractShowService<Inventor, PatronageReport> {
 	
+	// Internal state ---------------------------------------------------------
+	
 	@Autowired
 	protected InventorPatronageReportRepository repository;
+	
+	// AbstractShowService<Inventor, PatronageReport> interface --------------
+	
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -26,11 +31,11 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 	public PatronageReport findOne(final Request<PatronageReport> request) {
 		assert request != null;
 
-		final PatronageReport result;
-		final int id;
+		PatronageReport result;
+		int id;
 
-		patronage = request.getModel().get;
-		result = this.repository.findOneByPatronage(patronage);
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneById(id);
 
 		return result;
 	}
@@ -42,5 +47,7 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 		assert model != null;
 
 		request.unbind(entity, model, "automaticSequenceNumber", "creation", "memorandum", "link", "entity.patronage");
+		model.setAttribute("confirmation", false);
+		model.setAttribute("readonly", true);
 	}
 }

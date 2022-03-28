@@ -1,13 +1,3 @@
-# menu-en.i18n
-#
-# Copyright (C) 2012-2022 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
 # master.menu #################################################################
 
 master.menu.home = Home
@@ -73,6 +63,7 @@ master.menu.inventor.chirp.list-recent = List recent chirps
 master.menu.inventor.item.list-all-components = List all components
 master.menu.inventor.item.list-all-tools = List all tools
 master.menu.inventor.my-components = My components
+master.menu.inventor.patronage-reports = List all patronage reports
 
 # master.menu.user-account ####################################################
 
