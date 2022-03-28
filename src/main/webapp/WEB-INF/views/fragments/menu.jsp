@@ -64,6 +64,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
 			<acme:menu-suboption code="master.menu.inventor.patronage-reports" action="/inventor/patronage-report/list-all"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.my-patronages" action="/inventor/patronage/list-mine"/>
 			
 		</acme:menu-option>
 		
