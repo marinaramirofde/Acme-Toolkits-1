@@ -1,13 +1,3 @@
-# menu-es.i18n
-#
-# Copyright (C) 2012-2022 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
-
 ﻿# master.menu #################################################################
 
 master.menu.home = Inicio
@@ -24,14 +14,16 @@ master.menu.anonymous.favourite-link-roberto = 29552922S: Paz Rivera, Roberto
 master.menu.anonymous.favourite-link-miguelangel = 49129488Q: Romalde Dorado, Miguel Angel
 master.menu.anonymous.favourite-link-nicolas = 29566855X: Sánchez Mendoza, Nicolás
 master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
-master.menu.anonymous.chirp.list-recent = Ver Chirps recientes
+master.menu.anonymous.chirp.list-recent = Ver chirps recientes
 master.menu.anonymous.item.list-all-components = Ver todos los componentes
+master.menu.anonymous.item.list-all-tools = Ver todos las herramientas
 
 # master.menu.authenticated #######################################################
 
-master.menu.authenticated = Authenticado
-master.menu.authenticated.chirp.list-recent = Ver Chirps recientes
+master.menu.authenticated = Autentificado
+master.menu.authenticated.chirp.list-recent = Ver chirps recientes
 master.menu.authenticated.item.list-all-components = Ver todos los componentes
+master.menu.authenticated.item.list-all-tools = Ver todos las herramientas
 
 # master.menu.administrator ###################################################
 
@@ -40,8 +32,9 @@ master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
-master.menu.administrator.chirp.list-recent = Ver Chirps recientes
+master.menu.administrator.chirp.list-recent = Ver chirps recientes
 master.menu.administrator.item.list-all-components = Ver todos los componentes
+master.menu.administrator.item.list-all-tools = Ver todos las herramientas
 master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.provider ########################################################
@@ -60,6 +53,7 @@ master.menu.patron = Patrón
 master.menu.patron.favourite-link = Enlace favorito
 master.menu.patron.chirp.list-recent = Ver Chirps recientes
 master.menu.patron.item.list-all-components = Ver todos los componentes
+master.menu.patron.item.list-all-tools = Ver todos las herramientas
 
 # master.menu.inventor ####################################################
 
@@ -67,6 +61,9 @@ master.menu.inventor = Inventor
 master.menu.inventor.favourite-link = Enlace favorito
 master.menu.inventor.chirp.list-recent = Ver Chirps recientes
 master.menu.inventor.item.list-all-components = Ver todos los componentes
+master.menu.inventor.item.list-all-tools = Ver todos las herramientas
+master.menu.inventor.my-components = Mi componentes
+master.menu.inventor.patronage-reports = Ver todos los reportes de los patrocinios
 
 # master.menu.user-account ####################################################
 

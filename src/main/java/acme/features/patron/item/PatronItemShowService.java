@@ -35,7 +35,7 @@ public class PatronItemShowService implements AbstractShowService<Patron, Item> 
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneComponentById(id);
+		result = this.repository.findOneById(id);
 
 		return result;
 	}
