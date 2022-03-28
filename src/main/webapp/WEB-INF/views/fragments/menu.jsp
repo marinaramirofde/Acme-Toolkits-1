@@ -63,6 +63,7 @@
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/inventor/item/list-all-tools"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
+			<acme:menu-suboption code="master.menu.inventor.patronage-reports" action="/inventor/patronage-report/list-all"/>
 			
 		</acme:menu-option>
 		
