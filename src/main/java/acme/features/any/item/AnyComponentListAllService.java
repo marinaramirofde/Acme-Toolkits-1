@@ -1,4 +1,4 @@
-package acme.features.administrator.item;
+package acme.features.any.item;
 
 import java.util.Collection;
 
@@ -8,18 +8,19 @@ import org.springframework.stereotype.Service;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Administrator;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AdministratorToolListAllService implements AbstractListService<Administrator, Item>{
+public class AnyComponentListAllService implements AbstractListService<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorItemRepository repository;
+	protected AnyItemRepository repository;
 
-	// AbstractListService<Administrator, Item> interface --------------
+	// AbstractListService<Any, Item> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -34,11 +35,11 @@ public class AdministratorToolListAllService implements AbstractListService<Admi
 
 		Collection<Item> result;
 
-		result = this.repository.findAllTools();
+		result = this.repository.findAllComponents();
 
 		return result;
 	}
-
+	
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
@@ -46,7 +47,6 @@ public class AdministratorToolListAllService implements AbstractListService<Admi
 		assert model != null;
 
 		request.unbind(entity, model, "typeEntity", "name", "code", "technology");
-
 	}
 
 }

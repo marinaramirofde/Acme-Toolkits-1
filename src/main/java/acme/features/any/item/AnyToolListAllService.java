@@ -1,4 +1,4 @@
-package acme.features.authenticated.item;
+package acme.features.any.item;
 
 import java.util.Collection;
 
@@ -8,19 +8,18 @@ import org.springframework.stereotype.Service;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedComponentListAllService implements AbstractListService<Authenticated, Item> {
+public class AnyToolListAllService implements AbstractListService<Any, Item>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedItemRepository repository;
+	protected AnyItemRepository repository;
 
-	// AbstractListService<Administrator, Item> interface --------------
-
+	// AbstractListService<Any, Item> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -35,11 +34,11 @@ public class AuthenticatedComponentListAllService implements AbstractListService
 
 		Collection<Item> result;
 
-		result = this.repository.findAllComponents();
+		result = this.repository.findAllTools();
 
 		return result;
 	}
-	
+
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
@@ -47,6 +46,7 @@ public class AuthenticatedComponentListAllService implements AbstractListService
 		assert model != null;
 
 		request.unbind(entity, model, "typeEntity", "name", "code", "technology");
+
 	}
 
 }
