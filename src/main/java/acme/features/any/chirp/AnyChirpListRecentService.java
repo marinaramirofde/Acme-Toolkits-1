@@ -1,4 +1,4 @@
-package acme.features.patron.chirp;
+package acme.features.any.chirp;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 import acme.entities.chirps.Chirp;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
-import acme.roles.Patron;
 
 @Service
-public class PatronChirpListRecentService implements AbstractListService<Patron, Chirp> {
+public class AnyChirpListRecentService implements AbstractListService<Any, Chirp> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected PatronChirpRepository repository;
+	protected AnyChirpRepository repository;
 
-	// AbstractListService<Administrator, Chirp> interface --------------
+	// AbstractListService<Any, Chirp> interface --------------
 
 
 	@Override
