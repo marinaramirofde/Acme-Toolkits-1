@@ -10,6 +10,7 @@ import acme.framework.controllers.Request;
 import acme.framework.entities.UserAccount;
 import acme.framework.roles.Administrator;
 import acme.framework.roles.Any;
+import acme.framework.roles.Authenticated;
 import acme.framework.roles.UserRole;
 import acme.framework.services.AbstractListService;
 
@@ -38,9 +39,9 @@ public class AnyUserAccountListAllService implements AbstractListService<Any, Us
 		Collection<UserAccount> result;
 
 		result = this.repository.findAllUserAccounts();
-		for(final UserAccount userAccount: result) {
-			userAccount.getRoles().forEach(r->{;});
-
+		for (final UserAccount userAccount : result) {
+			userAccount.getRoles().forEach(r -> {
+			});
 		}
 
 		return result;
@@ -60,11 +61,12 @@ public class AnyUserAccountListAllService implements AbstractListService<Any, Us
 		roles = entity.getRoles();
 		buffer = new StringBuilder();
 		for (final UserRole role : roles) {
-			if(!role.getUserAccount().isAnonymous() && !role.getUserAccount().hasRole(Administrator.class)) {
+			final boolean predicado = !role.getUserAccount().isAnonymous() && !role.getUserAccount().hasRole(Administrator.class)
+				&&!role.getUserAccount().hasRole(Authenticated.class);
+			if(predicado) {
 				buffer.append(role.getAuthorityName());
-
+				buffer.append(" ");
 			}
-
 		}
 
 		model.setAttribute("roleList", buffer.toString());

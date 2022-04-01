@@ -19,7 +19,6 @@ public class AnyUserAccountShowService implements AbstractShowService<Any, UserA
 
 	// AbstractShowService<Any, UserAccount> interface --------------
 
-
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
 		assert request != null;
@@ -36,7 +35,8 @@ public class AnyUserAccountShowService implements AbstractShowService<Any, UserA
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-		result.getRoles().forEach(r->{;});
+		result.getRoles().forEach(r -> {
+		});
 
 		return result;
 	}
