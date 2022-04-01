@@ -17,6 +17,7 @@ master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
 master.menu.anonymous.chirp.list-recent = List recent chirps
 master.menu.anonymous.item.list-all-components = List all components
 master.menu.anonymous.item.list-all-tools = List all tools
+master.menu.anonymous.user-account.list-all-user-accounts = List user accounts
 
 # master.menu.authenticated #######################################################
 
@@ -24,12 +25,13 @@ master.menu.authenticated = Authenticated
 master.menu.authenticated.chirp.list-recent = List recent chirps
 master.menu.authenticated.item.list-all-components = List all components
 master.menu.authenticated.item.list-all-tools = List all tools
+master.menu.authenticated.user-account.list-all-user-accounts = List user accounts
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
-master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.user-account.list-all-user-accounts = List user accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.chirp.list-recent = List recent chirps
@@ -54,6 +56,7 @@ master.menu.patron.favourite-link = Favourite link
 master.menu.patron.chirp.list-recent = List recent chirps
 master.menu.patron.item.list-all-components = List all components
 master.menu.patron.item.list-all-tools = List all tools
+master.menu.patron.user-account.list-all-user-accounts = List user accounts
 
 # master.menu.inventor ##########################################################
 
@@ -65,6 +68,7 @@ master.menu.inventor.item.list-all-tools = List all tools
 master.menu.inventor.my-components = My components
 master.menu.inventor.patronage-reports = List all patronage reports
 master.menu.inventor.my-patronages = My patronages
+master.menu.inventor.user-account.list-all-user-accounts = List user accounts
 
 # master.menu.user-account ####################################################
 
