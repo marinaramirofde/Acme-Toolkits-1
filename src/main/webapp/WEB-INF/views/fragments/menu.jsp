@@ -14,13 +14,13 @@
       		<acme:menu-suboption code="29566855X: Sánchez Mendoza, Nicolás" action="http://www.lsi.us.es"/>
       		<acme:menu-suboption code="77925380T: Suárez David, Rubén" action="https://github.com"/>
       		<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.anonymous.chirp.list-recent" action="/anonymous/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.anonymous.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.anonymous.item.list-all-tools" action="/any/item/list-all-tools"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.chirp.list-recent" action="/authenticated/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.authenticated.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.authenticated.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.authenticated.item.list-all-tools" action="/any/item/list-all-tools"/>
 		</acme:menu-option>
@@ -31,7 +31,7 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.chirp.list-recent" action="/administrator/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.administrator.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.administrator.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.administrator.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-separator/>
@@ -49,7 +49,7 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.patron.chirp.list-recent" action="/patron/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.patron.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.patron.item.list-all-components" action="/patron/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.patron.item.list-all-tools" action="/patron/item/list-all-tools"/>
 				
@@ -58,7 +58,7 @@
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/inventor/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-components" action="/inventor/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/inventor/item/list-all-tools"/>
 			<acme:menu-separator/>
