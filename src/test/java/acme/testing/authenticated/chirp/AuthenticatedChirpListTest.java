@@ -27,14 +27,6 @@ public class AuthenticatedChirpListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 3, body);
 		super.checkColumnHasValue(recordIndex, 4, email);
 
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("creationMoment", creationMoment);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("author", author);
-		super.checkInputBoxHasValue("body", body);
-		super.checkInputBoxHasValue("email", email);
-
 		super.signOut();
 	}
 
