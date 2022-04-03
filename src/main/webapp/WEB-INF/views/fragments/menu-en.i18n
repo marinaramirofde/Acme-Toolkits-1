@@ -8,12 +8,12 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link-juanjose = 45972333W: Álvarez Campanón, Juan José
-master.menu.anonymous.favourite-link-jesusjavier = 30238243M: Cordero Díaz, Jesús Javier
-master.menu.anonymous.favourite-link-roberto = 29552922S: Paz Rivera, Roberto
-master.menu.anonymous.favourite-link-miguelangel = 49129488Q: Romalde Dorado, Miguel Angel
-master.menu.anonymous.favourite-link-nicolas = 29566855X: Sánchez Mendoza, Nicolás
-master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
+45972333W: Alvarez Campanon, Juan Jose = Juanjo's favourite link
+30238243M: Cordero Díaz, Jesus Javier = Jesus'favourite link
+29552922S: Paz Rivera, Roberto = Roberto's favourite link
+49129488Q: Romalde Dorado, Miguel Angel = MiguelAngel's favourite link
+29566855X: Sanchez Mendoza, Nicolas = Nicolas' favourite link
+77925380T: Suarez David, Ruben = Ruben's favourite link
 master.menu.anonymous.chirp.list-recent = List recent chirps
 master.menu.anonymous.item.list-all-components = List all components
 master.menu.anonymous.item.list-all-tools = List all tools

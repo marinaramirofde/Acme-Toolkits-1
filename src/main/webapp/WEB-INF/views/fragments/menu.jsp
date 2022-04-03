@@ -7,12 +7,12 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="45972333W: Álvarez Campanón, Juan José" action="http://www.lsi.us.es"/>
-			<acme:menu-suboption code="30238243M: Cordero Díaz, Jesús Javier" action="http://www.lsi.us.es"/>
+			<acme:menu-suboption code="45972333W: Alvarez Campanon, Juan Jose" action="http://www.lsi.us.es"/>
+			<acme:menu-suboption code="30238243M: Cordero Diaz, Jesus Javier" action="http://www.lsi.us.es"/>
 			<acme:menu-suboption code="29552922S: Paz Rivera, Roberto" action="https://github.com"/>
 			<acme:menu-suboption code="49129488Q: Romalde Dorado, Miguel Angel" action="https://github.com"/>
-      		<acme:menu-suboption code="29566855X: Sánchez Mendoza, Nicolás" action="http://www.lsi.us.es"/>
-      		<acme:menu-suboption code="77925380T: Suárez David, Rubén" action="https://github.com"/>
+      		<acme:menu-suboption code="29566855X: Sanchez Mendoza, Nicolas" action="http://www.lsi.us.es"/>
+      		<acme:menu-suboption code="77925380T: Suarez David, Ruben" action="https://github.com"/>
       		<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.item.list-all-components" action="/any/item/list-all-components"/>
