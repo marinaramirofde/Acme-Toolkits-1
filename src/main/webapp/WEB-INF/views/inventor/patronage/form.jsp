@@ -16,5 +16,7 @@
 	<acme:input-moment code="inventor.patronage.form.label.creation" path="creation"/>
 	<acme:input-moment code="inventor.patronage.form.label.end" path="end"/>
 	<acme:input-url code="inventor.patronage.form.label.link" path="link"/>
+	<acme:input-textbox code="inventor.patronage.form.label.fullName" path="patronProfileFullName"/>
+	<acme:input-textbox code="inventor.patronage.form.label.email" path="patronProfileEmail"/>
 	
 </acme:form>
