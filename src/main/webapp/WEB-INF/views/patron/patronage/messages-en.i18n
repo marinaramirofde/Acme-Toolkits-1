@@ -1,0 +1,15 @@
+patron.patronage.form.label.status = Status:
+patron.patronage.form.label.code = Code:
+patron.patronage.form.label.legal-stuff = LegalStuff:
+patron.patronage.form.label.budget = Budget:
+patron.patronage.form.label.initial = Initial:
+patron.patronage.form.label.creation = Creation:
+patron.patronage.form.label.end = End:
+patron.patronage.form.label.link = Link:
+patron.patronage.form.label.fullName = Inventor's fullName:
+patron.patronage.form.label.email = Inventor's email:
+
+patron.patronage.list.label.status = Status
+patron.patronage.list.label.code = Code
+patron.patronage.list.label.budget = Budget
+patron.patronage.list.label.creation = Creation
