@@ -1,0 +1,15 @@
+patron.patronage.form.label.status = Estado:
+patron.patronage.form.label.code = Código:
+patron.patronage.form.label.legal-stuff = Argumento legal:
+patron.patronage.form.label.budget = Presupuesto:
+patron.patronage.form.label.initial = Fecha de inicio:
+patron.patronage.form.label.creation = Fecha de creación:
+patron.patronage.form.label.end = Fecha de fin:
+patron.patronage.form.label.link = Link:
+patron.patronage.form.label.fullName = Nombre completo del inventor:
+patron.patronage.form.label.email = E-mail del inventor:
+
+patron.patronage.list.label.status = Estado
+patron.patronage.list.label.code = Código
+patron.patronage.list.label.budget = Presupuesto
+patron.patronage.list.label.creation = Fecha de creación

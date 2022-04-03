@@ -26,6 +26,7 @@ master.menu.authenticated.chirp.list-recent = Ver chirps recientes
 master.menu.authenticated.item.list-all-components = Ver todos los componentes
 master.menu.authenticated.item.list-all-tools = Ver todos las herramientas
 master.menu.authenticated.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.authenticated.announcement.list-recent = Ver anuncios recientes
 
 # master.menu.administrator ###################################################
 
@@ -57,6 +58,8 @@ master.menu.patron.chirp.list-recent = Ver Chirps recientes
 master.menu.patron.item.list-all-components = Ver todos los componentes
 master.menu.patron.item.list-all-tools = Ver todos las herramientas
 master.menu.patron.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.patron.announcement.list-recent = Ver anuncios recientes
+master.menu.patron.my-patronages = Mis patrocinios
 
 # master.menu.inventor ####################################################
 
@@ -69,6 +72,7 @@ master.menu.inventor.my-components = Mis componentes
 master.menu.inventor.patronage-reports = Ver todos los reportes de los patrocinios
 master.menu.inventor.my-patronages = Mis patrocinios
 master.menu.inventor.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.inventor.announcement.list-recent = Ver anuncios recientes
 
 # master.menu.user-account ####################################################
 
