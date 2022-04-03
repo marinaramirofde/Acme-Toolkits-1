@@ -53,8 +53,8 @@
 			<acme:menu-suboption code="master.menu.patron.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.patron.chirp.list-recent" action="/any/chirp/list-recent"/>
-			<acme:menu-suboption code="master.menu.patron.item.list-all-components" action="/patron/item/list-all-components"/>
-			<acme:menu-suboption code="master.menu.patron.item.list-all-tools" action="/patron/item/list-all-tools"/>
+			<acme:menu-suboption code="master.menu.patron.item.list-all-components" action="/any/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.patron.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.patron.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>	
 		</acme:menu-option>
@@ -63,8 +63,8 @@
 			<acme:menu-suboption code="master.menu.inventor.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/any/chirp/list-recent"/>
-			<acme:menu-suboption code="master.menu.inventor.item.list-all-components" action="/inventor/item/list-all-components"/>
-			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/inventor/item/list-all-tools"/>
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-components" action="/any/item/list-all-components"/>
+			<acme:menu-suboption code="master.menu.inventor.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
 			<acme:menu-suboption code="master.menu.inventor.patronage-reports" action="/inventor/patronage-report/list-all"/>
