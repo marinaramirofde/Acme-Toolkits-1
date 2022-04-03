@@ -21,7 +21,6 @@ public class InventorPatronageReportListAllService implements AbstractListServic
 	
 	// AbstractListService<Inventor, PatronageReport> interface --------------
 	
-	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
@@ -45,7 +44,9 @@ public class InventorPatronageReportListAllService implements AbstractListServic
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		model.setAttribute("patronageId", entity.getPatronage().getStatus());
 
-		request.unbind(entity, model, "creation", "entity.patronage");
+		request.unbind(entity, model, "creation");
 	}
 }

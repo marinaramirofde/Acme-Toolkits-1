@@ -5,6 +5,6 @@
 
 <acme:list>
 	<acme:list-column code="inventor.patronage-report.list.label.creation" path="creation" width="20%"/>
-	<acme:list-column code="inventor.patronage-report.list.label.patronage" path="patronage" width="70%"/>
+	<acme:list-column code="inventor.patronage-report.list.label.patronage" path="patronageId" width="70%"/>
 	
 </acme:list>
