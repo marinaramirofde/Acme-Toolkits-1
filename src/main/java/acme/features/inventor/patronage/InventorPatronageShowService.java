@@ -45,8 +45,14 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model,"status","code","legalStuff","budget","initial","creation","end","link","patron");
+		
+		//THE PROFILE OF THE PATRON
+		
+		model.setAttribute("patronProfileFullName", entity.getPatron().getIdentity().getFullName());
+		model.setAttribute("patronProfileEmail", entity.getPatron().getIdentity().getEmail());
+		
+		request.unbind(entity, model,"status","code","legalStuff","budget","initial","creation","end","link");
+		
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 	}
