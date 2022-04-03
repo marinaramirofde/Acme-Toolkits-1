@@ -27,6 +27,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -56,7 +58,9 @@
 			<acme:menu-suboption code="master.menu.patron.item.list-all-components" action="/any/item/list-all-components"/>
 			<acme:menu-suboption code="master.menu.patron.item.list-all-tools" action="/any/item/list-all-tools"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.patron.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>	
+			<acme:menu-suboption code="master.menu.patron.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.patron.announcement.list-recent" action="/patron/announcement/list-recent"/>	
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
@@ -71,6 +75,8 @@
 			<acme:menu-suboption code="master.menu.inventor.my-patronages" action="/inventor/patronage/list-mine"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.announcement.list-recent" action="/inventor/announcement/list-recent"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
