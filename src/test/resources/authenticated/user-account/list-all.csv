@@ -1,0 +1,9 @@
+recordIndex,roleList,username,name,surname,email
+0,,anonymous,John,Doe,john.doe@acme.com
+1,Patron,patron1,Rubén,Suárez David,rubsuadav@acme.com
+2,Inventor,inventor3,Miguel Ángel,Romalde Sánchez,mromalde@acme.com
+3,Patron,patron2,Juan José,Álvarez Campanón,juaalvcam@acme.com
+4,Inventor,inventor2,Nicolás,Sánchez Mendoza,nicsanmen@acme.com
+5,,administrator,Administrator,Acme,administrator@acme.com
+6,Inventor,inventor1,Jesús Javier,Cordero Díaz,jescordia@acme.com
+7,Patron,patron3,Roberto,Paz Rivera,robpazriv@acme.com
