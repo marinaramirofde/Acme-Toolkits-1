@@ -8,12 +8,12 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link-juanjose = 45972333W: Álvarez Campanón, Juan José
-master.menu.anonymous.favourite-link-jesusjavier = 30238243M: Cordero Díaz, Jesús Javier
-master.menu.anonymous.favourite-link-roberto = 29552922S: Paz Rivera, Roberto
-master.menu.anonymous.favourite-link-miguelangel = 49129488Q: Romalde Dorado, Miguel Angel
-master.menu.anonymous.favourite-link-nicolas = 29566855X: Sánchez Mendoza, Nicolás
-master.menu.anonymous.favourite-link-ruben = 77925380T: Suárez David, Rubén
+45972333W: Alvarez Campanon, Juan Jose = Link favorito de Juanjo
+30238243M: Cordero Díaz, Jesus Javier = Link favorito de Jesus
+29552922S: Paz Rivera, Roberto = Link favorito de Roberto
+49129488Q: Romalde Dorado, Miguel Angel = Link favorito de Miguel Angel
+29566855X: Sanchez Mendoza, Nicolas = Link favorito de Nicolas
+77925380T: Suarez David, Ruben = Link favorito de Ruben
 master.menu.anonymous.chirp.list-recent = Ver chirps recientes
 master.menu.anonymous.item.list-all-components = Ver todos los componentes
 master.menu.anonymous.item.list-all-tools = Ver todos las herramientas
@@ -26,6 +26,7 @@ master.menu.authenticated.chirp.list-recent = Ver chirps recientes
 master.menu.authenticated.item.list-all-components = Ver todos los componentes
 master.menu.authenticated.item.list-all-tools = Ver todos las herramientas
 master.menu.authenticated.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.authenticated.announcement.list-recent = Ver anuncios recientes
 
 # master.menu.administrator ###################################################
 
@@ -57,6 +58,8 @@ master.menu.patron.chirp.list-recent = Ver Chirps recientes
 master.menu.patron.item.list-all-components = Ver todos los componentes
 master.menu.patron.item.list-all-tools = Ver todos las herramientas
 master.menu.patron.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.patron.announcement.list-recent = Ver anuncios recientes
+master.menu.patron.my-patronages = Mis patrocinios
 
 # master.menu.inventor ####################################################
 
@@ -69,6 +72,7 @@ master.menu.inventor.my-components = Mis componentes
 master.menu.inventor.patronage-reports = Ver todos los reportes de los patrocinios
 master.menu.inventor.my-patronages = Mis patrocinios
 master.menu.inventor.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.inventor.announcement.list-recent = Ver anuncios recientes
 
 # master.menu.user-account ####################################################
 
