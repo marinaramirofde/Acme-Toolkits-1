@@ -158,9 +158,9 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>931</x>
-      <y>511</y>
-      <w>462</w>
-      <h>364</h>
+      <y>560</y>
+      <w>448</w>
+      <h>266</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 AdministratorDashboard
@@ -170,6 +170,7 @@ AdministratorDashboard
 + deviationRetailPriceOfComponentsByTechnologyAndCurrency: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 + minimumRetailPriceOfComponentsByTechnologyAndCurrency: Map&lt;Pair&lt;String,String&gt;,Double&gt;
 + maximumRetailPriceOfComponentsByTechnologyAndCurrency: Map&lt;Pair&lt;String,String&gt;,Double&gt;
+
 + totalNumberOfTools: int
 + averageRetailPriceOfToolsByCurrency: Map&lt;String,Double&gt;
 + deviationRetailPriceOfToolsByCurrency: Map&lt;String,Double&gt;
@@ -180,20 +181,11 @@ AdministratorDashboard
 + totalNumberOfAcceptedPatronagres: int
 + totalNumberOfDeniedPatronagres: int
 
-+ averageBudgetOfProposedPatronages: double
-+ deviationBudgetOfProposedPatronages: double
-+ minimumBudgetOfProposedPatronages: double
-+ maximumBudgetOfProposedPatronages: double
++ averageBudgetByPatronagesStatus: Map&lt;Status,Double&gt;
++ desviationBudgetByPatronagesStatus: Map&lt;Status,Double&gt;
++ minimunBudgetByPatronagesStatus: Map&lt;Status,Double&gt;
++ maximumBudgetByPatronagesStatus: Map&lt;Status,Double&gt;
 
-+ averageBudgetOfAcceptedPatronages: double
-+ deviationBudgetOfAcceptedPatronages: double
-+ minimumBudgetOfAcceptedPatronages: double
-+ maximumBudgetOfAcceptedPatronages: double
-
-+ averageBudgetOfDeniedPatronages: double
-+ deviationBudgetOfDeniedPatronages: double
-+ minimumBudgetOfDeniedPatronages: double
-+ maximumBudgetOfDeniedPatronages: double
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -235,6 +227,7 @@ Toolkit
 + description : String {NotBlank, Lenght(1,255)}
 + assemblyNotes: String {NotBlank, Lenght(1,255)}
 + link: String {URL}
++ finished: boolean
 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -784,10 +777,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1008</x>
-      <y>119</y>
-      <w>343</w>
-      <h>245</h>
+      <x>973</x>
+      <y>196</y>
+      <w>392</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 PatronDashboard
@@ -795,21 +788,11 @@ PatronDashboard
 + totalNumberOfProposedPatronagres: int
 + totalNumberOfAcceptedPatronagres: int
 + totalNumberOfDeniedPatronagres: int
++ averageBudgeByPatronagesStatusAndCurrency: Map&lt;Pair&lt;Status, String&gt;, Double&gt;
++ desviationBudgeByPatronagesStatusAndCurrency: Map&lt;Pair&lt;Status, String&gt;, Double&gt;
++ maximunBudgeByPatronagesStatusAndCurrency: Map&lt;Pair&lt;Status, String&gt;, Double&gt;
++ minimunBudgeByPatronagesStatusAndCurrency: Map&lt;Pair&lt;Status, String&gt;, Double&gt;
 
-+ averageBudgetOfProposedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ deviationBudgetOfProposedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ minimumBudgetOfProposedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ maximumBudgetOfProposedPatronagesByCurrency: Map&lt;String,Double&gt;
-
-+ averageBudgetOfAcceptedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ deviationBudgetOfAcceptedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ minimumBudgetOfAcceptedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ maximumBudgetOfAcceptedPatronagesByCurrency: Map&lt;String,Double&gt;
-
-+ averageBudgetOfDeniedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ deviationBudgetOfDeniedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ minimumBudgetOfDeniedPatronagesByCurrency: Map&lt;String,Double&gt;
-+ maximumBudgetOfDeniedPatronagesByCurrency: Map&lt;String,Double&gt;
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
