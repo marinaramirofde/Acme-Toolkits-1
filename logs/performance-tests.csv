@@ -1,9 +1,2 @@
 timestamp,test-class,test-method,time,description,result
-"2022-04-04 19:19:10.411","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",16282,""[1] recordIndex=0, roleList=null, username=anonymous, name=John, surname=Doe, email=john.doe@acme.com"","OK"
-"2022-04-04 19:19:22.726","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",11715,""[2] recordIndex=1, roleList=Patron, username=patron1, name=Rubén, surname=Suárez David, email=rubsuadav@acme.com"","OK"
-"2022-04-04 19:19:34.775","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",11375,""[3] recordIndex=2, roleList=Inventor, username=inventor3, name=Miguel Ángel, surname=Romalde Sánchez, email=mromalde@acme.com"","OK"
-"2022-04-04 19:19:47.096","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",11634,""[4] recordIndex=3, roleList=Patron, username=patron2, name=Juan José, surname=Álvarez Campanón, email=juaalvcam@acme.com"","OK"
-"2022-04-04 19:19:59.017","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",11158,""[5] recordIndex=4, roleList=Inventor, username=inventor2, name=Nicolás, surname=Sánchez Mendoza, email=nicsanmen@acme.com"","OK"
-"2022-04-04 19:20:10.228","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",10557,""[6] recordIndex=5, roleList=null, username=administrator, name=Administrator, surname=Acme, email=administrator@acme.com"","OK"
-"2022-04-04 19:20:21.916","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",10979,""[7] recordIndex=6, roleList=Inventor, username=inventor1, name=Jesús Javier, surname=Cordero Díaz, email=jescordia@acme.com"","OK"
-"2022-04-04 19:20:33.942","acme.testing.patron.userAccount.PatronUserAccountListAllTest","positiveTest",11311,""[8] recordIndex=7, roleList=Patron, username=patron3, name=Roberto, surname=Paz Rivera, email=robpazriv@acme.com"","OK"
+"2022-04-07 01:34:37.228","acme.testing.patron.systemConfiguration.PatronSystemConfigurationShowTest","positiveTest",16316,""[1] recordIndex=0, acceptedCurrencies=EUR,USD,GBP, systemCurrency=EUR"","OK"
