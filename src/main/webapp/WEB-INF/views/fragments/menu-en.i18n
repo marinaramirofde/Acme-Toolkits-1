@@ -27,6 +27,7 @@ master.menu.authenticated.item.list-all-components = List all components
 master.menu.authenticated.item.list-all-tools = List all tools
 master.menu.authenticated.user-account.list-all-user-accounts = List user accounts
 master.menu.authenticated.announcement.list-recent = List recent announcements
+master.menu.authenticated.system-configuration = System Configuration
 
 # master.menu.administrator ###################################################
 
@@ -59,6 +60,7 @@ master.menu.patron.item.list-all-components = List all components
 master.menu.patron.item.list-all-tools = List all tools
 master.menu.patron.user-account.list-all-user-accounts = List user accounts
 master.menu.patron.announcement.list-recent = List recent announcements
+master.menu.patron.system-configuration = System Configuration
 master.menu.patron.my-patronages = My patronages
 
 # master.menu.inventor ##########################################################
@@ -72,6 +74,7 @@ master.menu.inventor.my-components = My components
 master.menu.inventor.patronage-reports = List all patronage reports
 master.menu.inventor.my-patronages = My patronages
 master.menu.inventor.user-account.list-all-user-accounts = List user accounts
+master.menu.inventor.system-configuration = System Configuration
 master.menu.inventor.announcement.list-recent = List recent announcements
 
 # master.menu.user-account ####################################################
