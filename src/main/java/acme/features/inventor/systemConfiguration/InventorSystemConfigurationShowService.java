@@ -27,7 +27,7 @@ public class InventorSystemConfigurationShowService implements AbstractShowServi
         assert request != null;
 
         SystemConfiguration result;
-        result= this.repository.findSystemConfiguration().stream().findFirst().get();
+        result= this.repository.findSystemConfiguration();
         return result;
     }
 
@@ -37,8 +37,7 @@ public class InventorSystemConfigurationShowService implements AbstractShowServi
         assert entity != null;
         assert model != null;
 
-        request.unbind(entity, model, "acceptedCurrencies", "systemCurrency", "strongSpamWords", 
-            "strongSpamThreshold", "weakSpamWords", "weakSpamThreshold");
+        request.unbind(entity, model, "acceptedCurrencies", "systemCurrency");
         model.setAttribute("confirmation", false);
         model.setAttribute("readonly", true);
     }
