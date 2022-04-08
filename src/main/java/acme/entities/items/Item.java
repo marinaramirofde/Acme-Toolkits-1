@@ -51,6 +51,8 @@ public class Item extends AbstractEntity{
 	@URL
 	protected String link;
 	
+	protected boolean published;
+	
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
