@@ -5,5 +5,7 @@
 
 <acme:list>
 	<acme:list-column code="any.user-account.list.label.role-list" path="roleList" width="40%"/>
+	<acme:list-column code="any.user-account.list.label.identity.name" path="identity.name" width="40%"/>
+	<acme:list-column code="any.user-account.list.label.identity.surname" path="identity.surname" width="40%"/>
 	
 </acme:list>

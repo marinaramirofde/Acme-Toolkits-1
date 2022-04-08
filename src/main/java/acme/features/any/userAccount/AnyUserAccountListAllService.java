@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.entities.UserAccount;
-import acme.framework.roles.Administrator;
 import acme.framework.roles.Any;
 import acme.framework.roles.UserRole;
 import acme.framework.services.AbstractListService;
@@ -35,10 +34,9 @@ public class AnyUserAccountListAllService implements AbstractListService<Any, Us
 	public Collection<UserAccount> findMany(final Request<UserAccount> request) {
 		assert request != null;
 
-		Collection<UserAccount> result;
+		final Collection<UserAccount> result;
 
-		result = this.repository.findPatronUserAccounts();
-		result.addAll(this.repository.findInventorUserAccounts());
+		result = this.repository.findUserAccounts();
 		for (final UserAccount userAccount : result) {
 			userAccount.getRoles().forEach(r -> {
 			});
@@ -56,17 +54,15 @@ public class AnyUserAccountListAllService implements AbstractListService<Any, Us
 		StringBuilder buffer;
 		Collection<UserRole> roles;
 
-		request.unbind(entity, model);
+		request.unbind(entity, model, "identity.name", "identity.surname");
 
 		roles = entity.getRoles();
 		buffer = new StringBuilder();
 		for (final UserRole role : roles) {
-			final boolean predicado = !role.getUserAccount().isAnonymous() && !role.getUserAccount().hasRole(Administrator.class);
-			if(predicado) {
-				buffer.append(role.getAuthorityName());
-				buffer.append(" ");
-			}
+			buffer.append(role.getAuthorityName());
+			buffer.append(" ");
 		}
+
 
 		model.setAttribute("roleList", buffer.toString());
 
