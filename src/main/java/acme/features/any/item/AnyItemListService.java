@@ -12,7 +12,7 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyToolListAllService implements AbstractListService<Any, Item>{
+public class AnyItemListService implements AbstractListService<Any, Item>{
 
 	// Internal state ---------------------------------------------------------
 
@@ -34,7 +34,7 @@ public class AnyToolListAllService implements AbstractListService<Any, Item>{
 
 		Collection<Item> result;
 
-		result = this.repository.findAllTools();
+		result = this.repository.findPublishedItems();
 
 		return result;
 	}

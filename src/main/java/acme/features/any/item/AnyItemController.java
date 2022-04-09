@@ -13,12 +13,9 @@ import acme.framework.roles.Any;
 public class AnyItemController extends AbstractController<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
-
-	@Autowired
-	protected AnyComponentListAllService		componentListAllService;
 	
 	@Autowired
-	protected AnyToolListAllService		toolListAllService;
+	protected AnyItemListService		toolListAllService;
 
 	@Autowired
 	protected AnyItemShowService			showService;
@@ -29,8 +26,7 @@ public class AnyItemController extends AbstractController<Any, Item> {
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all-components", "list", this.componentListAllService);
-		super.addCommand("list-all-tools", "list", this.toolListAllService);
+		super.addCommand("list", this.toolListAllService);
 	}
 
 }
