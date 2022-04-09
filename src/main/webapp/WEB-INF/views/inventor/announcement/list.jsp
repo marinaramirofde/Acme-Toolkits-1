@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="inventor.announcement.list.label.creationMoment" path="creationMoment" width="20%"/>
-	<acme:list-column code="inventor.announcement.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="inventor.announcement.list.label.creationMoment" path="creationMoment" width="50%"/>
+	<acme:list-column code="inventor.announcement.list.label.title" path="title" width="50%"/>
 	
 </acme:list>
