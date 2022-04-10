@@ -1,4 +1,4 @@
-package acme.testing.anonymous.item;
+package acme.testing.any.item;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,20 +6,21 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AnonymousComponentListTest extends TestHarness{
+public class AnyComponentListTest extends TestHarness{
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/anonymous/item/list-components.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/administrator/item/list-components.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
+		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Anonymous", "List all components");
+		super.clickOnMenu("Administrator", "List all components");
 		super.checkListingExists();
-
+		
 		super.checkColumnHasValue(recordIndex, 0, typeEntity);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
@@ -35,6 +36,7 @@ public class AnonymousComponentListTest extends TestHarness{
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
 
+		super.signOut();
 	}
 
 

@@ -8,16 +8,17 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.user-account.list-all-user-accounts = List user accounts
-master.menu.anonymous.chirp.list-recent = List recent chirps
-master.menu.anonymous.item.list = List possible items
+
+# master.menu.any ##############################################################
+
+master.menu.any = Any
+master.menu.any.user-account.list-all-user-accounts = List user accounts
+master.menu.any.chirp.list-recent = List recent chirps
+master.menu.any.item.list = List possible items
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.user-account.list-all-user-accounts = List user accounts
-master.menu.authenticated.chirp.list-recent = List recent chirps
-master.menu.authenticated.item.list = List possible items
 master.menu.authenticated.announcement.list-recent = List recent announcements
 master.menu.authenticated.system-configuration = System Configuration
 
@@ -27,17 +28,10 @@ master.menu.administrator = Administrator
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
-master.menu.administrator.dashboard = Dashboard
-master.menu.administrator.user-account.list-all-user-accounts = List user accounts
-master.menu.administrator.chirp.list-recent = List recent chirps
-master.menu.administrator.item.list = List possible items
 
 # master.menu.patron ##########################################################
 
 master.menu.patron = Patron
-master.menu.patron.user-account.list-all-user-accounts = List user accounts
-master.menu.patron.chirp.list-recent = List recent chirps
-master.menu.patron.item.list = List possible items
 master.menu.patron.announcement.list-recent = List recent announcements
 master.menu.patron.system-configuration = System Configuration
 master.menu.patron.my-patronages = My patronages
@@ -45,9 +39,6 @@ master.menu.patron.my-patronages = My patronages
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.user-account.list-all-user-accounts = List user accounts
-master.menu.inventor.chirp.list-recent = List recent chirps
-master.menu.inventor.item.list = List possible items
 master.menu.inventor.my-items = My items
 master.menu.inventor.patronage-reports = List all patronage reports
 master.menu.inventor.my-patronages = My patronages
