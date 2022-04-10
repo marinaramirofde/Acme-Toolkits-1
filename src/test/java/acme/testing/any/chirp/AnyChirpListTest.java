@@ -13,12 +13,11 @@ public class AnyChirpListTest extends TestHarness{
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/administrator/chirp/list-recent.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/chirp/list-recent.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
 
-		super.signIn("administrator", "administrator");
-		super.clickOnMenu("Administrator", "List recent chirps");
+		super.clickOnMenu("Any", "List recent chirps");
 		super.checkListingExists();
 
 		super.checkColumnHasValue(recordIndex, 0, creationMoment);
@@ -27,7 +26,6 @@ public class AnyChirpListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 3, body);
 		super.checkColumnHasValue(recordIndex, 4, email);
 
-		super.signOut();
 	}
 
 

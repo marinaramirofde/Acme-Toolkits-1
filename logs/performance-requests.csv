@@ -1,19 +1,7 @@
 timestamp,simple-path,time
-"2022-04-10 17:52:41.913","/master/welcome",8248
-"2022-04-10 17:52:45.026","/any/user-account/list-all-user-accounts",2741
-"2022-04-10 17:52:48.356","/any/user-account/show",1642
-"2022-04-10 17:52:48.993","/master/welcome",394
-"2022-04-10 17:52:49.837","/any/user-account/list-all-user-accounts",563
-"2022-04-10 17:52:51.432","/any/user-account/show",551
-"2022-04-10 17:52:52.089","/master/welcome",408
-"2022-04-10 17:52:52.87","/any/user-account/list-all-user-accounts",570
-"2022-04-10 17:52:54.394","/any/user-account/show",564
-"2022-04-10 17:52:54.991","/master/welcome",346
-"2022-04-10 17:52:55.774","/any/user-account/list-all-user-accounts",563
-"2022-04-10 17:52:57.277","/any/user-account/show",550
-"2022-04-10 17:52:57.873","/master/welcome",344
-"2022-04-10 17:52:58.719","/any/user-account/list-all-user-accounts",598
-"2022-04-10 17:53:00.274","/any/user-account/show",551
-"2022-04-10 17:53:00.885","/master/welcome",364
-"2022-04-10 17:53:01.73","/any/user-account/list-all-user-accounts",598
-"2022-04-10 17:53:03.258","/any/user-account/show",566
+"2022-04-10 17:59:20.579","/master/welcome",8276
+"2022-04-10 17:59:25.199","/any/chirp/list-recent",4294
+"2022-04-10 17:59:28.653","/master/welcome",653
+"2022-04-10 17:59:30.095","/any/chirp/list-recent",589
+"2022-04-10 17:59:33.428","/master/welcome",706
+"2022-04-10 17:59:34.776","/any/chirp/list-recent",1087

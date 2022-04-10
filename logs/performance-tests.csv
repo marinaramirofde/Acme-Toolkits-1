@@ -1,7 +1,4 @@
 timestamp,test-class,test-method,time,description,result
-"2022-04-10 17:52:48.554","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",6640,""[1] recordIndex=0, roleList=Inventor, name=Jesús Javier, surname=Cordero Díaz, email=jescordia@acme.com"","OK"
-"2022-04-10 17:52:51.64","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",2646,""[2] recordIndex=1, roleList=Patron, name=Juan José, surname=Álvarez Campanón, email=juaalvcam@acme.com"","OK"
-"2022-04-10 17:52:54.597","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",2506,""[3] recordIndex=2, roleList=Inventor, name=Miguel Ángel, surname=Romalde Sánchez, email=mromalde@acme.com"","OK"
-"2022-04-10 17:52:57.481","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",2489,""[4] recordIndex=3, roleList=Inventor, name=Nicolás, surname=Sánchez Mendoza, email=nicsanmen@acme.com"","OK"
-"2022-04-10 17:53:00.477","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",2603,""[5] recordIndex=4, roleList=Patron, name=Roberto, surname=Paz Rivera, email=robpazriv@acme.com"","OK"
-"2022-04-10 17:53:03.457","acme.testing.any.userAccount.AnyUserAccountListTest","positiveTest",2571,""[6] recordIndex=5, roleList=Patron, name=Rubén, surname=Suárez David, email=rubsuadav@acme.com"","OK"
+"2022-04-10 17:59:27.935","acme.testing.any.chirp.AnyChirpListTest","positiveTest",7354,""[1] recordIndex=0, creationMoment=2022/03/21 15:00, title=Title 8, author=Rubén Suárez Davd, body=This chirp will be shown on the navigator view, email=rubsuadav@alum.us.es"","OK"
+"2022-04-10 17:59:32.656","acme.testing.any.chirp.AnyChirpListTest","positiveTest",4001,""[2] recordIndex=1, creationMoment=2022/03/22 23:34, title=Title 7, author=Miguel Ángel Romalde Dorado, body=I think you can show me important things, email=null"","OK"
+"2022-04-10 17:59:37.34","acme.testing.any.chirp.AnyChirpListTest","positiveTest",3911,""[3] recordIndex=2, creationMoment=2022/04/01 17:45, title=Title 9, author=Nicolás Sánchez Mendoza, body=You should have read boo, email=nicsanmen@alum.us.es"","OK"
