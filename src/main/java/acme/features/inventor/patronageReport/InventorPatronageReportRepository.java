@@ -11,9 +11,9 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface InventorPatronageReportRepository extends AbstractRepository{
 
-	@Query("select p from PatronageReport p")
-	Collection<PatronageReport> findAllPatronagesReport();
+	@Query("select pr from PatronageReport pr where pr.patronage.inventor.id = :inventorId")
+	Collection<PatronageReport> findManyPatronagesReportByInventorId(int inventorId);
 	
-	@Query("select p from PatronageReport p where p.id = :id")
+	@Query("select pr from PatronageReport pr where pr.id = :id")
 	PatronageReport findOneById(int id);
 }

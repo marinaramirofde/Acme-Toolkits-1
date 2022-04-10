@@ -40,7 +40,7 @@ master.menu.patron.my-patronages = My patronages
 
 master.menu.inventor = Inventor
 master.menu.inventor.my-items = My items
-master.menu.inventor.patronage-reports = List all patronage reports
+master.menu.inventor.my-patronage-reports = My patronage reports
 master.menu.inventor.my-patronages = My patronages
 master.menu.inventor.system-configuration = System Configuration
 master.menu.inventor.announcement.list-recent = List recent announcements

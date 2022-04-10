@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 import acme.entities.patronageReports.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageReportListAllService implements AbstractListService<Inventor, PatronageReport> {
+public class InventorPatronageReportListMineService implements AbstractListService<Inventor, PatronageReport> {
 	
 	// Internal state ---------------------------------------------------------
 
@@ -33,8 +34,10 @@ public class InventorPatronageReportListAllService implements AbstractListServic
 		assert request != null;
 
 		Collection<PatronageReport> result;
+		Principal principal;
 
-		result = this.repository.findAllPatronagesReport();
+		principal = request.getPrincipal();
+		result = this.repository.findManyPatronagesReportByInventorId(principal.getActiveRoleId());
 
 		return result;
 	}
@@ -45,7 +48,7 @@ public class InventorPatronageReportListAllService implements AbstractListServic
 		assert entity != null;
 		assert model != null;
 		
-		model.setAttribute("patronageId", entity.getPatronage().getStatus());
+		model.setAttribute("patronageId", entity.getPatronage().getCode());
 
 		request.unbind(entity, model, "creation");
 	}

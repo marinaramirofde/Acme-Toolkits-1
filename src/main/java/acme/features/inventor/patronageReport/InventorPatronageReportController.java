@@ -15,7 +15,7 @@ public class InventorPatronageReportController extends AbstractController<Invent
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorPatronageReportListAllService listAllService;
+	protected InventorPatronageReportListMineService listMineService;
 	
 	@Autowired
 	protected InventorPatronageReportShowService showService;
@@ -26,6 +26,6 @@ public class InventorPatronageReportController extends AbstractController<Invent
 	@PostConstruct
 	protected void intialise() {
 		super.addCommand("show", this.showService);
-		super.addCommand("list-all","list", this.listAllService);
+		super.addCommand("list-mine","list", this.listMineService);
 	}
 }
