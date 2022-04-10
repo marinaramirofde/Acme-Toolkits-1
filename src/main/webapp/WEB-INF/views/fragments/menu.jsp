@@ -46,7 +46,7 @@
 			<acme:menu-suboption code="master.menu.inventor.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.inventor.item.list" action="/any/item/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.inventor.my-components" action="/inventor/item/list-mine-components"/>
+			<acme:menu-suboption code="master.menu.inventor.my-items" action="/inventor/item/list-mine-items"/>
 			<acme:menu-suboption code="master.menu.inventor.patronage-reports" action="/inventor/patronage-report/list-all"/>
 			<acme:menu-suboption code="master.menu.inventor.my-patronages" action="/inventor/patronage/list-mine"/>
 			<acme:menu-separator/>

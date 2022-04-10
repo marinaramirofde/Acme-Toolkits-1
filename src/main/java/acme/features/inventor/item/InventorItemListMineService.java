@@ -13,7 +13,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentListMineService implements AbstractListService<Inventor, Item> {
+public class InventorItemListMineService implements AbstractListService<Inventor, Item> {
 	
 	// Internal state ---------------------------------------------------------
 	
@@ -38,7 +38,7 @@ public class InventorComponentListMineService implements AbstractListService<Inv
 		Principal principal;
 
 		principal = request.getPrincipal();
-		result = this.repository.findManyComponentsByInventorId(principal.getActiveRoleId());
+		result = this.repository.findManyItemsByInventorId(principal.getActiveRoleId());
 
 		return result;
 	}
