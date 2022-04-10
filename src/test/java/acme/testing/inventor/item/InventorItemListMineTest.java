@@ -6,20 +6,21 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorComponentListMineTest extends TestHarness{
+public class InventorItemListMineTest extends TestHarness{
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/item/list-mine-components.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/item/list-mine-items.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Inventor", "My components");
+		super.clickOnMenu("Inventor", "My items");
 		super.checkListingExists();
+		super.sortListing(1, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, typeEntity);
 		super.checkColumnHasValue(recordIndex, 1, name);
