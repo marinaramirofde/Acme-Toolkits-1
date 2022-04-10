@@ -6,20 +6,20 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AnyComponentListTest extends TestHarness{
+public class AnyItemListTest extends TestHarness{
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/administrator/item/list-components.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/item/list-items.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
-		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Administrator", "List all components");
+		super.clickOnMenu("Any", "List possible items");
 		super.checkListingExists();
+		super.sortListing(1, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, typeEntity);
 		super.checkColumnHasValue(recordIndex, 1, name);
@@ -35,9 +35,6 @@ public class AnyComponentListTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
-
-		super.signOut();
 	}
-
 
 }
