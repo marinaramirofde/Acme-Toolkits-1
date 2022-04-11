@@ -36,6 +36,7 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.system-configuration" action="/patron/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.patron.announcement.list-recent" action="/patron/announcement/list-recent"/>	
+			<acme:menu-suboption code="master.menu.patron.my-patronage-reports" action="/patron/patronage-report/list-mine"/>
 			<acme:menu-suboption code="master.menu.patron.my-patronages" action="/patron/patronage/list-mine"/>	
 		</acme:menu-option>
 		

@@ -33,6 +33,7 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 
 master.menu.patron = Patron
 master.menu.patron.announcement.list-recent = List recent announcements
+master.menu.patron.my-patronage-reports = My patronage reports
 master.menu.patron.system-configuration = System Configuration
 master.menu.patron.my-patronages = My patronages
 
