@@ -35,6 +35,7 @@ master.menu.patron = Patron
 master.menu.patron.announcement.list-recent = List recent announcements
 master.menu.patron.system-configuration = System Configuration
 master.menu.patron.my-patronages = My patronages
+master.menu.patron.patron-dashboard = Dashboard
 
 # master.menu.inventor ##########################################################
 

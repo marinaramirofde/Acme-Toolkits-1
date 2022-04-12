@@ -37,6 +37,7 @@
 			<acme:menu-suboption code="master.menu.patron.system-configuration" action="/patron/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.patron.announcement.list-recent" action="/patron/announcement/list-recent"/>	
 			<acme:menu-suboption code="master.menu.patron.my-patronages" action="/patron/patronage/list-mine"/>	
+			<acme:menu-suboption code="master.menu.patron.patron-dashboard" action="/patron/patron-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
