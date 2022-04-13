@@ -20,6 +20,7 @@
       		<acme:menu-suboption code="master.menu.any.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 			<acme:menu-suboption code="master.menu.any.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list"/>
+			<acme:menu-suboption code="master.menu.any.toolkit.list" action="/any/toolkit/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
@@ -36,6 +37,7 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.system-configuration" action="/patron/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.patron.announcement.list-recent" action="/patron/announcement/list-recent"/>	
+			<acme:menu-suboption code="master.menu.patron.my-patronage-reports" action="/patron/patronage-report/list-mine"/>
 			<acme:menu-suboption code="master.menu.patron.my-patronages" action="/patron/patronage/list-mine"/>	
 			<acme:menu-suboption code="master.menu.patron.patron-dashboard" action="/patron/patron-dashboard/show"/>
 		</acme:menu-option>
