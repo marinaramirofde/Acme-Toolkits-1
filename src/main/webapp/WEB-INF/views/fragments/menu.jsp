@@ -20,6 +20,7 @@
       		<acme:menu-suboption code="master.menu.any.user-account.list-all-user-accounts" action="/any/user-account/list-all-user-accounts"/>
 			<acme:menu-suboption code="master.menu.any.chirp.list-recent" action="/any/chirp/list-recent"/>
 			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list"/>
+			<acme:menu-suboption code="master.menu.any.toolkit.list" action="/any/toolkit/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
