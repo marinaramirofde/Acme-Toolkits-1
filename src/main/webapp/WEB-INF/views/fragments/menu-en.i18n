@@ -15,6 +15,7 @@ master.menu.any = Any
 master.menu.any.user-account.list-all-user-accounts = List user accounts
 master.menu.any.chirp.list-recent = List recent chirps
 master.menu.any.item.list = List possible items
+master.menu.any.toolkit.list = List possible toolkits
 
 # master.menu.authenticated #######################################################
 

@@ -15,6 +15,7 @@ master.menu.any = Any
 master.menu.any.user-account.list-all-user-accounts = Ver cuentas de usuario
 master.menu.any.chirp.list-recent = Ver chirps recientes
 master.menu.any.item.list = Ver posibles objetos
+master.menu.any.toolkit.list = Ver posibles kits de herramientas
 
 # master.menu.authenticated #######################################################
 
