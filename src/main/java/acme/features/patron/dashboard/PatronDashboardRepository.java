@@ -31,9 +31,9 @@ public interface PatronDashboardRepository extends AbstractRepository {
     @Query("select p.budget.currency, max(p.budget.amount), p.status from Patronage p group by p.budget.currency, p.status")
     List<String> maxBudgetByCurrency();
     
-    @Query("select p.budget.currency from Patronage p")
-    List<String> getAllCurrencies();
-    
-    @Query("select p.status from Patronage p")
-    List<Integer> getAllStatus();
+//    @Query("select p.budget.currency from Patronage p")
+//    List<String> getAllCurrencies();
+//    
+//    @Query("select p.status from Patronage p")
+//    List<Integer> getAllStatus();
 }
