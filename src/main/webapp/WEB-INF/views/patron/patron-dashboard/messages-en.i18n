@@ -1,0 +1,20 @@
+patron.dashboard.form.title.general-indicators = General indicators 
+patron.dashboard.form.label.total-number-of-proposed-patronages = Total number of proposed patronages
+patron.dashboard.form.label.total-number-of-accepted-patronages = Total number of accepted patronages
+patron.dashboard.form.label.total-number-of-denied-patronages = Total number of denied patronages
+
+patron.dashboard.form.title.application-average = Average
+patron.patron-dashboard.form.label.currency = currency
+patron.patron-dashboard.form.label.status = status
+
+patron.dashboard.form.title.application-deviation = Deviation
+patron.patron-dashboard.form.label.currency = currency
+patron.patron-dashboard.form.label.status = status
+
+patron.dashboard.form.title.application-max = Max
+patron.patron-dashboard.form.label.currency = currency
+patron.patron-dashboard.form.label.status = status
+
+patron.dashboard.form.title.application-min = Min
+patron.patron-dashboard.form.label.currency = currency
+patron.patron-dashboard.form.label.status = status

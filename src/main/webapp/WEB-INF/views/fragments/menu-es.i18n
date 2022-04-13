@@ -37,6 +37,7 @@ master.menu.patron.announcement.list-recent = Ver anuncios recientes
 master.menu.patron.my-patronage-reports = Ver mis reportes de los patrocinios
 master.menu.patron.system-configuration = Configuración del sistema
 master.menu.patron.my-patronages = Mis patrocinios
+master.menu.patron.patron-dashboard = Panel de indicadores
 
 # master.menu.inventor ####################################################
 

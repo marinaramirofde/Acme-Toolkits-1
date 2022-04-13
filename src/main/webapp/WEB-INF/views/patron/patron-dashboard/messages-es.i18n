@@ -1,0 +1,20 @@
+patron.dashboard.form.title.general-indicators = Indicadores generales
+patron.dashboard.form.label.total-number-of-proposed-patronages = Nº total de patrocinios propuestos
+patron.dashboard.form.label.total-number-of-accepted-patronages = Nº total de patrocinios aceptados
+patron.dashboard.form.label.total-number-of-denied-patronages = Nº total de patrocinios denegados
+
+patron.dashboard.form.title.application-average = Media
+patron.patron-dashboard.form.label.currency = divisa
+patron.patron-dashboard.form.label.status = estado
+
+patron.dashboard.form.title.application-deviation = Desviación
+patron.patron-dashboard.form.label.currency = divisa
+patron.patron-dashboard.form.label.status = estado
+
+patron.dashboard.form.title.application-max = Máx
+patron.patron-dashboard.form.label.currency = divisa
+patron.patron-dashboard.form.label.status = estado
+
+patron.dashboard.form.title.application-min = Min
+patron.patron-dashboard.form.label.currency = divisa
+patron.patron-dashboard.form.label.status = estado
