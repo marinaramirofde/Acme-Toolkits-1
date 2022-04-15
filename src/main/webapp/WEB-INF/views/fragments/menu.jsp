@@ -45,6 +45,7 @@
 			<acme:menu-suboption code="master.menu.inventor.my-patronages" action="/inventor/patronage/list-mine"/>
 			<acme:menu-suboption code="master.menu.inventor.system-configuration" action="/inventor/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.inventor.announcement.list-recent" action="/inventor/announcement/list-recent"/>
+			<acme:menu-suboption code="master.menu.inventor.toolkit.list-mine-toolkits" action="/inventor/toolkit/list-mine-toolkits"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>

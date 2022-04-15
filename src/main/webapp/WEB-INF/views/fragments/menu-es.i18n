@@ -44,6 +44,7 @@ master.menu.inventor.my-patronage-reports = Ver mis reportes de los patrocinios
 master.menu.inventor.my-patronages = Mis patrocinios
 master.menu.inventor.system-configuration = Configuración del sistema
 master.menu.inventor.announcement.list-recent = Ver anuncios recientes
+master.menu.inventor.toolkit.list-mine-toolkits = Mis kits de herramientas
 
 # master.menu.user-account ####################################################
 
