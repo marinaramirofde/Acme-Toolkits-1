@@ -17,22 +17,21 @@ public class AdministratorDashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 
-	int totalNumberOfComponents;
-	Map<Pair<String,String>,Double> averageRetailPriceOfComponentsByTechnologyAndCurrency;
-	Map<Pair<String,String>,Double> deviationRetailPriceOfComponentsByTechnologyAndCurrency;
-	Map<Pair<String,String>,Double> minimumRetailPriceOfComponentsByTechnologyAndCurrency;
-	Map<Pair<String,String>,Double>  maximumRetailPriceOfComponentsByTechnologyAndCurrency;
+	int	numberOfComponents;
+	Map<Pair<String, String>, Double> averageRetailPriceOfComponentsByTechnologyAndCurrency;
+	Map<Pair<String, String>, Double> deviationRetailPriceOfComponentsByTechnologyAndCurrency;
+	Map<Pair<String, String>, Double> minRetailPriceOfComponentsByTechnologyAndCurrency;
+	Map<Pair<String, String>, Double> maxRetailPriceOfComponentsByTechnologyAndCurrency;
 	
-	int totalNumberOfTools;
-	Map<String,Double> averageRetailPriceOfToolsByCurrency;
-	Map<String,Double> deviationRetailPriceOfToolsByCurrency;
-	Map<String,Double> minimumRetailPriceOfToolsByCurrency;
-	Map<String,Double> maximumRetailPriceOfToolsByCurrency;
-
-	Map<Status, Integer>  numberOfPatronagesByStatus;
+	int	numberOfTools;
+	Map<String, Double>	averageRetailPriceOfToolsByCurrency;
+	Map<String, Double> deviationRetailPriceOfToolsByCurrency;
+	Map<String, Double>	minRetailPriceOfToolsByCurrency;
+	Map<String, Double>	maxRetailPriceOfToolsByCurrency;
 	
-	Map<Status,Double> averageBudgetByPatronagesStatus;
-	Map<Status,Double> deviationBudgetByPatronagesStatus;
-	Map<Status,Double> minimumBudgetByPatronagesStatus;
-	Map<Status,Double> maximumBudgetByPatronagesStatus;
+	Map<Status, Integer> numberOfPatronagesByStatus;
+	Map<Status, Double>	averageBudgetOfPatronagesByStatus;
+	Map<Status, Double> deviationBudgetOfPatronagesByStatus;
+	Map<Status, Double> minBudgetOfPatronagesByStatus;
+	Map<Status, Double> maxBudgetOfPatronagesByStatus;
 }
