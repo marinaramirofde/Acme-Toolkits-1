@@ -138,12 +138,6 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		result.setMinBudgetByCurrencyAndStatus(minBudgetByCurrencyAndStatus);
 		result.setMaxBudgetByCurrencyAndStatus(maxBudgetByCurrencyAndStatus);
 		
-		System.out.println("P1" + numberOfPatronagesByStatus);
-		System.out.println("P2" + averageNumberOfBudgetsByCurrencyAndStatus);
-		System.out.println("P3" + deviationOfBudgetsByCurrencyAndStatus);
-		System.out.println("P4" + minBudgetByCurrencyAndStatus);
-		System.out.println("P5" + maxBudgetByCurrencyAndStatus);
-		
 		return result;
 		
 	}
