@@ -1,5 +1,6 @@
 package acme.features.patron.dashboard;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
+import acme.entities.patronages.Status;
 import acme.forms.PatronDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -23,75 +25,127 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 	@Override
 	public boolean authorise(final Request<PatronDashboard> request) {
 		assert request != null;
-		return true;
+		boolean result;
+
+		result = request.getPrincipal().hasRole(Patron.class);
+
+		return result;
 	}
 
 	@Override
 	public PatronDashboard findOne(final Request<PatronDashboard> request) {
-
 		assert request != null;
-		
-		final PatronDashboard result=new PatronDashboard();
-		
-		final int totalNumberOfProposedPatronages=this.repository.totalNumberOfProposedPatronages();
-		final int totalNumberOfAcceptedPatronages=this.repository.totalNumberOfAcceptedPatronages();
-		final int totalNumberOfDeniedPatronages=this.repository.totalNumberOfDeniedPatronages();
-		
-		final Map<Pair<String, String>, Double> averageBudgetByByPatronagesStatusAndCurrency = new HashMap<>();
-		final Map<Pair<String, String>, Double> deviationBudgetByByPatronagesStatusAndCurrency = new HashMap<>();
-		final Map<Pair<String, String>, Double> minBudgetByByPatronagesStatusAndCurrency = new HashMap<>();
-		final Map<Pair<String, String>, Double> maxBudgetByByPatronagesStatusAndCurrency = new HashMap<>();
 
-		for(int i=0;i<this.repository.averageBudgetByCurrency().size();i++) {
-			final String linea= this.repository.averageBudgetByCurrency().get(i);
-			final String[] sub=linea.split(",");
-			final Double key=Double.parseDouble(sub[1]);
-			final String divisa=sub[0];
-			final String estado= sub[2];
-			final Pair<String, String> res=Pair.of(divisa, estado);
-			averageBudgetByByPatronagesStatusAndCurrency.put(res, key);
-		}
+		final PatronDashboard result;
+		EnumMap<Status, Integer> numberOfPatronagesByStatus;
+		numberOfPatronagesByStatus = new EnumMap<>(Status.class);
+		Map<Pair<Status, String>, Double> averageNumberOfBudgetsByCurrencyAndStatus;
+		Map<Pair<Status, String>, Double> deviationOfBudgetsByCurrencyAndStatus;
+		Map<Pair<Status, String>, Double> minBudgetByCurrencyAndStatus;
+		Map<Pair<Status, String>, Double> maxBudgetByCurrencyAndStatus;
+
+		final Integer numberOfProposedPatronages = this.repository.numberOfPatronagesByStatus(Status.PROPOSED);
+		final Integer numberOfAcceptedPatronages = this.repository.numberOfPatronagesByStatus(Status.ACCEPTED);
+		final Integer numberOfDeniedPatronages = this.repository.numberOfPatronagesByStatus(Status.DENIED);
+		numberOfPatronagesByStatus.put(Status.PROPOSED, numberOfProposedPatronages);
+		numberOfPatronagesByStatus.put(Status.ACCEPTED, numberOfAcceptedPatronages);
+		numberOfPatronagesByStatus.put(Status.DENIED, numberOfDeniedPatronages);
 		
-		for(int i=0;i<this.repository.deviationBudgetByCurrency().size();i++) {
-			final String linea= this.repository.deviationBudgetByCurrency().get(i);
-			final String[] sub=linea.split(",");
-			final Double key=Double.parseDouble(sub[1]);
-			final String divisa=sub[0];
-			final String estado= sub[2];
-			final Pair<String, String> res=Pair.of(divisa, estado);
-			deviationBudgetByByPatronagesStatusAndCurrency.put(res, key);
-		}
+		averageNumberOfBudgetsByCurrencyAndStatus = new HashMap<>();	
+		this.repository.averageNumberOfBudgetsByCurrencyAndStatus(Status.PROPOSED).stream()
+		.forEach(x->
+			averageNumberOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.PROPOSED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.averageNumberOfBudgetsByCurrencyAndStatus(Status.ACCEPTED).stream()
+		.forEach(x->
+			averageNumberOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.ACCEPTED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.averageNumberOfBudgetsByCurrencyAndStatus(Status.DENIED).stream()
+		.forEach(x->
+			averageNumberOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.DENIED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
 		
-		for(int i=0;i<this.repository.minBudgetByCurrency().size();i++) {
-			final String linea= this.repository.minBudgetByCurrency().get(i);
-			final String[] sub=linea.split(",");
-			final Double key=Double.parseDouble(sub[1]);
-			final String divisa=sub[0];
-			final String estado= sub[2];
-			final Pair<String, String> res=Pair.of(divisa, estado);
-			minBudgetByByPatronagesStatusAndCurrency.put(res, key);
-		}
+		deviationOfBudgetsByCurrencyAndStatus = new HashMap<Pair<Status, String>, Double>();	
+		this.repository.deviationOfBudgetsByCurrencyAndStatus(Status.PROPOSED).stream()
+		.forEach(x->
+		deviationOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.PROPOSED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.deviationOfBudgetsByCurrencyAndStatus(Status.ACCEPTED).stream()
+		.forEach(x->
+		deviationOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.ACCEPTED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.deviationOfBudgetsByCurrencyAndStatus(Status.DENIED).stream()
+		.forEach(x->
+		deviationOfBudgetsByCurrencyAndStatus.put(
+				Pair.of(Status.DENIED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
 		
-		for(int i=0;i<this.repository.maxBudgetByCurrency().size();i++) {
-			final String linea= this.repository.maxBudgetByCurrency().get(i);
-			final String[] sub=linea.split(",");
-			final Double key=Double.parseDouble(sub[1]);
-			final String divisa=sub[0];
-			final String estado= sub[2];
-			final Pair<String, String> res=Pair.of(divisa, estado);
-			maxBudgetByByPatronagesStatusAndCurrency.put(res, key);
-		}
+		minBudgetByCurrencyAndStatus = new HashMap<Pair<Status, String>, Double>();	
+		this.repository.minBudgetByCurrencyAndStatus(Status.PROPOSED).stream()
+		.forEach(x->
+		minBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.PROPOSED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.minBudgetByCurrencyAndStatus(Status.ACCEPTED).stream()
+		.forEach(x->
+		minBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.ACCEPTED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.minBudgetByCurrencyAndStatus(Status.DENIED).stream()
+		.forEach(x->
+		minBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.DENIED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
 		
-		result.setTotalNumberOfAcceptedPatronages(totalNumberOfAcceptedPatronages);
-		result.setTotalNumberOfProposedPatronages(totalNumberOfProposedPatronages);
-		result.setTotalNumberOfDeniedPatronages(totalNumberOfDeniedPatronages);
+		maxBudgetByCurrencyAndStatus = new HashMap<Pair<Status, String>, Double>();	
+		this.repository.maxBudgetByCurrencyAndStatus(Status.PROPOSED).stream()
+		.forEach(x->
+		maxBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.PROPOSED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.maxBudgetByCurrencyAndStatus(Status.ACCEPTED).stream()
+		.forEach(x->
+		maxBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.ACCEPTED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+		this.repository.maxBudgetByCurrencyAndStatus(Status.DENIED).stream()
+		.forEach(x->
+		maxBudgetByCurrencyAndStatus.put(
+				Pair.of(Status.DENIED, x.get(0).toString()),
+				Double.parseDouble(x.get(1).toString()))
+			);
+
+		result = new PatronDashboard();
+		result.setNumberOfPatronagesByStatus(numberOfPatronagesByStatus);
+		result.setAverageNumberOfBudgetsByCurrencyAndStatus(averageNumberOfBudgetsByCurrencyAndStatus);
+		result.setDeviationOfBudgetsByCurrencyAndStatus(deviationOfBudgetsByCurrencyAndStatus);
+		result.setMinBudgetByCurrencyAndStatus(minBudgetByCurrencyAndStatus);
+		result.setMaxBudgetByCurrencyAndStatus(maxBudgetByCurrencyAndStatus);
 		
-		result.setAverageBudgeByPatronagesStatusAndCurrency(averageBudgetByByPatronagesStatusAndCurrency);
-		result.setDesviationBudgeByPatronagesStatusAndCurrency(deviationBudgetByByPatronagesStatusAndCurrency);
-		result.setMinimunBudgeByPatronagesStatusAndCurrency(minBudgetByByPatronagesStatusAndCurrency);
-		result.setMaximunBudgeByPatronagesStatusAndCurrency(maxBudgetByByPatronagesStatusAndCurrency);
-	
+		System.out.println("P1" + numberOfPatronagesByStatus);
+		System.out.println("P2" + averageNumberOfBudgetsByCurrencyAndStatus);
+		System.out.println("P3" + deviationOfBudgetsByCurrencyAndStatus);
+		System.out.println("P4" + minBudgetByCurrencyAndStatus);
+		System.out.println("P5" + maxBudgetByCurrencyAndStatus);
+		
 		return result;
+		
 	}
 
 	@Override
@@ -100,9 +154,11 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "totalNumberOfProposedPatronages", "totalNumberOfAcceptedPatronages", "totalNumberOfDeniedPatronages", 
-			"averageBudgeByPatronagesStatusAndCurrency", "desviationBudgeByPatronagesStatusAndCurrency", "maximunBudgeByPatronagesStatusAndCurrency",
-			"minimunBudgeByPatronagesStatusAndCurrency");
+		request.unbind(entity, model, //
+			"numberOfPatronagesByStatus", "averageNumberOfBudgetsByCurrencyAndStatus", // 
+			"deviationOfBudgetsByCurrencyAndStatus", "minBudgetByCurrencyAndStatus", //
+			"maxBudgetByCurrencyAndStatus");
+	
 	}
 
 }
