@@ -1,20 +1,6 @@
-patron.dashboard.form.title.general-indicators = General indicators 
-patron.dashboard.form.label.total-number-of-proposed-patronages = Total number of proposed patronages
-patron.dashboard.form.label.total-number-of-accepted-patronages = Total number of accepted patronages
-patron.dashboard.form.label.total-number-of-denied-patronages = Total number of denied patronages
-
-patron.dashboard.form.title.application-average = Average
-patron.patron-dashboard.form.label.currency = currency
-patron.patron-dashboard.form.label.status = status
-
-patron.dashboard.form.title.application-deviation = Deviation
-patron.patron-dashboard.form.label.currency = currency
-patron.patron-dashboard.form.label.status = status
-
-patron.dashboard.form.title.application-max = Max
-patron.patron-dashboard.form.label.currency = currency
-patron.patron-dashboard.form.label.status = status
-
-patron.dashboard.form.title.application-min = Min
-patron.patron-dashboard.form.label.currency = currency
-patron.patron-dashboard.form.label.status = status
+patron.dashboard.form.title = Patron dashboard
+patron.dashboard.form.label.number-of-patronages-by-status = Patronages by status
+patron.dashboard.form.label.average-number-of-budgets-by-currency-and-status = Average price of a budget by currency and status
+patron.dashboard.form.label.deviation-of-budgets-by-currency-and-status = Deviation of the price of the budgets by currency and status
+patron.dashboard.form.label.min-budget-by-currency-and-status = Minimum price of a budget by currency and status
+patron.dashboard.form.label.max-budget-by-currency-and-status = Maximum price of a budget by currency and status
