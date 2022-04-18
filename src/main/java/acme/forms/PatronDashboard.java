@@ -15,12 +15,9 @@ public class PatronDashboard implements Serializable {
 
 	protected static final long	serialVersionUID	= 1L;
 	
-	int totalNumberOfProposedPatronagres;
-	int totalNumberOfAcceptedPatronagres;
-	int totalNumberOfDeniedPatronagres;
-	
-	Map<Pair<Status, String>, Double> averageBudgeByPatronagesStatusAndCurrency;
-	Map<Pair<Status, String>, Double> desviationBudgeByPatronagesStatusAndCurrency;
-	Map<Pair<Status, String>, Double> maximunBudgeByPatronagesStatusAndCurrency;
-	Map<Pair<Status, String>, Double> minimunBudgeByPatronagesStatusAndCurrency;
+	Map<Status, Integer>  numberOfPatronagesByStatus;
+	Map<Pair<Status, String>, Double> averageNumberOfBudgetsByCurrencyAndStatus;
+	Map<Pair<Status, String>, Double> deviationOfBudgetsByCurrencyAndStatus;
+	Map<Pair<Status, String>, Double> minBudgetByCurrencyAndStatus;
+	Map<Pair<Status, String>, Double> maxBudgetByCurrencyAndStatus;
 }
