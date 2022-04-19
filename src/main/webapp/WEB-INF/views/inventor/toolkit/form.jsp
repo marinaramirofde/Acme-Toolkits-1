@@ -7,7 +7,7 @@
 	<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.title" path="title"/>	
 	<acme:input-textarea code="inventor.toolkit.form.label.description" path="description"/>	
-	<acme:input-textarea code="inventor.toolkit.form.label.assembleNotes" path="assembleNotes"/>
+	<acme:input-textarea code="inventor.toolkit.form.label.assembleNotes" path="assemblyNotes"/>
 	<acme:input-url code="inventor.toolkit.form.label.link" path="link"/>	
 	<acme:input-textbox code="inventor.toolkit.form.label.toolkitPrice" path="toolkitPrice"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.published" path="published"/>

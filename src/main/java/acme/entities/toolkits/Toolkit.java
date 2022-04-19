@@ -39,7 +39,7 @@ public class Toolkit extends AbstractEntity{
 	
 	@NotBlank
 	@Length(min=1, max= 255)
-	protected String assembleNotes;
+	protected String assemblyNotes;
 	
 	@URL
 	protected String link;

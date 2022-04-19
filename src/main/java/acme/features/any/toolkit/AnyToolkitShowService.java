@@ -52,7 +52,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assembleNotes", "link");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 		
@@ -64,9 +64,9 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		model.setAttribute("toolkitPrice", toolkitPrice);
 		
 		String result = "";
-		if(entity.isPublished()) {
-            result = "The toolkit is published";
-        }
+
+		result = entity.isPublished() ? "The toolkit is published": "The toolkit is not published";
+		
         model.setAttribute("published", result);
 	}
 }
