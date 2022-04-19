@@ -9,17 +9,19 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 
-# master.menu.any ##############################################################
-
-master.menu.any = Any
-master.menu.any.user-account.list-all-user-accounts = Ver cuentas de usuario
-master.menu.any.chirp.list-recent = Ver chirps recientes
-master.menu.any.item.list = Ver posibles objetos
-master.menu.any.toolkit.list = Ver posibles kits de herramientas
+master.menu.anonymous.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.anonymous.chirp.list-recent = Ver chirps recientes
+master.menu.anonymous.item.list = Ver objetos publicados
+master.menu.anonymous.toolkit.list = Ver kits de herramientas publicados
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
+
+master.menu.authenticated.user-account.list-all-user-accounts = Ver cuentas de usuario
+master.menu.authenticated.chirp.list-recent = Ver chirps recientes
+master.menu.authenticated.item.list = Ver objetos publicados
+master.menu.authenticated.toolkit.list = Ver kits de herramientas publicados
 master.menu.authenticated.announcement.list-recent = Ver anuncios recientes
 master.menu.authenticated.system-configuration = Configuración del sistema
 
@@ -32,23 +34,19 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Ver configuracion del sistema
 master.menu.administrator.administrator-dashboard = Panel de indicadores
 
-# master.menu.patron ####################################################
+# master.menu.patron ##########################################################
 
-master.menu.patron = Patrón
-master.menu.patron.announcement.list-recent = Ver anuncios recientes
-master.menu.patron.my-patronage-reports = Ver mis reportes de los patrocinios
-master.menu.patron.system-configuration = Configuración del sistema
+master.menu.patron = Patron
+master.menu.patron.my-patronage-reports = Mis reportes de los patrocinios
 master.menu.patron.my-patronages = Mis patrocinios
 master.menu.patron.patron-dashboard = Panel de indicadores
 
-# master.menu.inventor ####################################################
+# master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
 master.menu.inventor.my-items = Mis objetos
-master.menu.inventor.my-patronage-reports = Ver mis reportes de los patrocinios
+master.menu.inventor.my-patronage-reports = Mis reportes de los patrocinios
 master.menu.inventor.my-patronages = Mis patrocinios
-master.menu.inventor.system-configuration = Configuración del sistema
-master.menu.inventor.announcement.list-recent = Ver anuncios recientes
 master.menu.inventor.toolkit.list-mine-toolkits = Mis kits de herramientas
 
 # master.menu.user-account ####################################################
