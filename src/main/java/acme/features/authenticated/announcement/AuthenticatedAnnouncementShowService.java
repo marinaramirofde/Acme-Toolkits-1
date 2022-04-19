@@ -63,9 +63,16 @@ public class AuthenticatedAnnouncementShowService implements AbstractShowService
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "creationMoment", "title", "body","criticalFlag","link");
+		String criticalFlag = "";
+
+		criticalFlag = entity.isCriticalFlag() ? "The flag is critical": "The flag is not critical";
+		
+		request.unbind(entity, model, "creationMoment", "title", "body","link");
+		
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
+		
+		model.setAttribute("criticalFlag", criticalFlag);
 	}
 
 }
