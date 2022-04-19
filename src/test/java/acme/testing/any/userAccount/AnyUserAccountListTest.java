@@ -17,7 +17,7 @@ public class AnyUserAccountListTest extends TestHarness{
     @Order(10)
     public void positiveTest(final int recordIndex, final String roleList, final String name, final String surname, final String email) {
 
-        super.clickOnMenu("Any", "List user accounts");
+        super.clickOnMenu("Anonymous", "List User Accounts");
         super.checkListingExists();
         super.sortListing(1, "asc");
 

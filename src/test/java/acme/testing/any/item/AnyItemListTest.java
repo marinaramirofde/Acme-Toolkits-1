@@ -17,7 +17,7 @@ public class AnyItemListTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology, final String description, final String retailPrice, final String link) {
 
-		super.clickOnMenu("Any", "List possible items");
+		super.clickOnMenu("Anonymous", "List published items");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 		

@@ -13,7 +13,7 @@ public class AnyToolkitListTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String code, final String title, final String description,
 		final String assembleNotes, final String link,final String published, final String toolkitPrice) {
-		super.clickOnMenu("Any", "List possible toolkits");
+		super.clickOnMenu("Anonymous", "List published toolkits");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 		

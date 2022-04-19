@@ -17,7 +17,7 @@ public class AnyChirpListTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String creationMoment, final String title, final String author, final String body, final String email) {
 
-		super.clickOnMenu("Any", "List recent chirps");
+		super.clickOnMenu("Anonymous", "List recent chirps");
 		super.checkListingExists();
 
 		super.checkColumnHasValue(recordIndex, 0, creationMoment);
