@@ -77,15 +77,12 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		targetCurrency = request.getModel().getAttribute("targetCurrency", String.class);
 		exchange = this.computeMoneyExchange(source, targetCurrency);
 		errors.state(request, exchange != null, "*", "authenticated.money-exchange.form.label.api-error");
-		if (exchange == null) {
-			entity.setTarget(null);
-			entity.setDate(null);
-		} else {
-			target = exchange.getTarget();
-			entity.setTarget(target);
-			date = exchange.getDate();
-			entity.setDate(date);
-		}
+
+		target = exchange.getTarget();
+		entity.setTarget(target);
+		date = exchange.getDate();
+		entity.setDate(date);
+
 	}
 
 	// Ancillary methods ------------------------------------------------------
@@ -101,35 +98,31 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		Double sourceAmount, targetAmount, rate;
 		Money target;
 
-		try {
-			api = new RestTemplate();
+		api = new RestTemplate();
 
-			sourceCurrency = source.getCurrency();
-			sourceAmount = source.getAmount();
+		sourceCurrency = source.getCurrency();
+		sourceAmount = source.getAmount();
 
-			record = api.getForObject( //
-				"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
-				ExchangeRate.class, //
-				sourceCurrency, //
-				targetCurrency //
+		record = api.getForObject( //
+			"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
+			ExchangeRate.class, //
+			sourceCurrency, //
+			targetCurrency //
 			);
 
-			assert record != null;
-			rate = record.getRates().get(targetCurrency);
-			targetAmount = rate * sourceAmount;
+		assert record != null;
+		rate = record.getRates().get(targetCurrency);
+		targetAmount = rate * sourceAmount;
 
-			target = new Money();
-			target.setAmount(targetAmount);
-			target.setCurrency(targetCurrency);
+		target = new Money();
+		target.setAmount(targetAmount);
+		target.setCurrency(targetCurrency);
 
-			result = new MoneyExchange();
-			result.setSource(source);
-			result.setTargetCurrency(targetCurrency);
-			result.setDate(record.getDate());
-			result.setTarget(target);
-		} catch (final Throwable oops) {
-			result = null;
-		}
+		result = new MoneyExchange();
+		result.setSource(source);
+		result.setTargetCurrency(targetCurrency);
+		result.setDate(record.getDate());
+		result.setTarget(target);
 
 		return result;
 	}
