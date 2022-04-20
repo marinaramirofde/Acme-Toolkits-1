@@ -5,7 +5,6 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.currencyExchanges.ExchangeRate;
 import acme.entities.items.Item;
 import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
@@ -22,8 +21,8 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	
 	//PRECIO DE LAS TOOLKITS
 	
-	@Query("select r from ExchangeRate r where r.currencyExchange.base = :currency and r.currency = :targetCurrency")
-	ExchangeRate findExchangeRateBySourceCurrency(String currency, String targetCurrency);
+//	@Query("select r from ExchangeRate r where r.currencyExchange.base = :currency and r.currency = :targetCurrency")
+//	ExchangeRate findExchangeRateBySourceCurrency(String currency, String targetCurrency);
 	
 	//QUERYS NECESARIAS PARA MOSTRAR LOS ITEMS DE SUS TOOLKITS
 	

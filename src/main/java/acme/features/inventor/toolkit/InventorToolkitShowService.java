@@ -5,8 +5,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.MoneyExchange;
 import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -73,7 +75,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		result = entity.isPublished() ? "The toolkit is published": "The toolkit is not published";
         model.setAttribute("published", result);
 	}
-		
+	
 	/**
 	 * @param toolkitId
 	 * @return the total price of the toolkit with his currency
@@ -82,14 +84,14 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final Money result = new Money();
 		result.setAmount(0.0);
 		result.setCurrency("EUR");
-		final MoneyExange moneyExange = new MoneyExange();
+		final AuthenticatedMoneyExchangePerformService moneyExange = new AuthenticatedMoneyExchangePerformService();
 		final Collection<Quantity> quantities = this.repository.findManyQuantitiesByToolkitId(toolkitId);
 		
 		for(final Quantity quantity: quantities) {
 			final Money itemMoney = quantity.getItem().getRetailPrice();
 			final int number = quantity.getNumber();
-			final Money itemMoneyExchanged = moneyExange.changeCurrency(itemMoney, "EUR", this.repository);
-			final double newNumber = result.getAmount() + itemMoneyExchanged.getAmount()*number;
+			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, "EUR");
+			final double newNumber = result.getAmount() + itemMoneyExchanged.getTarget().getAmount()*number;
 			result.setAmount(newNumber);
 		}
 		return result;
