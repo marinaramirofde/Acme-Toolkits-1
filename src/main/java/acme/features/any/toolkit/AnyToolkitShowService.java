@@ -1,11 +1,17 @@
 package acme.features.any.toolkit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.MoneyExchange;
+import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
@@ -38,10 +44,12 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert request != null;
 
 		Toolkit result;
-		int id;
+		int toolkitId;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		toolkitId = request.getModel().getInteger("id");
+		result = this.repository.findOneById(toolkitId);
+		
+		result.setRetailPrice(this.totalPriceOfToolkit(toolkitId));
 
 		return result;
 	}
@@ -51,22 +59,40 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		final String retailPrice = entity.getRetailPrice().toString().replace("<<", "").replace(">>", "");
+		
+		model.setAttribute("price", retailPrice);
 
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 		
-		int toolkitId;
-        double toolkitPrice;
-
-        toolkitId =  request.getModel().getInteger("id");
-        toolkitPrice = this.repository.getToolkitPriceById(toolkitId);
-		model.setAttribute("toolkitPrice", toolkitPrice);
-		
 		String result = "";
 
 		result = entity.isPublished() ? "The toolkit is published": "The toolkit is not published";
-		
         model.setAttribute("published", result);
+	}
+	
+	/**
+	 * @param toolkitId
+	 * @return the total price of the toolkit with his currency
+	 */
+	private Money totalPriceOfToolkit(final int toolkitId) {
+		final Money result = new Money();
+		result.setAmount(0.0);
+		result.setCurrency("EUR");
+		final AuthenticatedMoneyExchangePerformService moneyExange = new AuthenticatedMoneyExchangePerformService();
+		final Collection<Quantity> quantities = this.repository.findManyQuantitiesByToolkitId(toolkitId);
+		
+		for(final Quantity quantity: quantities) {
+			final Money itemMoney = quantity.getItem().getRetailPrice();
+			final int number = quantity.getNumber();
+			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, "EUR");
+			final double newNumber = result.getAmount() + itemMoneyExchanged.getTarget().getAmount()*number;
+			result.setAmount(newNumber);
+		}
+		
+		return result;
 	}
 }

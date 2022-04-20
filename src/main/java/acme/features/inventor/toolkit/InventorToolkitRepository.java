@@ -19,11 +19,6 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	@Query("select t from Toolkit t where t.inventor.id = :inventorId")
 	Collection<Toolkit> findManyToolkitsByInventorId(int inventorId);
 	
-	//PRECIO DE LAS TOOLKITS
-	
-//	@Query("select r from ExchangeRate r where r.currencyExchange.base = :currency and r.currency = :targetCurrency")
-//	ExchangeRate findExchangeRateBySourceCurrency(String currency, String targetCurrency);
-	
 	//QUERYS NECESARIAS PARA MOSTRAR LOS ITEMS DE SUS TOOLKITS
 	
 	@Query("select q from Quantity q where q.toolkit.id = :id")
@@ -31,4 +26,5 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	
 	@Query("select q.item from Quantity q where q.id = :id")
 	Collection<Item> findManyItemsByQuantityId(int id);
+	
 }

@@ -16,9 +16,9 @@ public class InventorToolkitListMineTest extends TestHarness{
 	@CsvFileSource(resources = "/inventor/toolkit/list-mine-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String code,  final String title, final String description, final String assemblyNotes, final String link,
-		final String toolkitPrice, final String published) {
+		final String price, final String published) {
+		
 		super.signIn("inventor1", "inventor1");
-
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
@@ -26,19 +26,21 @@ public class InventorToolkitListMineTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 		super.checkColumnHasValue(recordIndex, 2, published);
-
 		super.clickOnListingRecord(recordIndex);
+		
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("toolkitPrice", toolkitPrice);
+		super.checkInputBoxHasValue("price", price);
 		super.checkInputBoxHasValue("published", published);
-
+				
+		super.checkButtonExists("Items");
+		super.clickOnButton("Items");
+		super.checkListingExists();
 		super.signOut();
 	}
-
 
 }

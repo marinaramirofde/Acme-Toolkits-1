@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.items.Item;
+import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 
@@ -17,6 +19,12 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	@Query("select i from Toolkit i where i.published = 1")
 	Collection<Toolkit> findPublished();
 	
-	@Query("select sum(q.number*q.item.retailPrice.amount) from Quantity q where q.toolkit.id = ?1")
-    double getToolkitPriceById(int toolkitId);
+	//QUERYS NECESARIAS PARA MOSTRAR LOS ITEMS DE SUS TOOLKITS
+	
+	@Query("select q from Quantity q where q.toolkit.id = :id")
+	Collection<Quantity> findManyQuantitiesByToolkitId(int id);
+	
+	@Query("select q.item from Quantity q where q.id = :id")
+	Collection<Item> findManyItemsByQuantityId(int id);
+	
 }

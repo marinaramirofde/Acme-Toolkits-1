@@ -62,7 +62,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert entity != null;
 		assert model != null;
 		
-		final String retailPrice = entity.getRetailPrice().toString();
+		final String retailPrice = entity.getRetailPrice().toString().replace("<<", "").replace(">>", "");
 		
 		model.setAttribute("price", retailPrice);
 
