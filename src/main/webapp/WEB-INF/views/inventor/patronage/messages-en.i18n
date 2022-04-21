@@ -8,6 +8,9 @@ inventor.patronage.form.label.end = End:
 inventor.patronage.form.label.link = Link:
 inventor.patronage.form.label.fullName = Patron's fullName:
 inventor.patronage.form.label.email = Patron's email:
+inventor.patronage.form.label.company = Patron's company:
+inventor.patronage.form.label.statement = Patron's statement:
+inventor.patronage.form.label.link = Patron's link:
 
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code

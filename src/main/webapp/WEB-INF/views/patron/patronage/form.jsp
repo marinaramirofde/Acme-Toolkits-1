@@ -18,5 +18,8 @@
 	<acme:input-url code="patron.patronage.form.label.link" path="link"/>
 	<acme:input-textbox code="patron.patronage.form.label.fullName" path="inventorProfileFullName"/>
 	<acme:input-textbox code="patron.patronage.form.label.email" path="inventorProfileEmail"/>
+	<acme:input-textbox code="patron.patronage.form.label.company" path="inventorCompany"/>
+	<acme:input-textbox code="patron.patronage.form.label.statement" path="inventorStatement"/>
+	<acme:input-textbox code="patron.patronage.form.label.link" path="patronLink"/>
 	
 </acme:form>
