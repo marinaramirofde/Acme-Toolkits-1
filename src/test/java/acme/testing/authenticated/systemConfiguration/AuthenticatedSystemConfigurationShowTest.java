@@ -16,7 +16,7 @@ public class AuthenticatedSystemConfigurationShowTest extends TestHarness{
 	@CsvFileSource(resources = "/authenticated/system-configuration/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String acceptedCurrencies, final String systemCurrency,
-		final String source, final String targetCurrency, final String date, final String target) {
+		final String source, final String targetCurrency) {
 		
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Authenticated", "System Configuration");
@@ -29,9 +29,6 @@ public class AuthenticatedSystemConfigurationShowTest extends TestHarness{
 		super.fillInputBoxIn("source", source);
 		super.fillInputBoxIn("targetCurrency", targetCurrency);
 		super.clickOnSubmit("Perform exchange");
-		
-		super.checkInputBoxHasValue("date", date);
-		super.checkInputBoxHasValue("target", target);
 		super.signOut();
 	}
 

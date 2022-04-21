@@ -1,5 +1,5 @@
-recordIndex,code,title,description,assemblyNotes,link,price,published
-0,NSM-162-A,another important kit,This toolkit is used to build furniture too,this is a secondary kit for building furniture,,"EUR 402.46",The toolkit is published
-1,NLD-473-C,car kit,This toolkit is used to build cars,you must follow the instructions to build it,http://www.example.org,"EUR 388.67",The toolkit is published
-2,JAC-000-R,PC kit,This toolkit is used to build PCs,you should follow the instructions to prepare it,http://www.example.org,"EUR 1293.00",The toolkit is published
-3,JCD-091-P,PC kit 2,This toolkit is used to build gaming PCs,you should follow the instructions to prepare it,http://www.example.org,"EUR 151.97",The toolkit is published
+recordIndex,code,title,description,assemblyNotes,link,published
+0,NSM-162-A,another important kit,This toolkit is used to build furniture too,this is a secondary kit for building furniture,,The toolkit is published
+1,NLD-473-C,car kit,This toolkit is used to build cars,you must follow the instructions to build it,http://www.example.org,The toolkit is published
+2,JAC-000-R,PC kit,This toolkit is used to build PCs,you should follow the instructions to prepare it,http://www.example.org,The toolkit is published
+3,JCD-091-P,PC kit 2,This toolkit is used to build gaming PCs,you should follow the instructions to prepare it,http://www.example.org,The toolkit is published

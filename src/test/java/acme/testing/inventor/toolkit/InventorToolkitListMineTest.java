@@ -15,8 +15,8 @@ public class InventorToolkitListMineTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/toolkit/list-mine-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String code,  final String title, final String description, final String assemblyNotes, final String link,
-		final String price, final String published) {
+	public void positiveTest(final int recordIndex, final String code,  final String title, final String description, final String assemblyNotes, 
+		final String link,final String published) {
 		
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My toolkits");
@@ -34,7 +34,6 @@ public class InventorToolkitListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("price", price);
 		super.checkInputBoxHasValue("published", published);
 				
 		super.checkButtonExists("Items");
