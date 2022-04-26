@@ -26,12 +26,11 @@ public class SignUpTest extends TestHarness {
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email, final String phone) {
-		super.signUp(username, password, name, surname, email);
+		super.signUp(username, password, name, surname, email, phone);
 		super.signIn(username, password);
 		super.signOut();
-		super.checkLinkExists("Sign in");
 	}
 
 	// Ancillary methods ------------------------------------------------------
-	
+
 }
