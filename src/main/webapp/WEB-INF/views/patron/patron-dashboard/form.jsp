@@ -8,6 +8,7 @@
 </h2>
 
 <table class="table table-sm">
+<caption></caption>
 	<tr>
 		<th scope="row">
 			<acme:message code="patron.dashboard.form.label.number-of-patronages-by-status"/>
