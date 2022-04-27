@@ -10,6 +10,7 @@
 
 
 <table class="table table-sm">
+	<caption></caption>
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.number-of-components"/>
