@@ -10,3 +10,7 @@
 	<acme:list-column code="inventor.item.list.label.technology" path="technology" width="40%"/>
 	
 </acme:list>
+
+<jstl:if test="${command == 'list-mine-items'}">
+	<acme:button code="inventor.item.list.button.create" action="/inventor/item/create"/>
+</jstl:if>
