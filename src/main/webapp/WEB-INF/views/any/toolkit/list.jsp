@@ -6,5 +6,5 @@
 <acme:list>
     <acme:list-column code="any.item.list.label.code" path="code" width="50%"/>
     <acme:list-column code="any.item.list.label.title" path="title" width="50%"/>
-
+    <acme:list-payload path="payload"/>
 </acme:list>
