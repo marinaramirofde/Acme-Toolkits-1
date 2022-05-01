@@ -12,7 +12,7 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item>{
-	
+
 	@Autowired
 	protected InventorItemRepository repository;
 
@@ -38,7 +38,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		request.bind(entity, errors, "typeEntity", "name", "code", "technology", "description", "retailPrice", "link");
 
 	}
@@ -71,16 +71,28 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
 			existing = this.repository.findOneItemByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("retailPrice")) {
 			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.item.form.error.negative-retail-price");
+		}
+
+		if(!errors.hasErrors("name")) {
+			errors.state(request, entity.getName().length() <= 100, "name", "inventor.item.form.error.incorrect-name");
+		}
+
+		if(!errors.hasErrors("technology")) {
+			errors.state(request, entity.getName().length() <= 100, "technology", "inventor.item.form.error.incorrect-technology");
+		}
+
+		if(!errors.hasErrors("description")) {
+			errors.state(request, entity.getName().length() <= 255, "description", "inventor.item.form.error.incorrect-description");
 		}
 
 	}
