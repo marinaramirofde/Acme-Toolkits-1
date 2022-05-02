@@ -14,7 +14,7 @@ public class PatronPatronageListMineServiceTest extends TestHarness {
 	
 	public void positiveTest(final int recordIndex, final String status, final String code, final String legalStuff,
 		final String budget, final String initial, final String creation, final String end, final String link,
-		final String inventorProfileFullName, final String inventorProfileEmail) {
+		final String inventorCompany, final String inventorStatement, final String inventorLink) {
 		
 		super.signIn("patron1", "patron1");
 		super.clickOnMenu("Patron", "My patronages");
@@ -36,8 +36,9 @@ public class PatronPatronageListMineServiceTest extends TestHarness {
         super.checkInputBoxHasValue("creation", creation);
         super.checkInputBoxHasValue("end", end);
         super.checkInputBoxHasValue("link", link);
-        super.checkInputBoxHasValue("inventorProfileFullName", inventorProfileFullName);
-        super.checkInputBoxHasValue("inventorProfileEmail", inventorProfileEmail);
+        super.checkInputBoxHasValue("inventorCompany", inventorCompany);
+        super.checkInputBoxHasValue("inventorStatement", inventorStatement);
+        super.checkInputBoxHasValue("inventorLink", inventorLink);
 		
         super.signOut();
 	}
