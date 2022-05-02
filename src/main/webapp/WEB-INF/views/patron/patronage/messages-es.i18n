@@ -10,9 +10,21 @@ patron.patronage.form.label.fullName = Nombre completo del inventor:
 patron.patronage.form.label.email = E-mail del inventor:
 patron.patronage.form.label.company = Compañía del inventor:
 patron.patronage.form.label.statement = Estamento del inventor:
-patron.patronage.form.label.link = Link del inventor:
+patron.patronage.form.label.inventor.link = Link del inventor:
+
+patron.patronage.form.error.duplicated = El código ya está elegido
+patron.patronage.form.error.negative-budget = El precio debe de ser positivo
+patron.patronage.form.error.invalid-date-end = El final debe ser superior al momento de creación y momento incial
+patron.patronage.form.error.initial-date = La fecha de inicio debe de ser inferior a la de la creación
+
+patron.patronage.form.button.create = Crear
+patron.patronage.form.button.update = Actualizar
+patron.patronage.form.button.delete = Borrar
+patron.patronage.form.button.publish = Publicar
 
 patron.patronage.list.label.status = Estado
 patron.patronage.list.label.code = Código
 patron.patronage.list.label.budget = Presupuesto
 patron.patronage.list.label.creation = Fecha de creación
+
+patron.patronage.list.button.create = Crear

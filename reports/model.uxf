@@ -207,7 +207,7 @@ bg=green</panel_attributes>
       <x>380</x>
       <y>620</y>
       <w>450</w>
-      <h>180</h>
+      <h>190</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Patronage
@@ -220,6 +220,7 @@ Patronage
 + creation: Date {NotNull, Temporal(TIMESTAMP)}
 + end: Date {NotNull, Temporal(TIMESTAMP)}
 + link: String {URL}
++ published: boolean
 
 bg=green</panel_attributes>
     <additional_attributes/>
