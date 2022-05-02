@@ -12,7 +12,8 @@ public class InventorItemPublishTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology) {
+	public void positiveTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology
+		,final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My items");
@@ -25,6 +26,13 @@ public class InventorItemPublishTest extends TestHarness{
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+		super.checkInputBoxHasValue("typeEntity", typeEntity);
+		super.checkInputBoxHasValue("name", name);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("technology", technology);
+		super.checkInputBoxHasValue("description", description);
+		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		super.checkInputBoxHasValue("link", link);
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 
@@ -34,7 +42,8 @@ public class InventorItemPublishTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negativeTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology) {
+	public void negativeTest(final int recordIndex, final String typeEntity, final String name, final String code, final String technology
+		,final String description, final String retailPrice, final String link) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My items");
@@ -47,6 +56,13 @@ public class InventorItemPublishTest extends TestHarness{
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+		super.checkInputBoxHasValue("typeEntity", typeEntity);
+		super.checkInputBoxHasValue("name", name);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("technology", technology);
+		super.checkInputBoxHasValue("description", description);
+		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		super.checkInputBoxHasValue("link", link);
 		super.checkNotSubmitExists("Publish");
 
 		super.signOut();

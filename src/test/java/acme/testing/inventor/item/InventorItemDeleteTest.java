@@ -47,6 +47,10 @@ public class InventorItemDeleteTest extends TestHarness{
 		
 		super.checkListingExists();
 		super.sortListing(1, "asc");
+		super.checkColumnHasValue(recordIndex, 0, typeEntity);
+		super.checkColumnHasValue(recordIndex, 1, name);
+		super.checkColumnHasValue(recordIndex, 2, code);
+		super.checkColumnHasValue(recordIndex, 3, technology);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		

@@ -72,17 +72,6 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors("code")) {
-			Item existing;
-
-			existing = this.repository.findOneItemByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
-		}
-
-		if (!errors.hasErrors("retailPrice")) {
-			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.item.form.error.negative-retail-price");
-		}
-
 	}
 
 	@Override
