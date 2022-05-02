@@ -1,4 +1,22 @@
 timestamp,simple-path,time
+"2022-05-02 15:17:22.915","/master/welcome",8203
+"2022-05-02 15:17:23.383","/master/welcome",423
+"2022-05-02 15:17:27.307","/master/sign-in",3812
+"2022-05-02 15:17:28.656","/master/welcome",583
+"2022-05-02 15:17:30.455","/inventor/item/list-mine-items",1631
+"2022-05-02 15:17:32.984","/inventor/item/show",1649
+"2022-05-02 15:17:35.749","/inventor/item/list-mine-items",561
+"2022-05-02 15:17:36.096","/master/welcome",302
+"2022-05-02 15:17:36.735","/master/welcome",557
+"2022-05-02 15:17:39.133","/master/welcome",279
+"2022-05-02 15:17:39.487","/master/welcome",326
+"2022-05-02 15:17:40.126","/master/sign-in",572
+"2022-05-02 15:17:41.392","/master/welcome",560
+"2022-05-02 15:17:42.732","/inventor/item/list-mine-items",595
+"2022-05-02 15:17:44.99","/inventor/item/show",1092
+"2022-05-02 15:17:47.853","/master/welcome",317
+"2022-05-02 15:17:48.498","/master/welcome",579
+"2022-05-02 15:17:50.856","/master/welcome",268
 "2022-05-02 17:48:24.409","/master/welcome",10851
 "2022-05-02 17:48:27.797","/any/chirp/list-recent",3125
 "2022-05-02 17:48:31.761","/master/welcome",808

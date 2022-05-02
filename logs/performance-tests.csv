@@ -1,4 +1,7 @@
 timestamp,test-class,test-method,time,description,result
+"2022-05-02 15:17:38.792","acme.testing.inventor.item.InventorItemDeleteTest","positiveTest",15876,""[1] recordIndex=1, typeEntity=COMPONENT, name=electrically drill, code=OLA-122, technology=SampleTechnology05, description=this component is very peculiar; please use it correctly, retailPrice=GBP 50.50, link=null"","OK"
+"2022-05-02 15:17:50.532","acme.testing.inventor.item.InventorItemDeleteTest","negativeTest",11397,""[1] recordIndex=0, typeEntity=TOOL, name=bolt, code=DQW-732-I, technology=SampleTechnology04, description=useful for building furniture, retailPrice=USD 4.50, link=null"","OK"
+"2022-05-02 15:17:50.858","acme.testing.inventor.item.InventorItemDeleteTest","hackingTest",1,""hackingTest()"","OK"
 "2022-05-02 17:48:28.646","acme.testing.any.chirp.AnyChirpListTest","positiveTest",4235,""[1] recordIndex=0, creationMoment=2022/05/02 10:00, title=Title 9, author=Nicolás Sánchez Mendoza, body=You should have read boo, email=nicsanmen@alum.us.es"","OK"
 "2022-05-02 17:48:38.698","acme.testing.any.item.AnyItemListTest","positiveTest",6936,""[1] recordIndex=0, typeEntity=TOOL, name=bolt, code=DQW-732-I, technology=SampleTechnology04, description=useful for building furniture, retailPrice=USD 4.50, link=null"","OK"
 "2022-05-02 17:48:42.83","acme.testing.any.item.AnyItemListTest","positiveTest",3492,""[2] recordIndex=1, typeEntity=COMPONENT, name=coping saw, code=ABF-871, technology=SampleTechnology03, description=useful for cutting wood, retailPrice=USD 20.35, link=null"","OK"
