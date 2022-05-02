@@ -10,3 +10,7 @@
 	<acme:list-column code="patron.patronage.list.label.creation" path="creation" width="40%"/>
 	
 </acme:list>
+
+<jstl:if test="${command == 'list-mine'}">
+	<acme:button code="patron.patronage.list.button.create" action="/patron/patronage/create"/>
+</jstl:if>

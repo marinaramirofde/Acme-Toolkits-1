@@ -69,4 +69,6 @@ public class Patronage extends AbstractEntity {
 	@Valid
 	@NotNull
 	protected Patron patron;
+	
+	protected boolean published;
 }
