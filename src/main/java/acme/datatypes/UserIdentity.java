@@ -13,17 +13,14 @@
 package acme.datatypes;
 
 import javax.persistence.Embeddable;
-import javax.validation.Valid;
 
 import acme.framework.entities.DefaultUserIdentity;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Embeddable
 @Getter
 @Setter
-@ToString(callSuper = true)
 public class UserIdentity extends DefaultUserIdentity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -31,9 +28,6 @@ public class UserIdentity extends DefaultUserIdentity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
-	@Valid
-	protected Phone				phone;
 
 	// Derived attributes -----------------------------------------------------
 
