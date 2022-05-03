@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class PatronPatronageListMineServiceTest extends TestHarness {
+public class PatronPatronageListMineTest extends TestHarness {
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/patron/patronage/list-mine.csv", encoding = "utf-8", numLinesToSkip = 1)
