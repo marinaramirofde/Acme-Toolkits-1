@@ -1,2 +1,2 @@
-recordIndex,status,code,legalStuff,budget,initial,end,link,inventorCompany,inventorStatement,inventorLink
-0,ACCEPTED,FAQ-672,this patronage have a lot of secrets.,"EUR 1500,250.80",2018/10/25 01:00,2019/12/25 22:30,,Jaztel,Good skills at back-end,
+recordIndex,status,code,legalStuff,budget,initial,creation,end,link,inventorCompany,inventorStatement,inventorLink
+2,DENIED,SWT-672,this patronage have a lot of secrets. Be carefully,"USD 670,250.80",2016/11/10 17:32,,2039/12/25 22:30,,Jaztel,Good skills at back-end,

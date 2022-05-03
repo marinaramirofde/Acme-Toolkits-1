@@ -107,6 +107,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	public void create(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
+		
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setCreation(moment);
 
 		this.repository.save(entity);
 		
