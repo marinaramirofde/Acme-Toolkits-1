@@ -1,7 +1,5 @@
 package acme.features.patron.patronage;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,11 +65,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-		
-		Date creation;
-		creation = new Date(System.currentTimeMillis()-1);
-		
-		result.setCreation(creation);
 
 		return result;
 	}
@@ -94,8 +87,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		}
 		
 		if (!errors.hasErrors("end")) {
-            errors.state(request, entity.getEnd().after(entity.getCreation()) 
-                && entity.getEnd().after(entity.getInitial()), 
+            errors.state(request, entity.getEnd().after(entity.getCreation()) && entity.getEnd().after(entity.getInitial()), 
                 "end","patron.patronage.form.error.invalid-date-end");
 		}
 
@@ -108,11 +100,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 	public void update(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
-		
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setCreation(moment);
 
 		this.repository.save(entity);
 
