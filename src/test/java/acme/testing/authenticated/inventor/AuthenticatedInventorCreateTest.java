@@ -23,4 +23,22 @@ public class AuthenticatedInventorCreateTest extends TestHarness{
 		
 		super.signOut();
 	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/authenticated/inventor/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void negativeTest(final int recordIndex, final String company, final String statement, final String link) {
+		super.signIn("patron2", "patron2");
+		super.clickOnMenu("Account","Become an inventor");
+		super.checkFormExists();
+		
+		super.fillInputBoxIn("company", company);
+		super.fillInputBoxIn("statement", statement);
+		super.fillInputBoxIn("link", link);
+		super.clickOnSubmit("Register");
+		
+		super.checkErrorsExist();
+		
+		super.signOut();
+	}
 }
