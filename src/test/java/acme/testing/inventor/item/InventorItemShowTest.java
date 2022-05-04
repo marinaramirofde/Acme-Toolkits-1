@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 public class InventorItemShowTest extends TestHarness{
-	
+
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -19,12 +19,12 @@ public class InventorItemShowTest extends TestHarness{
 		super.clickOnMenu("Inventor", "My items");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
-		
+
 		super.checkColumnHasValue(recordIndex, 0, typeEntity);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
 		super.checkColumnHasValue(recordIndex, 3, technology);
-		
+
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("typeEntity", typeEntity);
@@ -37,7 +37,7 @@ public class InventorItemShowTest extends TestHarness{
 
 		super.signOut();
 	}
-	
+
 	@Test
 	@Order(20)
 	public void negativeTest() {
@@ -48,22 +48,9 @@ public class InventorItemShowTest extends TestHarness{
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		super.checkNotLinkExists("Account");
-		super.navigate("/inventor/item/list-mine-items");
-		super.checkPanicExists();
 
-		super.signIn("administrator", "administrator");
-		super.navigate("/inventor/item/list-mine-items");
-		super.checkListingEmpty();
-		super.signOut();
-
-		super.signIn("patron1", "patron1");
-		super.navigate("/inventor/item/list-mine-items");
-		super.checkErrorsExist();
-		super.signOut();
-		
 		// HINT+ a) estando logueado como inventorX no poder ver los detalles de un item que no sea suyo;
-		
+
 	}
 
 }

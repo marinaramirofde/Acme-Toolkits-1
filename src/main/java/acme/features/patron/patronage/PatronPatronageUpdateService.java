@@ -39,7 +39,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors,"status","code","legalStuff","budget","initial","creation","end","link");
+		request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link");
 
 	}
 
@@ -87,8 +87,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		}
 		
 		if (!errors.hasErrors("end")) {
-            errors.state(request, entity.getEnd().after(entity.getCreation()) 
-                && entity.getEnd().after(entity.getInitial()), 
+            errors.state(request, entity.getEnd().after(entity.getCreation()) && entity.getEnd().after(entity.getInitial()), 
                 "end","patron.patronage.form.error.invalid-date-end");
 		}
 

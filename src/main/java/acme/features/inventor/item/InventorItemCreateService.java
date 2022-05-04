@@ -52,6 +52,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
 		result = new Item();
+
 		result.setInventor(inventor);
 
 		return result;
@@ -75,17 +76,19 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		}
 
 		if(!errors.hasErrors("name")) {
-			errors.state(request, entity.getName().length() <= 100, "name", "inventor.item.form.error.incorrect-name");
+			errors.state(request, entity.getName().length() < 101, "name", "inventor.item.form.error.incorrect-name");
 		}
 
 		if(!errors.hasErrors("technology")) {
-			errors.state(request, entity.getName().length() <= 100, "technology", "inventor.item.form.error.incorrect-technology");
+			errors.state(request, entity.getName().length() < 101, "technology", "inventor.item.form.error.incorrect-technology");
 		}
 
 		if(!errors.hasErrors("description")) {
-			errors.state(request, entity.getName().length() <= 255, "description", "inventor.item.form.error.incorrect-description");
+			errors.state(request, entity.getName().length() < 256, "description", "inventor.item.form.error.incorrect-description");
 		}
+
 	}
+
 
 	@Override
 	public void create(final Request<Item> request, final Item entity) {
