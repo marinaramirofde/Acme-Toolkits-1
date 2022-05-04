@@ -12,6 +12,8 @@ inventor.patronage.form.label.company = Compañía del patrón:
 inventor.patronage.form.label.statement = Estamento del patrón:
 inventor.patronage.form.label.link = Link del patronage:
 
+inventor.patronage.form.button.update = Actualizar
+
 inventor.patronage.list.label.status = Estado
 inventor.patronage.list.label.code = Código
 inventor.patronage.list.label.budget = Presupuesto
