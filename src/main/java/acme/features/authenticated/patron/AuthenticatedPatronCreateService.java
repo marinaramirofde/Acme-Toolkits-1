@@ -79,6 +79,14 @@ public class AuthenticatedPatronCreateService implements AbstractCreateService<A
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if(!errors.hasErrors("company")) {
+			errors.state(request, entity.getCompany().length() < 101, "company", "authenticated.patron.form.error.company");
+		}
+		
+		if(!errors.hasErrors("statement")) {
+			errors.state(request, entity.getStatement().length() < 256, "statement", "authenticated.patron.form.error.statement");
+		}
 	}
 
 	@Override
