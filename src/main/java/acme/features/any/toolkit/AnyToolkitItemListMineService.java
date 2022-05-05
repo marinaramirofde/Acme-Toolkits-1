@@ -1,4 +1,4 @@
-package acme.features.inventor.toolkit;
+package acme.features.any.toolkit;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,22 +8,26 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
 import acme.entities.toolkits.Quantity;
+import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
 
 @Service 
-public class ToolkitItemListService implements AbstractListService<Inventor, Item>{
+public class AnyToolkitItemListMineService implements AbstractListService<Any, Item>{
 
 	@Autowired
-	protected InventorToolkitRepository repository;
+	protected AnyToolkitRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null; 
 
-		return true; 
+		int id;
+		id=request.getModel().getInteger("id");
+		final Toolkit toolkit = this.repository.findOneById(id);
+		return	toolkit.isPublished();
 	}
 
 	@Override
