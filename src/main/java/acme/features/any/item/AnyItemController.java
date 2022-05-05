@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.items.Item;
-import acme.features.any.toolkit.ToolkitItemListMineService;
+import acme.features.any.toolkit.AnyToolkitItemListMineService;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
@@ -22,7 +22,7 @@ public class AnyItemController extends AbstractController<Any, Item> {
 	protected AnyItemShowService			showService;
 	
 	@Autowired
-	protected ToolkitItemListMineService		toolkitItemListMineService;
+	protected AnyToolkitItemListMineService		anyToolkitItemListMineService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -34,7 +34,7 @@ public class AnyItemController extends AbstractController<Any, Item> {
 
 		//ENDPOINT PARA ACCEDER A LA LISTA DE SUS ITEMS DESDE SU TOOLKIT
 
-		super.addCommand("list-toolkit-items", "list", this.toolkitItemListMineService);
+		super.addCommand("list-toolkit-items", "list", this.anyToolkitItemListMineService);
 	}
 
 }

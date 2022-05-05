@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.items.Item;
-import acme.features.inventor.toolkit.ToolkitItemListService;
+import acme.features.inventor.toolkit.InventorToolkitItemListService;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Inventor;
 
@@ -33,7 +33,7 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 	//SERVICIO PARA ACCEDER A LA LISTA DE SUS ITEMS DESDE SU TOOLKIT
 
 	@Autowired
-	protected ToolkitItemListService		toolkitItemListService;
+	protected InventorToolkitItemListService		inventorToolkitItemListService;
 
 	///////////////////////////////////////////////////////////////
 
@@ -54,7 +54,7 @@ public class InventorItemController extends AbstractController<Inventor, Item> {
 
 		//ENDPOINT PARA ACCEDER A LA LISTA DE SUS ITEMS DESDE SU TOOLKIT
 
-		super.addCommand("list-toolkit-items", "list", this.toolkitItemListService);
+		super.addCommand("list-toolkit-items", "list", this.inventorToolkitItemListService);
 
 		/////////////////////////////////////////////////////////////////
 
