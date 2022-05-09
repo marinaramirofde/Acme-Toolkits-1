@@ -8,7 +8,3 @@
 	<acme:list-column code="inventor.patronage-report.list.label.patronage" path="patronageId" width="50%"/>
 	
 </acme:list>
-
-<jstl:if test="${command == 'list-mine'}">
-	<acme:button code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create"/>
-</jstl:if>

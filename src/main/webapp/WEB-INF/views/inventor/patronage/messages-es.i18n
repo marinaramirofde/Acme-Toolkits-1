@@ -18,3 +18,5 @@ inventor.patronage.list.label.status = Estado
 inventor.patronage.list.label.code = Código
 inventor.patronage.list.label.budget = Presupuesto
 inventor.patronage.list.label.creation = Fecha de creación
+
+inventor.patronage-report.list.button.create = Crear reporte del patrocinio

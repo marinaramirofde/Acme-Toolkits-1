@@ -18,3 +18,5 @@ inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code
 inventor.patronage.list.label.budget = Budget
 inventor.patronage.list.label.creation = Creation
+
+inventor.patronage-report.list.button.create = Create patronage report

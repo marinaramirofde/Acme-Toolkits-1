@@ -29,6 +29,6 @@
 	</acme:input-select>
 	</jstl:if>
 	
-	<acme:submit test="${acme:anyOf(command, 'show, update') && status == 'PROPOSED'}" 
-                 code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
-	</acme:form>
+	<acme:submit test="${acme:anyOf(command, 'show, update') && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+    <acme:button code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${id}"/>
+</acme:form>

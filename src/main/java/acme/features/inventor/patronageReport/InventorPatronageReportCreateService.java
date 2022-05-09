@@ -15,6 +15,7 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorPatronageReportCreateService implements AbstractCreateService<Inventor, PatronageReport>{
+
 	@Autowired
 	protected InventorPatronageReportRepository repository;
 
@@ -24,7 +25,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 
 		return true;
 	}
-	
+
 	@Override
 	public void bind(final Request<PatronageReport> request, final PatronageReport entity, final Errors errors) {
 		assert request != null;
@@ -42,37 +43,34 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert model != null;
 
 		request.unbind(entity, model, "automaticSequenceNumber", "creation", "memorandum", "link");
-		
-		model.setAttribute("confirmation", true);
-		model.setAttribute("patronageId", entity.getPatronage().getCode());
+
+		model.setAttribute("patronageId", entity.getPatronage().getId());
 
 	}
-	
+
 	@Override
 	public PatronageReport instantiate(final Request<PatronageReport> request) {
 		assert request != null;
 
 		PatronageReport result;
-		
-		result = new PatronageReport();
-		
+		int patronageId;
 		Patronage patronage;
+		Date creation;
+		String automaticSequenceNumber;
 		
-		patronage = new Patronage();
+		patronageId = request.getModel().getInteger("patronageId");
+		patronage = this.repository.findOnePatronageById(patronageId);	
+		creation = new Date(System.currentTimeMillis()-1);
 
-		patronage = this.repository.findOnePatronageById(request.getModel().getInteger("patronageId"));
-		
+		final int count = this.repository.countPatronageReportWithPatronageCode(patronage.getCode()) + 1;
+		final String countNumber = String.format("%04d", count);
+		automaticSequenceNumber = patronage.getCode() + ":" + countNumber;
+
+		result = new PatronageReport();
+		result.setCreation(creation);
 		result.setPatronage(patronage);
-
-		final int count = this.repository.countPatronageReportWithPatronageId(patronage.getId());
-		final String formated = String.format("%04d", count);
-		final String automaticSequenceNumber = patronage.getCode()+":"+formated;
 		result.setAutomaticSequenceNumber(automaticSequenceNumber);
-		
-		Date creationMoment;
-		creationMoment = new Date(System.currentTimeMillis()-1);
-		result.setCreation(creationMoment);
-		
+
 		return result;
 	}
 
@@ -82,16 +80,10 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors("automaticSequenceNumber")) {
-			PatronageReport existing;
-
-			existing = this.repository.findOnePatronageReportBySequenceNumber(entity.getAutomaticSequenceNumber());
-			errors.state(request, existing == null, "automaticSequenceNumber", "inventor.patronageReport.form.error.duplicated");
-		}
 		if(!errors.hasErrors("memorandum")) {
 			errors.state(request, entity.getMemorandum().length() < 256, "memorandum", "inventor.patronageReport.form.error.incorrect-memorandum");
 		}
-		
+
 		boolean confirmation;
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
@@ -103,9 +95,14 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 
+		Date creation;
+		
+		creation = new Date(System.currentTimeMillis()-1);
+
+		entity.setCreation(creation);
+
 		this.repository.save(entity);
 
 	}
-
 
 }
