@@ -20,12 +20,16 @@ public class InventorPatronageReportController extends AbstractController<Invent
 	@Autowired
 	protected InventorPatronageReportShowService showService;
 	
+	@Autowired
+	protected InventorPatronageReportCreateService createService;
+	
 	// Constructors -----------------------------------------------------------
 
 	
 	@PostConstruct
 	protected void intialise() {
 		super.addCommand("show", this.showService);
+		super.addCommand("create", this.createService);
 		super.addCommand("list-mine","list", this.listMineService);
 	}
 }

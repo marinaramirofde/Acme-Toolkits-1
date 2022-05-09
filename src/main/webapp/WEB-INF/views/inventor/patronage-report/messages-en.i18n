@@ -3,5 +3,10 @@ inventor.patronage-report.form.label.creation = Creation:
 inventor.patronage-report.form.label.memorandum = Memorandum:
 inventor.patronage-report.form.label.link = Link:
 
+inventor.patronage-report.form.label.confirmation =  Confirmation
+inventor.patronageReport.form.error.incorrect-memorandum = The memorandum must be less than 256 characters
+
+inventor.patronage-report.form.button.create= Create
+
 inventor.patronage-report.list.label.creation = Creation
 inventor.patronage-report.list.label.patronage = Patronage
