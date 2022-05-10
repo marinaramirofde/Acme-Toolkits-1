@@ -33,6 +33,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.system-configuration = Ver configuracion del sistema
 master.menu.administrator.administrator-dashboard = Panel de indicadores
+master.menu.administrator.announcement.list.button.create = Crear un anuncio
 
 # master.menu.patron ##########################################################
 
