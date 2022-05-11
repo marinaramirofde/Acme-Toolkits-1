@@ -1,6 +1,2 @@
 timestamp,test-class,test-method,time,description,result
-"2022-05-03 19:43:12.376","acme.testing.patron.patronages.PatronPatronageListMineServiceTest","positiveTest",18857,""[1] recordIndex=0, status=PROPOSED, code=BHG-532-S, budget=GBP 30,000.00, creation=2022/02/11 23:00"","OK"
-"2022-05-03 19:43:21.453","acme.testing.patron.patronages.PatronPatronageListMineServiceTest","positiveTest",8689,""[2] recordIndex=1, status=ACCEPTED, code=ERF-006-M, budget=USD 15,300.90, creation=2022/02/05 12:00"","OK"
-"2022-05-03 19:43:29.753","acme.testing.patron.patronages.PatronPatronageListMineServiceTest","positiveTest",7895,""[3] recordIndex=2, status=ACCEPTED, code=FAQ-672, budget=EUR 500,250.80, creation=2018/10/25 01:00"","OK"
-"2022-05-03 19:43:30.153","acme.testing.patron.patronages.PatronPatronageListMineServiceTest","negativeTest",0,""negativeTest()"","OK"
-"2022-05-03 19:43:50.937","acme.testing.patron.patronages.PatronPatronageListMineServiceTest","hackingTest",20243,""hackingTest()"","OK"
+"2022-05-11 12:54:43.888","acme.testing.inventor.patronageReport.InventorPatronageReportCreateTest","hackingTest",21630,""hackingTest()"","OK"
