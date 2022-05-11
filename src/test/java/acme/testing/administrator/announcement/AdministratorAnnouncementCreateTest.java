@@ -27,7 +27,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 		super.fillInputBoxIn("link", link);
 		super.fillInputBoxIn("confirmation", confirmation);
 		
-		super.clickOnSubmit("Create:");
+		super.clickOnSubmit("Create");
 		
 		super.clickOnMenu("Authenticated","List recent announcements");
 		super.checkListingExists();
@@ -58,7 +58,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 		super.fillInputBoxIn("link", link);
 		super.fillInputBoxIn("confirmation", confirmation);
 		
-		super.clickOnSubmit("Create:");
+		super.clickOnSubmit("Create");
 		
 		super.checkErrorsExist();
 		

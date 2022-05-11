@@ -88,7 +88,8 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		for(final Quantity quantity: quantities) {
 			final Money itemMoney = quantity.getItem().getRetailPrice();
 			final int number = quantity.getNumber();
-			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, "EUR");
+			final String systemCurrency = this.repository.findSystemCurrency();
+			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, systemCurrency);
 			final double newNumber = result.getAmount() + itemMoneyExchanged.getTarget().getAmount()*number;
 			result.setAmount(newNumber);
 		}
