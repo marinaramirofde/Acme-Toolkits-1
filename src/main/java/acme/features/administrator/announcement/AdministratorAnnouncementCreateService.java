@@ -42,7 +42,6 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		
 		request.unbind(entity, model, "title", "body", "criticalFlag","link");
 		model.setAttribute("creationMoment", entity.getCreationMoment());
-		model.setAttribute("confirmation", false);
 		
 	}
 

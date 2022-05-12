@@ -8,3 +8,5 @@
 	<acme:list-column code="authenticated.announcement.list.label.title" path="title" width="50%"/>
 	
 </acme:list>
+
+<acme:button code="master.menu.administrator.announcement.list.button.create" action="/administrator/announcement/create"/>

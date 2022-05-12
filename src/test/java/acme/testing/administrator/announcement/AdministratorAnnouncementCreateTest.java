@@ -17,16 +17,17 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String title, final String body, final String criticalFlag,
 		final String link, final String confirmation) {
+		
 		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Administrator", "Create announcement");
+		super.clickOnMenu("Authenticated", "List recent announcements");
+		super.clickOnButton("Create");
 		
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("criticalFlag", criticalFlag);
 		super.fillInputBoxIn("link", link);
-		super.fillInputBoxIn("confirmation", confirmation);
-		
+		super.fillInputBoxIn("confirmation", confirmation);		
 		super.clickOnSubmit("Create");
 		
 		super.clickOnMenu("Authenticated","List recent announcements");
@@ -48,9 +49,11 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 	@Order(10)
 	public void negativeTest(final int recordIndex, final String title, final String body, final String criticalFlag,
 		final String link, final String confirmation) {
+		
 		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Administrator", "Create announcement");
+		super.clickOnMenu("Authenticated", "List recent announcements");
+		super.clickOnButton("Create");
 
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);
