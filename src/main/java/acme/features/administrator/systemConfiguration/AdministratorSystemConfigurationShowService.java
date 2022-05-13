@@ -38,8 +38,6 @@ public class AdministratorSystemConfigurationShowService implements AbstractShow
         assert model != null;
 
         request.unbind(entity, model, "acceptedCurrencies", "systemCurrency", "strongSpamWords", "strongSpamThreshold", "weakSpamWords", "weakSpamThreshold");
-        model.setAttribute("confirmation", false);
-        model.setAttribute("readonly", true);
     }
 
 }
