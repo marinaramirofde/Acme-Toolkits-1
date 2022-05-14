@@ -10,5 +10,5 @@
 </acme:list>
 
 <jstl:if test="${command == 'list-mine-toolkits'}">
-	<acme:button code="inventor.toolkit.list.button.create" action="/inventor/toolkit/create-toolkits"/>
+	<acme:button code="inventor.toolkit.list.button.create" action="/inventor/toolkit/create"/>
 </jstl:if>

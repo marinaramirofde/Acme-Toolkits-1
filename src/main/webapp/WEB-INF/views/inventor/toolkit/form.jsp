@@ -12,7 +12,7 @@
 	
 	<jstl:choose>
 		<jstl:when test="${command == 'create'}">
-			<acme:submit code="inventor.item.form.button.create" action="/inventor/toolkit/create-toolkits"/>
+			<acme:submit code="inventor.item.form.button.create" action="/inventor/toolkit/create"/>
 		</jstl:when>
 		<jstl:when test="${command == 'show'}">
 			<acme:input-textbox code="inventor.toolkit.form.label.toolkitPrice" path="price" readonly="true"/>
