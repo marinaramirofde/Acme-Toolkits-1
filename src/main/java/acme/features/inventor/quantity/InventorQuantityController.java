@@ -14,7 +14,7 @@ public class InventorQuantityController extends AbstractController<Inventor, Qua
 
 	@Autowired
 	protected InventorToolkitItemListService inventorToolkitItemListService;
-	
+	 
 	@Autowired
 	protected InventorQuantityCreateService createService;
 
