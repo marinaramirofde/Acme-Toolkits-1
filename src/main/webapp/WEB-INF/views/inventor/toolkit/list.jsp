@@ -8,3 +8,7 @@
 	<acme:list-column code="inventor.toolkit.list.label.title" path="title" width="40%"/>
 	<acme:list-column code="inventor.toolkit.list.label.published" path="published" width="30%"/>
 </acme:list>
+
+<jstl:if test="${command == 'list-mine-toolkits'}">
+	<acme:button code="inventor.toolkit.list.button.create" action="/inventor/toolkit/create-toolkits"/>
+</jstl:if>
