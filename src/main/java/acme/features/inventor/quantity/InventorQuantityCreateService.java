@@ -54,11 +54,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
 		request.unbind(entity, model, "number", "item.typeEntity", "item.name", "item.code", "item.technology", 
 			"item.description", "item.retailPrice", "item.link", "item.published");
-		
-		System.out.println(entity.getNumber());
-		System.out.println(entity.getItem().getTypeEntity());
-		System.out.println(entity.getItem().getCode());
-		System.out.println(entity.getItem().getDescription());
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package acme.features.patron.patronage;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,6 +77,39 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("code")) {
+			Patronage existing;
+
+			existing = this.repository.findOnePatronageByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "patron.patronage.form.error.duplicated");
+		}
+		
+		if (!errors.hasErrors("budget")) {
+			final String[] currencies = this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",");
+			boolean acceptedCurrencies = false;
+			for(int i = 0; i< currencies.length; i++) {
+				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+					acceptedCurrencies=true;
+				}
+			}
+
+			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			
+			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
+		}
+		
+		if(!errors.hasErrors("initial")) {
+			final Date minimumStartDate=DateUtils.addMonths(entity.getCreation(), 1);
+			errors.state(request,entity.getInitial().after(minimumStartDate), "initial", "patron.patronage.form.error.too-close-start-date");
+			
+		}
+		
+		if(!errors.hasErrors("end")) {
+			final Date minimumFinishDate=DateUtils.addMonths(entity.getInitial(), 1);
+			errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
+			
+		}
 
 	}
 
