@@ -29,10 +29,6 @@
 	<acme:input-moment code="patron.patronage.form.label.creation" path="creation" readonly="true"/>
 	<acme:input-moment code="patron.patronage.form.label.end" path="end"/>
 	<acme:input-url code="patron.patronage.form.label.link" path="link"/>
-
-	<acme:input-select code="patron.patronage.form.label.inventor" path="inventorId">
-		<jstl:forEach items="${inventors}" var="inventor">
-			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${ inventor.getId() == inventId }"/>	
 	
 	<acme:input-select code="patron.patronage.form.label.inventor" path="inventorId">
 		<jstl:forEach items="${inventors}" var="inventor">
