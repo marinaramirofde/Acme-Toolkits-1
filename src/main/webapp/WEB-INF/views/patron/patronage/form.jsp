@@ -18,10 +18,10 @@
 	<acme:input-textbox code="patron.patronage.form.label.inventor.link" path="inventorLink"  readonly="true"/>
 </jstl:if>
 
-<jstl:if test="${command == 'create' }">
+<jstl:if test="${command == 'create'}">
 	<acme:input-select code="patron.patronage.form.label.status" path="status">
-        <acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
-    </acme:input-select>
+		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
+	</acme:input-select>
 	<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>	
 	<acme:input-textarea code="patron.patronage.form.label.legal-stuff" path="legalStuff"/>
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
@@ -33,6 +33,10 @@
 	<acme:input-select code="patron.patronage.form.label.inventor" path="inventorId">
 		<jstl:forEach items="${inventors}" var="inventor">
 			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${ inventor.getId() == inventId }"/>	
+	
+	<acme:input-select code="patron.patronage.form.label.inventor" path="inventorId">
+		<jstl:forEach items="${inventors}" var="inventor">
+			<acme:input-option code="${inventor.getUserAccount().getUsername()}" value="${inventor.getId()}" selected="${ inventor.getId() == inventId }"/>
 		</jstl:forEach>
 	</acme:input-select>
 </jstl:if>

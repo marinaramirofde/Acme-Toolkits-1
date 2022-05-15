@@ -1,0 +1,12 @@
+inventor.item.list.label.number = Numero de elementos
+inventor.item.list.label.item-type-entity = Tipo de entidad
+inventor.item.list.label.item-name = Nombre
+inventor.item.list.label.item-code = Codigo
+inventor.item.list.label.item-technology = Tecnologia
+inventor.item.list.label.item-retailPrice = Precio
+
+inventor.item-toolkit.list.button.create = Asociar objetos a kits de herramientas
+
+inventor.item.form.label.number = Numero de elementos
+inventor.item.form.label.item = Objetos posibles
+inventor.item-toolkit.form.button.create = Asociar objetos a kits de herramientas

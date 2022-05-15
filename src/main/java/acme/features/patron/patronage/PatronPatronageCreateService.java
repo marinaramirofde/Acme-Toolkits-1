@@ -15,7 +15,7 @@ import acme.roles.Patron;
 
 @Service
 public class PatronPatronageCreateService implements AbstractCreateService<Patron, Patronage>{
-	
+
 	@Autowired
 	protected PatronPatronageRepository repository;
 
@@ -31,10 +31,10 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		entity.setInventor(this.repository.finOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
-		request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link","inventorId");
-		
+
+		entity.setInventor(this.repository.finOneInventorById(Integer.valueOf( request.getModel().getAttribute("inventorId").toString())));
+		request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link", "inventorId");
+
 	}
 
 	@Override
@@ -50,17 +50,17 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Override
 	public Patronage instantiate(final Request<Patronage> request) {
 		assert request != null;
-		
+
 		Patronage result;
 		Patron patron;
-		
+
 		patron = this.repository.findOnePatronById(request.getPrincipal().getActiveRoleId());
 		result = new Patronage();
 		result.setPatron(patron);
-		
+
 		Date creation;
 		creation = new Date(System.currentTimeMillis()-1);
-		
+
 		result.setCreation(creation);
 		return result;
 	}
@@ -68,56 +68,55 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Override
 	public void validate(final Request<Patronage> request, final Patronage entity, final Errors errors) {
 		assert request != null;
-        assert entity != null;
-        assert errors != null;
+		assert entity != null;
+		assert errors != null;
 
-        if (!errors.hasErrors("code")) {
-            Patronage existing;
+		if (!errors.hasErrors("code")) {
+			Patronage existing;
 
-            existing = this.repository.findOnePatronageByCode(entity.getCode());
-            errors.state(request, existing == null, "code", "patron.patronage.form.error.duplicated");
-        }
+			existing = this.repository.findOnePatronageByCode(entity.getCode());
+			errors.state(request, existing == null, "code", "patron.patronage.form.error.duplicated");
+		}
 
-        if (!errors.hasErrors("budget")) {
-            final String[] currencies = this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",");
-            boolean acceptedCurrencies = false;
-            for(int i = 0; i< currencies.length; i++) {
-                if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
-                    acceptedCurrencies=true;
-                }
-            }
+		if (!errors.hasErrors("budget")) {
+			final String[] currencies = this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",");
+			boolean acceptedCurrencies = false;
+			for(int i = 0; i< currencies.length; i++) {
+				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+					acceptedCurrencies=true;
+				}
+			}
 
-            errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
-
-            errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
-        }
-
-        if(!errors.hasErrors("initial")) {
-            final Date minimumStartDate=DateUtils.addMonths(entity.getCreation(), 1);
-            errors.state(request,entity.getInitial().after(minimumStartDate), "initial", "patron.patronage.form.error.too-close-start-date");
-
-        }
-
-        if(!errors.hasErrors("end")) {
-            final Date minimumFinishDate=DateUtils.addMonths(entity.getInitial(), 1);
-            errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
-
-        }
-    }
-
-
+			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			
+			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
+		}
+		
+		if(!errors.hasErrors("initial")) {
+			final Date minimumStartDate=DateUtils.addMonths(entity.getCreation(), 1);
+			errors.state(request,entity.getInitial().after(minimumStartDate), "initial", "patron.patronage.form.error.too-close-start-date");
+			
+		}
+		
+		if(!errors.hasErrors("end")) {
+			final Date minimumFinishDate=DateUtils.addMonths(entity.getInitial(), 1);
+			errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
+			
+		}
+	}
+  
 	@Override
 	public void create(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
-		
+
 		Date moment;
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setCreation(moment);
 
 		this.repository.save(entity);
-		
+
 	}
 
 }
