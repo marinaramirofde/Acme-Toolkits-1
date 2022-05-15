@@ -9,9 +9,7 @@ import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
@@ -61,12 +59,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		result = new Patronage();
 		result.setPatron(patron);
 		
-		Inventor inventor;
-		final UserAccount userAccount = this.repository.findUserAccount();
-		inventor = userAccount.getRole(Inventor.class);
-		inventor.setUserAccount(userAccount);
-		
-		result.setInventor(inventor);
+//		Inventor inventor;
+//		final UserAccount userAccount = this.repository.findUserAccount();
+//		inventor = userAccount.getRole(Inventor.class);
+//		inventor.setUserAccount(userAccount);
+//		
+//		result.setInventor(inventor);
 		
 		Date creation;
 		creation = new Date(System.currentTimeMillis()-1);
