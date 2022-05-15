@@ -3,7 +3,6 @@ package acme.features.inventor.quantity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.items.Item;
 import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.features.inventor.toolkit.InventorToolkitRepository;
@@ -40,8 +39,8 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "number", "item.typeEntity", "item.name", "item.code", "item.technology", 
-			"item.description", "item.retailPrice", "item.link");
+		entity.setItem(this.repository.finOneItemById(Integer.valueOf( request.getModel().getAttribute("itemId").toString())));
+		request.bind(entity, errors, "number", "itemId");
 				
 	}
 
@@ -52,8 +51,9 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert model != null;
 		
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
-		request.unbind(entity, model, "number", "item.typeEntity", "item.name", "item.code", "item.technology", 
-			"item.description", "item.retailPrice", "item.link", "item.published");
+	
+		model.setAttribute("items", this.repository.findAllItems());
+		request.unbind(entity, model, "number");
 	}
 
 	@Override
@@ -63,16 +63,13 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		Quantity quantity;
 		int toolkitId;
 		Toolkit toolkit;
-		Item item;
 		
 		quantity = new Quantity();
-		item = new Item();
 		
 		toolkitId = request.getModel().getInteger("masterId");
 		toolkit = this.repository.findOneById(toolkitId);
 		
 		quantity.setToolkit(toolkit);
-		quantity.setItem(item);
 				
 		return quantity;
 	}
@@ -92,18 +89,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	public void create(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
-		
-		Item item;
-		item = new Item();
-		
-		Inventor inventor;
-		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-		
-		item.setPublished(false);
-		item.setInventor(inventor);
-		entity.setItem(item);
-		
-		this.repository.save(item);
 		
 		this.repository.save(entity);
 		
