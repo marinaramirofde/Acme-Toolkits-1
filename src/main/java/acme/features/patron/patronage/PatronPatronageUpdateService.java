@@ -1,5 +1,8 @@
 package acme.features.patron.patronage;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -83,19 +86,32 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		}
 		
 		if (!errors.hasErrors("budget")) {
+			final String[] currencies = this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",");
+			boolean acceptedCurrencies = false;
+			for(int i = 0; i< currencies.length; i++) {
+				if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+					acceptedCurrencies=true;
+				}
+			}
+
+			errors.state(request, acceptedCurrencies, "budget", "patron.patronage.form.error.non-accepted-currency");
+			
 			errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
 		}
 		
-		if (!errors.hasErrors("end")) {
-            errors.state(request, entity.getEnd().after(entity.getCreation()) && entity.getEnd().after(entity.getInitial()), 
-                "end","patron.patronage.form.error.invalid-date-end");
-		}
-
 		if(!errors.hasErrors("initial")) {
-			errors.state(request, entity.getInitial().before(entity.getCreation()),"initial", "patron.patronage.form.error.initial-date");
+			final Date minimumStartDate=DateUtils.addMonths(entity.getCreation(), 1);
+			errors.state(request,entity.getInitial().after(minimumStartDate), "initial", "patron.patronage.form.error.too-close-start-date");
+			
+		}
+		
+		if(!errors.hasErrors("end")) {
+			final Date minimumFinishDate=DateUtils.addMonths(entity.getInitial(), 1);
+			errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
+			
 		}
 	}
-
+	
 	@Override
 	public void update(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
