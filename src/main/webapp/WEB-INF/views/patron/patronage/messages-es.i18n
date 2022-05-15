@@ -13,9 +13,11 @@ patron.patronage.form.label.statement = Estamento del inventor:
 patron.patronage.form.label.inventor.link = Link del inventor:
 
 patron.patronage.form.error.duplicated = El código ya está elegido
+patron.patronage.form.error.non-accepted-currency = La divisa debe de estar en el listado
 patron.patronage.form.error.negative-budget = El precio debe de ser positivo
-patron.patronage.form.error.invalid-date-end = El final debe ser superior al momento de creación y momento incial
-patron.patronage.form.error.initial-date = La fecha de inicio debe de ser inferior a la de la creación
+patron.patronage.form.error.too-close-start-date = La fecha de inicio debe de ser al menos un mes mayor que la de creación.
+patron.patronage.form.error.one-month = La fecha de fin debe de ser al menos un mes mayor que la de inicio.
+patron.patronage.form.label.inventor = Selecciona inventor
 
 patron.patronage.form.button.create = Crear
 patron.patronage.form.button.update = Actualizar

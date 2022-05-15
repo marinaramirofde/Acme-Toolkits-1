@@ -13,9 +13,11 @@ patron.patronage.form.label.statement = Inventor's statement:
 patron.patronage.form.label.inventor.link = Inventor's link:
 
 patron.patronage.form.error.duplicated = The code is taken
+patron.patronage.form.error.non-accepted-currency = The currency must be in the list
 patron.patronage.form.error.negative-budget = The price must be positive
-patron.patronage.form.error.invalid-date-end = The end must be higher than creation moment and initial moment
-patron.patronage.form.error.initial-date = The initial date must be earlier than creation date
+patron.patronage.form.error.too-close-start-date = The start date must be at least one month older than the creation date
+patron.patronage.form.error.one-month = The end date must be at least one month older than the start date.
+patron.patronage.form.label.inventor = Select inventor
 
 patron.patronage.form.button.create = Create
 patron.patronage.form.button.update = Update
