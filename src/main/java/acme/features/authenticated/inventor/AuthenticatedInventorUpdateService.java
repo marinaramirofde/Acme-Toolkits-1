@@ -24,7 +24,6 @@ public class AuthenticatedInventorUpdateService implements AbstractUpdateService
 
 	// AbstractUpdateService<Authenticated, Patron> interface -----------------
 
-
 	@Override
 	public boolean authorise(final Request<Inventor> request) {
 		assert request != null;
@@ -38,13 +37,6 @@ public class AuthenticatedInventorUpdateService implements AbstractUpdateService
 		assert entity != null;
 		assert errors != null;
 		
-		if(!errors.hasErrors("company")) {
-			errors.state(request, entity.getCompany().length() < 101, "company", "authenticated.inventor.form.error.company");
-		}
-		
-		if(!errors.hasErrors("statement")) {
-			errors.state(request, entity.getStatement().length() < 256, "statement", "authenticated.inventor.form.error.statement");
-		}
 	}
 
 	@Override
