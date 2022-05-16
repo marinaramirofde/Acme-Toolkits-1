@@ -39,9 +39,6 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	
 	@Query("select t from Toolkit t where t.code = :code")
 	Toolkit findOneToolkitByCode(String code);
-	
-	@Query("select sc.systemCurrency from SystemConfiguration sc")
-	String findSystemCurrency();
 
 	@Query("select i from Item i where i.id = :itemId")
 	Item finOneItemById(int itemId);

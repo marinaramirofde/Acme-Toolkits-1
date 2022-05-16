@@ -80,10 +80,6 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert errors != null;
 
-		if(!errors.hasErrors("memorandum")) {
-			errors.state(request, entity.getMemorandum().length() < 256, "memorandum", "inventor.patronageReport.form.error.incorrect-memorandum");
-		}
-
 		boolean confirmation;
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");

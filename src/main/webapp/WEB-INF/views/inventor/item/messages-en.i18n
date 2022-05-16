@@ -8,11 +8,7 @@ inventor.item.form.label.link = Link:
 
 inventor.item.form.error.duplicated = The code is taken
 inventor.item.form.error.negative-retail-price = The price must be positive
-inventor.item.form.error.incorrect-name = The name cannot be more than 100 characters
-inventor.item.form.error.incorrect-technology = The technology cannot be more than 100 characters
-inventor.item.form.error.incorrect-description = The description cannot be more than 255 characters
-inventor.item.form.error.incorrect-currency = The currency must be equals than the acceptedCurrencies on configuration
-
+inventor.item.form.error.non-accepted-currency = The currency must be equals than the acceptedCurrencies on configuration
 inventor.item.form.button.create = Create
 inventor.item.form.button.update = Update
 inventor.item.form.button.delete = Delete
