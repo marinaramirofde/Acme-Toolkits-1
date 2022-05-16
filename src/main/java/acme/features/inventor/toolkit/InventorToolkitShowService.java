@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.components.MoneyExchange;
+import acme.entities.configurations.SystemConfiguration;
 import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
@@ -88,8 +89,8 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		for(final Quantity quantity: quantities) {
 			final Money itemMoney = quantity.getItem().getRetailPrice();
 			final int number = quantity.getNumber();
-			final String systemCurrency = this.repository.findSystemCurrency();
-			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, systemCurrency);
+			final SystemConfiguration systemCurrency = this.repository.findSystemConfiguration();
+			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, systemCurrency.getSystemCurrency());
 			final double newNumber = result.getAmount() + itemMoneyExchanged.getTarget().getAmount()*number;
 			result.setAmount(newNumber);
 		}

@@ -31,6 +31,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		result = !item.isPublished() && request.isPrincipal(inventor);
 
 		return result;
+		
 	}
 
 	@Override
@@ -71,6 +72,26 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (!errors.hasErrors("code")) {
+			Item existing;
+
+			existing = this.repository.findOneItemByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
+		}
+
+		if (!errors.hasErrors("retailPrice")) {
+			final String[] currencies = this.repository.findSystemConfiguration().getAcceptedCurrencies().split(",");
+			boolean acceptedCurrencies = false;
+			for(int i = 0; i< currencies.length; i++) {
+				if(entity.getRetailPrice().getCurrency().equals(currencies[i].trim())) {
+					acceptedCurrencies=true;
+				}
+			}
+
+			errors.state(request, acceptedCurrencies, "retailPrice", "patron.patronage.form.error.non-accepted-currency");
+			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.item.form.error.negative-retail-price");
+		}
 
 	}
 
