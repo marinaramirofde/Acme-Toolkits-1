@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.By;
 
+import acme.framework.testing.BrowserDriver;
 import acme.testing.TestHarness;
 
 public class PatronPatronageCreateTest extends TestHarness {
@@ -13,20 +15,23 @@ public class PatronPatronageCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/patron/patronage/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String status,final String code, final String legalStuff, 
-		final String budget, final String initial, final String end, final String link) {
+		final String budget, final String initial, final String end, final String link, final String inventorId) {
 		
 		super.signIn("patron1", "patron1");
 		super.clickOnMenu("Patron", "My patronages");
 		
 		super.checkListingExists();
 		super.clickOnButton("Create");
-		super.fillInputBoxIn("status", status);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
 		super.fillInputBoxIn("initial", initial);
 		super.fillInputBoxIn("end", end);
 		super.fillInputBoxIn("link", link);
+		
+		final BrowserDriver driver = super.getDriver();
+		driver.locateOne(By.id("inventorId")).click();
+		
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Patron", "My patronages");
@@ -53,20 +58,23 @@ public class PatronPatronageCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/patron/patronage/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void negativeTest(final int recordIndex, final String status,final String code, final String legalStuff, 
-		final String budget, final String initial, final String end, final String link) {
+		final String budget, final String initial, final String end, final String link, final String inventorId) {
 
 		super.signIn("patron1", "patron1");
 		super.clickOnMenu("Patron", "My patronages");
 		super.clickOnButton("Create");
 		super.checkFormExists();
 
-		super.fillInputBoxIn("status", status);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
 		super.fillInputBoxIn("initial", initial);
 		super.fillInputBoxIn("end", end);
 		super.fillInputBoxIn("link", link);
+		
+		final BrowserDriver driver = super.getDriver();
+		driver.locateOne(By.id("inventorId")).click();
+		
 		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();
