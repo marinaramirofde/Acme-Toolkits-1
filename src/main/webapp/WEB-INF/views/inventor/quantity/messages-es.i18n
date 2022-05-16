@@ -9,4 +9,6 @@ inventor.item-toolkit.list.button.create = Asociar objetos a kits de herramienta
 
 inventor.item.form.label.number = Numero de elementos
 inventor.item.form.label.item = Objetos posibles
+
+inventor.quantity.form.error.toolkit-has-tool = Este kit de herramientas ya tiene una herramienta asignada
 inventor.item-toolkit.form.button.create = Asociar objetos a kits de herramientas
