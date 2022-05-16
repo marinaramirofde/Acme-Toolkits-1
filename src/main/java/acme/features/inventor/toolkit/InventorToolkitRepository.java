@@ -48,5 +48,8 @@ public interface InventorToolkitRepository extends AbstractRepository {
 
 	@Query("select i from Item i")
 	Collection<Item> findAllItems();
+
+	@Query("select count(q.item) from Quantity q where q.item.typeEntity = acme.entities.items.Type.TOOL and q.toolkit.id = :toolkitId")
+	int findNumToolsOfToolkit(int toolkitId);
 	
 }

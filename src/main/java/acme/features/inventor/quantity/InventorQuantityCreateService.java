@@ -3,6 +3,8 @@ package acme.features.inventor.quantity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.items.Item;
+import acme.entities.items.Type;
 import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.features.inventor.toolkit.InventorToolkitRepository;
@@ -14,7 +16,7 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorQuantityCreateService implements AbstractCreateService<Inventor, Quantity>{
-	
+
 	@Autowired
 	protected InventorToolkitRepository repository;
 
@@ -29,7 +31,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		masterId = request.getModel().getInteger("masterId");
 		toolkit = this.repository.findOneById(masterId);
 		result = (toolkit != null && !toolkit.isPublished() && request.isPrincipal(toolkit.getInventor()));
-		
+
 		return result;
 	}
 
@@ -38,10 +40,10 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		entity.setItem(this.repository.finOneItemById(Integer.valueOf( request.getModel().getAttribute("itemId").toString())));
 		request.bind(entity, errors, "number", "itemId");
-				
+
 	}
 
 	@Override
@@ -49,9 +51,9 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
-	
+
 		model.setAttribute("items", this.repository.findAllItems());
 		request.unbind(entity, model, "number");
 	}
@@ -59,18 +61,18 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	@Override
 	public Quantity instantiate(final Request<Quantity> request) {
 		assert request != null;
-		
+
 		Quantity quantity;
 		int toolkitId;
 		Toolkit toolkit;
-		
+
 		quantity = new Quantity();
-		
+
 		toolkitId = request.getModel().getInteger("masterId");
 		toolkit = this.repository.findOneById(toolkitId);
-		
+
 		quantity.setToolkit(toolkit);
-				
+
 		return quantity;
 	}
 
@@ -78,20 +80,27 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	public void validate(final Request<Quantity> request, final Quantity entity, final Errors errors) {
 		assert request != null;
 		assert errors != null;
+
+		// Una toolkit no puede tener más de una tool asociada
 		
-		if (!errors.hasErrors("number")) {
-			errors.state(request, entity.getNumber() > 0, "number", "inventor.item.form.error.negative-number");
+		if(!errors.hasErrors("items")) {
+			final Item selectedItem = this.repository.finOneItemById(Integer.valueOf(request.getModel().getAttribute("itemId").toString()));
+			if(selectedItem.getTypeEntity().equals(Type.TOOL)) {
+				final Integer numTools = this.repository.findNumToolsOfToolkit(entity.getToolkit().getId());
+				errors.state(request, numTools == 0, "*", "inventor.quantity.form.error.toolkit-has-tool");
+			}
+
 		}
-		
+
 	}
 
 	@Override
 	public void create(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
-		
+
 		this.repository.save(entity);
-		
+
 	}
 
 }
