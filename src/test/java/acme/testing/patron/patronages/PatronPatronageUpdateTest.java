@@ -24,7 +24,6 @@ public class PatronPatronageUpdateTest extends TestHarness{
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		
-		super.fillInputBoxIn("status", status);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
@@ -63,7 +62,6 @@ public class PatronPatronageUpdateTest extends TestHarness{
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		super.fillInputBoxIn("status", status);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);

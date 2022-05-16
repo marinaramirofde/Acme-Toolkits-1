@@ -23,7 +23,6 @@ public class PatronPatronageDeleteTest extends TestHarness{
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		
-		super.fillInputBoxIn("status", status);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("legalStuff", legalStuff);
 		super.fillInputBoxIn("budget", budget);
@@ -67,7 +66,6 @@ public class PatronPatronageDeleteTest extends TestHarness{
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		
 		//Como inventor no poder borrar patronages
 	}
 	
