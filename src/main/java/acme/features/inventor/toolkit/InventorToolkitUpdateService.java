@@ -52,7 +52,6 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "published");
 		
-		
 	}
 
 	@Override
@@ -66,6 +65,7 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		result = this.repository.findOneById(toolkitId);
 
 		return result;
+		
 	}
 
 	@Override
@@ -74,6 +74,12 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 		
+		if (!errors.hasErrors("code")) {
+			Toolkit existing;
+
+			existing = this.repository.findOneToolkitByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
+		}
 		
 	}
 

@@ -51,17 +51,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert model != null;
 		
-		final String retailPrice = entity.getRetailPrice().toString().replace("<<", "").replace(">>", "");
-		
-		model.setAttribute("price", retailPrice);
-
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
-		
-		String result = "";
-
-		result = entity.isPublished() ? "The toolkit is published": "The toolkit is not published";
-        model.setAttribute("published", result);
-		
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link","published");
 	}
 
 	@Override
@@ -75,6 +65,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		result = this.repository.findOneById(toolkitId);
 
 		return result;
+		
 	}
 
 	@Override

@@ -73,6 +73,12 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 		
+		if (!errors.hasErrors("code")) {
+			Toolkit existing;
+
+			existing = this.repository.findOneToolkitByCode(entity.getCode());
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
+		}
 	}
 
 	@Override

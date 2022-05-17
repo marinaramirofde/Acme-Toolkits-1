@@ -39,7 +39,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link","published");
 		
 	}
 
@@ -61,7 +61,13 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("code")) {
+			Toolkit existing;
 
+			existing = this.repository.findOneToolkitByCode(entity.getCode());
+			errors.state(request, existing == null, "code", "inventor.item.form.error.duplicated");
+		}
 	}
 
 	@Override
