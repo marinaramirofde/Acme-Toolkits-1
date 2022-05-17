@@ -20,8 +20,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 		
 		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Authenticated", "List recent announcements");
-		super.clickOnButton("Create");
+		super.clickOnMenu("Administrator", "Create");
 		
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);
@@ -52,8 +51,7 @@ public class AdministratorAnnouncementCreateTest extends TestHarness{
 		
 		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Authenticated", "List recent announcements");
-		super.clickOnButton("Create");
+		super.clickOnMenu("Administrator", "Create");
 
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);

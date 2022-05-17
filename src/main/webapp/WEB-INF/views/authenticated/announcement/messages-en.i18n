@@ -6,5 +6,3 @@ authenticated.announcemeent.form.label.link = Link:
 
 authenticated.announcement.list.label.creationMoment = Creation Moment
 authenticated.announcement.list.label.title = Title
-
-master.menu.administrator.announcement.list.button.create = Create
