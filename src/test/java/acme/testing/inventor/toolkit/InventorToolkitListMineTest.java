@@ -34,7 +34,6 @@ public class InventorToolkitListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("published", published);
 				
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
