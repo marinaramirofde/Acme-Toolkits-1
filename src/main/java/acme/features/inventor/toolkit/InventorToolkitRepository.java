@@ -58,4 +58,9 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	@Query("select me from MoneyExchange me where me.source.currency = :currency and me.source.amount = :amount")
 	MoneyExchange findMoneyExchangeByCurrencyAndAmount(String currency, Double amount);
 	
+	//QUERY PARA EL SHOW DE LAS QUANTITIES
+	
+	@Query("select q from Quantity q where q.id = :id")
+	Quantity findOneQuantityById(int id);
+	
 }
