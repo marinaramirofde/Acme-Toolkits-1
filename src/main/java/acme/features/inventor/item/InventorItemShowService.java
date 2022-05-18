@@ -1,11 +1,17 @@
 package acme.features.inventor.item;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.MoneyExchange;
+import acme.entities.configurations.SystemConfiguration;
 import acme.entities.items.Item;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -23,11 +29,11 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		
+
 		boolean result;
 		int itemId;
 		Item item;
-		
+
 		itemId = request.getModel().getInteger("id");
 		item = this.repository.findOneById(itemId);
 		result = item.getInventor().getId() == request.getPrincipal().getActiveRoleId();
@@ -48,13 +54,57 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		return result;
 	}
 
+	/**
+	 * @param money
+	 * @return realiza conversiones de divisas. Si la divisa del objeto money que se pasa como parámetro
+	 * es diferente de la divisa predeterminada de la configuración del sistema, entonces se obtiene o calcula 
+	 * la conversión. En caso contrario, no es necesario realizar una conversión, por lo que los Money fuente y destino +
+	 * son iguales. 
+	*/
+	protected MoneyExchange conversion(final Money money) {
+
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+
+		MoneyExchange conversion = new MoneyExchange();
+
+		final SystemConfiguration systemConfiguration = this.repository.findSystemConfiguration();
+
+		if(!money.getCurrency().equals(systemConfiguration.getSystemCurrency())) {
+			conversion = this.repository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
+
+			if(conversion == null) {
+				conversion = moneyExchange.computeMoneyExchange(money, systemConfiguration.getSystemCurrency());
+				this.repository.save(conversion);
+
+			}
+
+		} else {
+			conversion.setSource(money);
+			conversion.setTarget(money);
+			conversion.setCurrencyTarget(systemConfiguration.getSystemCurrency());
+			conversion.setDate(new Date(System.currentTimeMillis()));
+
+		}
+
+		return conversion;
+
+	}
+
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
+		//IMPLEMENTACION CACHÉ DE CONVERSIONES
+
+		final MoneyExchange conversion = this.conversion(entity.getRetailPrice());
+
+		model.setAttribute("conversion", conversion.getTarget());
+
+		////////////////////////////////////////
+		
 		request.unbind(entity, model, "typeEntity", "name", "code", "technology", "description", "retailPrice", "link", "published");
 	}
-	
+
 }

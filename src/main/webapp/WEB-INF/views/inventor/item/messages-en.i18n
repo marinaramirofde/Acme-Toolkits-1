@@ -5,10 +5,12 @@ inventor.item.form.label.technology = Technology:
 inventor.item.form.label.description = Description:
 inventor.item.form.label.retailPrice = RetailPrice
 inventor.item.form.label.link = Link:
+inventor.item.form.label.conversion = Money exchange:
 
 inventor.item.form.error.duplicated = The code is taken
 inventor.item.form.error.negative-retail-price = The price must be positive
 inventor.item.form.error.non-accepted-currency = The currency must be equals than the acceptedCurrencies on configuration
+
 inventor.item.form.button.create = Create
 inventor.item.form.button.update = Update
 inventor.item.form.button.delete = Delete
