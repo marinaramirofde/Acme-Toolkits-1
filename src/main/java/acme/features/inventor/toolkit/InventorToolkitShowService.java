@@ -1,6 +1,7 @@
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,11 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
-		
+
 		boolean result;
 		int toolkitId;
 		Toolkit toolkit;
-		
+
 		toolkitId = request.getModel().getInteger("id");
 		toolkit = this.repository.findOneById(toolkitId);
 		result = toolkit.getInventor().getId() == request.getPrincipal().getActiveRoleId();
@@ -51,7 +52,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 
 		toolkitId = request.getModel().getInteger("id");
 		result = this.repository.findOneById(toolkitId);
-		
+
 		result.setRetailPrice(this.totalPriceOfToolkit(toolkitId));
 
 		return result;
@@ -62,19 +63,57 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		final String retailPrice = entity.getRetailPrice().toString().replace("<<", "").replace(">>", "");
-		
+
 		model.setAttribute("price", retailPrice);
 
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
-		
+
 		String result = "";
 
 		result = entity.isPublished() ? "The toolkit is published": "The toolkit is not published";
-        model.setAttribute("published", result);
+		model.setAttribute("published", result);
 	}
 	
+	//IMPLEMENTACION CACHÉ DE CONVERSIONES
+
+	/**
+	 * @param money
+	 * @return realiza conversiones de divisas. Si la divisa del objeto money que se pasa como parámetro
+	 * es diferente de la divisa predeterminada de la configuración del sistema, entonces se obtiene o calcula 
+	 * la conversión. En caso contrario, no es necesario realizar una conversión, por lo que los Money fuente y destino +
+	 * son iguales. 
+	 */
+	protected MoneyExchange conversion(final Money money) {
+
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+
+		MoneyExchange conversion = new MoneyExchange();
+
+		final SystemConfiguration systemConfiguration = this.repository.findSystemConfiguration();
+
+		if(!money.getCurrency().equals(systemConfiguration.getSystemCurrency())) {
+			conversion = this.repository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
+
+			if(conversion == null) {
+				conversion = moneyExchange.computeMoneyExchange(money, systemConfiguration.getSystemCurrency());
+				this.repository.save(conversion);
+
+			}
+
+		} else {
+			conversion.setSource(money);
+			conversion.setTarget(money);
+			conversion.setCurrencyTarget(systemConfiguration.getSystemCurrency());
+			conversion.setDate(new Date(System.currentTimeMillis()));
+
+		}
+
+		return conversion;
+
+	}
+
 	/**
 	 * @param toolkitId
 	 * @return the total price of the toolkit with his currency
@@ -83,18 +122,21 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final Money result = new Money();
 		result.setAmount(0.0);
 		result.setCurrency("EUR");
-		final AuthenticatedMoneyExchangePerformService moneyExange = new AuthenticatedMoneyExchangePerformService();
+
 		final Collection<Quantity> quantities = this.repository.findManyQuantitiesByToolkitId(toolkitId);
-		
+
 		for(final Quantity quantity: quantities) {
+			final double conversionAmount;
 			final Money itemMoney = quantity.getItem().getRetailPrice();
 			final int number = quantity.getNumber();
-			final SystemConfiguration systemCurrency = this.repository.findSystemConfiguration();
-			final MoneyExchange itemMoneyExchanged = moneyExange.computeMoneyExchange(itemMoney, systemCurrency.getSystemCurrency());
-			final double newNumber = result.getAmount() + itemMoneyExchanged.getTarget().getAmount()*number;
-			result.setAmount(newNumber);
+
+			conversionAmount = this.conversion(itemMoney).getTarget().getAmount();
+
+			final Double newAmount = (double) Math.round((result.getAmount() + conversionAmount*number)*100)/100;
+			result.setAmount(newAmount);
 		}
+		
 		return result;
 	}
-	
+
 }

@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.components.MoneyExchange;
 import acme.entities.configurations.SystemConfiguration;
 import acme.entities.items.Item;
 import acme.entities.toolkits.Quantity;
@@ -56,5 +57,10 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	
 	@Query("select count(q.item) from Quantity q where q.toolkit.id = :toolkitId")
 	int findNumItemsOfToolkit(int toolkitId);
+
+	//QUERY PARA EL SHOW PARA IMPLEMENTAR LA CACHÉ
+	
+	@Query("select me from MoneyExchange me where me.source.currency = :currency and me.source.amount = :amount")
+	MoneyExchange findMoneyExchangeByCurrencyAndAmount(String currency, Double amount);
 	
 }
