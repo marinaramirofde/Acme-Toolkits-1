@@ -7,16 +7,17 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorPatronageListMineTest extends TestHarness{
+public class InventorPatronageShowTest extends TestHarness{
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/patronage/list-mine-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/patronage/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String status, final String code, final String budget, final String creation) {
+	public void positiveTest(final int recordIndex, final String status,  final String code, final String legalStuff, final String budget, final String initial, final String creation,
+		final String end, final String link) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My patronages");
@@ -28,8 +29,18 @@ public class InventorPatronageListMineTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 2, budget);
 		super.checkColumnHasValue(recordIndex, 3, creation);
 
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
+		super.checkInputBoxHasValue("status", status);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("legalStuff", legalStuff);
+		super.checkInputBoxHasValue("budget", budget);
+		super.checkInputBoxHasValue("initial", initial);
+		super.checkInputBoxHasValue("creation", creation);
+		super.checkInputBoxHasValue("end", end);
+		super.checkInputBoxHasValue("link", link);
+
 		super.signOut();
-		
 	}
 	
 	@Test
@@ -42,15 +53,8 @@ public class InventorPatronageListMineTest extends TestHarness{
 	@Test
 	@Order(30)
 	public void hackingTest() {
-		super.checkNotLinkExists("Account");
-		super.navigate("/inventor/patronage/list-mine");
-		super.checkPanicExists();
+		// HINT+ a) estando logueado como inventorX no poder ver los detalles de un patronage que no sea suyo;
 
-		super.signIn("patron1", "patron1");
-		super.navigate("/inventor/patronage/list-mine");
-		super.checkErrorsExist();
-		super.signOut();
-		
 	}
 
 }

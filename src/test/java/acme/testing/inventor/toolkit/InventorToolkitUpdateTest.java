@@ -18,6 +18,7 @@ public class InventorToolkitUpdateTest extends TestHarness{
 
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
 		
 		super.checkFormExists();
@@ -28,6 +29,7 @@ public class InventorToolkitUpdateTest extends TestHarness{
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 		super.signOut();
+		
 	}
 
 	@ParameterizedTest
