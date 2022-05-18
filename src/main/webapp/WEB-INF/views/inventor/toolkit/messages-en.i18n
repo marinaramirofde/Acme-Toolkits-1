@@ -8,6 +8,8 @@ inventor.toolkit.form.label.published = Is published?:
 
 inventor.toolkit.form.button.items = Items
 
+inventor.toolkit.form.error.published = The toolkit must be have at least 1 item to be published
+
 inventor.toolkit.form.button.update = Update
 inventor.toolkit.form.button.delete = Delete
 inventor.toolkit.form.button.publish = Publish

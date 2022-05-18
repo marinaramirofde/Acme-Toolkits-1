@@ -12,10 +12,10 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorToolkitPublishService implements AbstractUpdateService<Inventor, Toolkit>{
-	
+
 	@Autowired
 	protected InventorToolkitRepository repository;
-	
+
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
@@ -31,7 +31,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		result = !toolkit.isPublished() && request.isPrincipal(inventor);
 
 		return result;
-		
+
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link");
-		
+
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert model != null;
 
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "published");
-		
+
 	}
 
 	@Override
@@ -72,12 +72,17 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		if (!errors.hasErrors("code")) {
 			Toolkit existing;
 
 			existing = this.repository.findOneToolkitByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
+		}
+
+		if(!errors.hasErrors()) {
+			final Integer numItems = this.repository.findNumItemsOfToolkit(entity.getId());
+			errors.state(request, numItems == 1, "*", "inventor.toolkit.form.error.published");
 		}
 	}
 
