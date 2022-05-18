@@ -1,8 +1,13 @@
 package acme.features.inventor.toolkit;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.items.Item;
+import acme.entities.toolkits.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -80,10 +85,24 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.item.form.error.duplicated");
 		}
 
-		if(!errors.hasErrors()) {
-			final Integer numItems = this.repository.findNumItemsOfToolkit(entity.getId());
-			errors.state(request, numItems == 1, "*", "inventor.toolkit.form.error.published");
+		int toolkitid;
+		toolkitid = request.getModel().getInteger("id");
+		final Collection<Quantity> quantities = this.repository.findManyQuantitiesByToolkitId(toolkitid);
+		final Collection<Item> items = new HashSet<Item>();
+		boolean publishItem = true;
+		
+		for(final Quantity quantity: quantities) {
+			final int id=quantity.getId();
+			final Collection<Item> item=this.repository.findManyItemsByQuantityId(id);
+			items.addAll(item);
 		}
+		
+		errors.state(request, !items.isEmpty(), "*", "inventor.toolkit.form.error.no-items");
+		
+		for (final Item item : items) {
+			publishItem= publishItem && item.isPublished();
+		}
+		errors.state(request, publishItem, "*", "inventor.toolkit.form.error.no-items-published");
 	}
 
 	@Override

@@ -22,5 +22,9 @@
 		<jstl:when test="${command == 'create'}">
 			<acme:submit code="inventor.item.form.button.create" action="/inventor/toolkit/create"/>
 		</jstl:when>
+		
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish')}">
+			<acme:button code="inventor.toolkit.form.button.items" action="/inventor/quantity/list-toolkit-items?masterId=${id}"/>
+		</jstl:when>
 	</jstl:choose>
 </acme:form>
