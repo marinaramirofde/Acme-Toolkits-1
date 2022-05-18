@@ -29,6 +29,7 @@ public class InventorItemListMineTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 3, technology);
 
 		super.signOut();
+		
 	}
 	
 	@Test
@@ -36,6 +37,7 @@ public class InventorItemListMineTest extends TestHarness{
 	public void negativeTest() {
 		// HINT: this is a listing, which implies that no data must be entered in any forms.
 		// HINT+ Then, there are not any negative test cases for this feature.
+		
 	}
 
 	@Test
@@ -45,16 +47,10 @@ public class InventorItemListMineTest extends TestHarness{
 		super.navigate("/inventor/item/list-mine-items");
 		super.checkPanicExists();
 
-		super.signIn("administrator", "administrator");
-		super.navigate("/inventor/item/list-mine-items");
-		super.checkListingEmpty();
-		super.signOut();
-
 		super.signIn("patron1", "patron1");
 		super.navigate("/inventor/item/list-mine-items");
 		super.checkErrorsExist();
 		super.signOut();
 	}
-
 
 }
