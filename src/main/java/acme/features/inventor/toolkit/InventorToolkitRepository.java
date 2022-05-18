@@ -53,11 +53,6 @@ public interface InventorToolkitRepository extends AbstractRepository {
 	@Query("select count(q.item) from Quantity q where q.item.typeEntity = acme.entities.items.Type.TOOL and q.toolkit.id = :toolkitId")
 	int findNumToolsOfToolkit(int toolkitId);
 
-	//QUERY PARA EL PUBLISH (1 TOOLKIT NO PUEDE PUBLICARSE SIN ITEMS)
-	
-	@Query("select count(q.item) from Quantity q where q.toolkit.id = :toolkitId")
-	int findNumItemsOfToolkit(int toolkitId);
-
 	//QUERY PARA EL SHOW PARA IMPLEMENTAR LA CACHÉ
 	
 	@Query("select me from MoneyExchange me where me.source.currency = :currency and me.source.amount = :amount")
