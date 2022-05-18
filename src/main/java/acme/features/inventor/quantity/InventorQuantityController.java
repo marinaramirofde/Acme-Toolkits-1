@@ -11,7 +11,16 @@ import acme.roles.Inventor;
 
 @Controller
 public class InventorQuantityController extends AbstractController<Inventor, Quantity> {
-
+	
+	@Autowired
+	protected InventorToolkitItemShowService inventorToolkitItemShowService;
+	
+	@Autowired
+	protected InventorToolkitItemUpdateService inventorToolkitItemUpdateService;
+				
+	@Autowired
+	protected InventorToolkitItemDeleteService inventorToolkitItemDeleteService;
+	
 	@Autowired
 	protected InventorToolkitItemListService inventorToolkitItemListService;
 	 
@@ -22,6 +31,10 @@ public class InventorQuantityController extends AbstractController<Inventor, Qua
 	protected void initialise() {
 		super.addCommand("list-toolkit-items", "list", this.inventorToolkitItemListService);
 		super.addCommand("create", this.createService);
+		super.addCommand("show", this.inventorToolkitItemShowService);
+		super.addCommand("update", this.inventorToolkitItemUpdateService);
+		super.addCommand("delete", this.inventorToolkitItemDeleteService);
+
 	}
 
 }
