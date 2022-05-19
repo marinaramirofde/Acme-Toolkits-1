@@ -19,7 +19,7 @@ public class InventorToolkitDeleteTest extends TestHarness{
 		super.clickOnMenu("Inventor", "My toolkits");
 		
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		
@@ -34,32 +34,6 @@ public class InventorToolkitDeleteTest extends TestHarness{
 		super.signOut();
 	}
 	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/toolkit/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
-	public void negativeTest(final int recordIndex, final String code, final String title, final String description, final String assemblyNotes, 
-		final String link) {
-		
-		super.signIn("inventor1", "inventor1");
-		super.clickOnMenu("Inventor", "My toolkits");
-		
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("description", description);
-		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
-		super.checkInputBoxHasValue("link", link);
-		super.checkNotSubmitExists("Delete");
-		
-		super.signOut();
-	}
-
 	@Test
 	@Order(30)
 	public void hackingTest() {

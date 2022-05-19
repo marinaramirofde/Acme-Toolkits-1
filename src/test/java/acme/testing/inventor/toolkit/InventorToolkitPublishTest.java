@@ -18,7 +18,7 @@ public class InventorToolkitPublishTest extends TestHarness{
 
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 
@@ -33,6 +33,7 @@ public class InventorToolkitPublishTest extends TestHarness{
 		super.checkNotErrorsExist();
 
 		super.signOut();
+		
 	}
 
 	@ParameterizedTest
@@ -44,7 +45,7 @@ public class InventorToolkitPublishTest extends TestHarness{
 
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 
@@ -55,7 +56,8 @@ public class InventorToolkitPublishTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("link", link);
-		super.checkNotSubmitExists("Publish");
+		super.clickOnSubmit("Publish");
+		super.checkNotPanicExists();
 
 		super.signOut();
 	}
@@ -64,6 +66,7 @@ public class InventorToolkitPublishTest extends TestHarness{
 	@Order(30)
 	public void hackingTest() {
 		// HINT+ a) publish an toolkit with a role other than "Inventor";
+		
 	}
 
 }
