@@ -15,4 +15,5 @@ inventor.quantity.form.button.update = Actualizar
 inventor.quantity.form.button.delete = Borrar
 inventor.item-toolkit.form.button.create = Asociar objetos a kits de herramientas
 
-inventor.quantity.form.error.toolkit-has-tool = Este kit de herramientas ya tiene una herramienta asignada
+inventor.quantity.form.error.toolkit-has-tool = Este kit de herramientas debe de tener 1 sola herramienta
+inventor.quantity.form.error.noItem = Debes de seleccionar al menos 1 item publicado

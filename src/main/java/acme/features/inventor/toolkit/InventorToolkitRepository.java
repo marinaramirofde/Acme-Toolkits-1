@@ -46,7 +46,7 @@ public interface InventorToolkitRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.published = 1 and "
 		+ "i not in (select q.item from Quantity q where q.toolkit.id = :id)")
-	Collection<Item> findAllIPublishedtems(int id);
+	Collection<Item> findAllIPossibletems(int id);
 
 	//UNA TOOLKIT DEBE DE TENER 1 INSTACIA DE TOOL
 	
