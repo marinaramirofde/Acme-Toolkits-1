@@ -48,11 +48,6 @@ public interface InventorToolkitRepository extends AbstractRepository {
 		+ "i not in (select q.item from Quantity q where q.toolkit.id = :id)")
 	Collection<Item> findAllIPossibletems(int id);
 
-	//UNA TOOLKIT DEBE DE TENER 1 INSTACIA DE TOOL
-	
-	@Query("select count(q.item) from Quantity q where q.item.typeEntity = acme.entities.items.Type.TOOL and q.toolkit.id = :toolkitId")
-	int findNumToolsOfToolkit(int toolkitId);
-
 	//QUERY PARA EL SHOW PARA IMPLEMENTAR LA CACHÉ
 	
 	@Query("select me from MoneyExchange me where me.source.currency = :currency and me.source.amount = :amount")
