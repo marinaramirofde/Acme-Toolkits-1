@@ -28,7 +28,7 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
 		super.checkListingExists();
-		super.sortListing(3, "asc");
+		super.sortListing(2, "asc");
 		
 		super.checkButtonExists("Associate items to the toolkit");
 		super.clickOnButton("Associate items to the toolkit");
@@ -68,7 +68,7 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "asc");
 		
 		super.checkButtonExists("Associate items to the toolkit");
 		super.clickOnButton("Associate items to the toolkit");
