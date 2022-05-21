@@ -18,7 +18,7 @@ public class InventorToolkitItemShowTest extends TestHarness{
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(toolkitRecordIndex);
 		super.checkFormExists();
@@ -26,7 +26,7 @@ public class InventorToolkitItemShowTest extends TestHarness{
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "asc");
 
 		super.clickOnListingRecord(recordIndex);
 		

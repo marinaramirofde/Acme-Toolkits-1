@@ -46,12 +46,7 @@ public interface InventorToolkitRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.published = 1 and "
 		+ "i not in (select q.item from Quantity q where q.toolkit.id = :id)")
-	Collection<Item> findAllIPublishedtems(int id);
-
-	//UNA TOOLKIT DEBE DE TENER 1 INSTACIA DE TOOL
-	
-	@Query("select count(q.item) from Quantity q where q.item.typeEntity = acme.entities.items.Type.TOOL and q.toolkit.id = :toolkitId")
-	int findNumToolsOfToolkit(int toolkitId);
+	Collection<Item> findAllIPossibletems(int id);
 
 	//QUERY PARA EL SHOW PARA IMPLEMENTAR LA CACHÉ
 	

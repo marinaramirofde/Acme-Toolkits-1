@@ -1,5 +1,6 @@
 package acme.testing.patron.dashboard;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -20,5 +21,12 @@ public class PatronDashboardShowTest extends TestHarness{
 		driver.locateMany(By.id("minBudgetByCurrencyAndStatus"));
         driver.locateMany(By.id("maxBudgetByCurrencyAndStatus"));
         super.signOut();
+	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: this is a listing, which implies that no data must be entered in any forms.
+		// HINT+ Then, there are not any negative test cases for this feature.
 	}
 }

@@ -41,8 +41,12 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		entity.setItem(this.repository.finOneItemById(Integer.valueOf( request.getModel().getAttribute("itemId").toString())));
-		request.bind(entity, errors, "number", "itemId");
+		if(this.repository.findAllIPossibletems(entity.getToolkit().getId()).isEmpty()) {
+			request.bind(entity, errors, "number");
+		} else {
+			entity.setItem(this.repository.finOneItemById(Integer.valueOf( request.getModel().getAttribute("itemId").toString())));
+			request.bind(entity, errors, "number", "itemId");
+		}
 
 	}
 
@@ -54,7 +58,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
 
-		model.setAttribute("items", this.repository.findAllIPublishedtems(entity.getToolkit().getId()));
+		model.setAttribute("items", this.repository.findAllIPossibletems(entity.getToolkit().getId()));
 		request.unbind(entity, model, "number");
 	}
 
@@ -81,13 +85,12 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert errors != null;
 
-		// Una toolkit no puede tener más de una tool asociada
-		
-		if(!errors.hasErrors("items")) {
+		if(entity.getItem() == null) {
+			errors.state(request, entity.getItem() != null, "itemId", "inventor.quantity.form.error.noItem");
+		} else {
 			final Item selectedItem = this.repository.finOneItemById(Integer.valueOf(request.getModel().getAttribute("itemId").toString()));
 			if(selectedItem.getTypeEntity().equals(Type.TOOL)) {
-				final Integer numTools = this.repository.findNumToolsOfToolkit(entity.getToolkit().getId());
-				errors.state(request, numTools == 0, "*", "inventor.quantity.form.error.toolkit-has-tool");
+				errors.state(request,entity.getNumber() == 1, "number", "inventor.quantity.form.error.toolkit-has-tool");
 			}
 
 		}

@@ -31,9 +31,13 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		entity.setInventor(this.repository.finOneInventorById(Integer.valueOf( request.getModel().getAttribute("inventorId").toString())));
-		request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link", "inventorId");
+		
+		if(this.repository.findAllInventors().isEmpty()) {
+			request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link");
+		} else {
+			entity.setInventor(this.repository.finOneInventorById(Integer.valueOf( request.getModel().getAttribute("inventorId").toString())));
+			request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link", "inventorId");
+		}
 
 	}
 
@@ -103,6 +107,10 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
 			
 		}
+		
+		if(entity.getInventor()==null) {
+            errors.state(request, entity.getInventor() != null, "inventorId", "patron.patronage.form.error.noInventor");
+        }
 	}
   
 	@Override

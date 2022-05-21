@@ -14,7 +14,8 @@ public class InventorQuantityCreateTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/quantity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int toolkitRecordIndex, final int recordIndex, final String number, final String itemId) {
+	public void positiveTest(final int toolkitRecordIndex, final int recordIndex, final String number, final String itemId
+		,final String itemName, final String itemCode) {
 		
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My toolkits");
@@ -27,7 +28,7 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "asc");
 		
 		super.checkButtonExists("Associate items to the toolkit");
 		super.clickOnButton("Associate items to the toolkit");
@@ -35,13 +36,18 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.fillInputBoxIn("number", number);
 		
 		final BrowserDriver driver = super.getDriver();
-		driver.locateOne(By.id("itemId")).click();
+		driver.locateOne(By.xpath("//*[@id=\"itemId\"]/option[" + itemId + "]")).click();
 		
 		super.clickOnSubmit("Associate items to the toolkit");
 
 		super.checkNotErrorsExist();
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, number);
+		super.clickOnListingRecord(recordIndex);
+		
+		super.checkFormExists();
+		super.checkInputBoxHasValue("item.name", itemName);
+		super.checkInputBoxHasValue("item.code", itemCode);
 		super.signOut();
 		
 	}
@@ -62,7 +68,7 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.checkButtonExists("Items");
 		super.clickOnButton("Items");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "asc");
 		
 		super.checkButtonExists("Associate items to the toolkit");
 		super.clickOnButton("Associate items to the toolkit");
@@ -70,11 +76,11 @@ public class InventorQuantityCreateTest extends TestHarness{
 		super.fillInputBoxIn("number", number);
 		
 		final BrowserDriver driver = super.getDriver();
-		driver.locateOne(By.id("itemId")).click();
+		driver.locateOne(By.xpath("//*[@id=\"itemId\"]/option[" + itemId + "]")).click();
 		
 		super.clickOnSubmit("Associate items to the toolkit");
 
-		super.checkNotPanicExists();
+		super.checkErrorsExist();
 		super.signOut();
 		
 	}
