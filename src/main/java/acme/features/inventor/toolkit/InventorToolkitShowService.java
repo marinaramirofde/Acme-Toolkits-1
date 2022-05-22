@@ -27,7 +27,6 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 
 	// AbstractShowService<Administrator, Toolkit> interface --------------
 
-
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
@@ -80,10 +79,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 
 	/**
 	 * @param money
-	 * @return realiza conversiones de divisas. Si la divisa del objeto money que se pasa como parámetro
-	 * es diferente de la divisa predeterminada de la configuración del sistema, entonces se obtiene o calcula 
-	 * la conversión. En caso contrario, no es necesario realizar una conversión, por lo que los Money fuente y destino +
-	 * son iguales. 
+	 * @return conversiones de divisas haciendo uso de la cache
 	 */
 	protected MoneyExchange conversion(final Money money) {
 
@@ -92,15 +88,21 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		MoneyExchange conversion = new MoneyExchange();
 
 		final SystemConfiguration systemConfiguration = this.repository.findSystemConfiguration();
+		
+		//Si la divisa es diferente de la divisa predeterminada de la configuración del sistema, entonces pueden ocurrir 2 cosas:
 
 		if(!money.getCurrency().equals(systemConfiguration.getSystemCurrency())) {
 			conversion = this.repository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
+			
+			//Se obtiene o calcula  la conversión
 
 			if(conversion == null) {
 				conversion = moneyExchange.computeMoneyExchange(money, systemConfiguration.getSystemCurrency());
 				this.repository.save(conversion);
 
 			}
+			
+			//En caso contrario, no es necesario realizar una conversión
 
 		} else {
 			conversion.setSource(money);
@@ -121,7 +123,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	private Money totalPriceOfToolkit(final int toolkitId) {
 		final Money result = new Money();
 		result.setAmount(0.0);
-		result.setCurrency("EUR");
+		result.setCurrency(this.repository.findSystemConfiguration().getSystemCurrency());
 
 		final Collection<Quantity> quantities = this.repository.findManyQuantitiesByToolkitId(toolkitId);
 
