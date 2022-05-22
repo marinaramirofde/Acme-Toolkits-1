@@ -23,7 +23,6 @@ public class MoneyExchange extends AbstractEntity{
 
 	protected static final long	serialVersionUID	= 1L;
 
-
 	// Query attributes -------------------------------------------------------
 
 	@NotNull
