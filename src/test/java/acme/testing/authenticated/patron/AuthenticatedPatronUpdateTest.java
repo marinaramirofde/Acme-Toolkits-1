@@ -1,6 +1,7 @@
 package acme.testing.authenticated.patron;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -52,5 +53,20 @@ public class AuthenticatedPatronUpdateTest extends TestHarness {
 
 		super.signOut();
 	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/authenticated/patron/update");
+		super.checkPanicExists();
+
+		super.signIn("inventor1", "inventor1");
+		super.navigate("/authenticated/patron/update");
+		super.checkPanicExists();
+		super.signOut();
+		
+	}
+
 
 }

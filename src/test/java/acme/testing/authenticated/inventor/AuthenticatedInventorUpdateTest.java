@@ -1,6 +1,7 @@
 package acme.testing.authenticated.inventor;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -51,6 +52,20 @@ public class AuthenticatedInventorUpdateTest extends TestHarness {
 		super.checkErrorsExist();
 
 		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/authenticated/inventor/update");
+		super.checkPanicExists();
+
+		super.signIn("patron1", "patron1");
+		super.navigate("/authenticated/inventor/update");
+		super.checkPanicExists();
+		super.signOut();
+		
 	}
 
 }

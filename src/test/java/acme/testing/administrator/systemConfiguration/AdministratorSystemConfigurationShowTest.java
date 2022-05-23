@@ -2,6 +2,7 @@
 package acme.testing.administrator.systemConfiguration;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -31,6 +32,21 @@ public class AdministratorSystemConfigurationShowTest extends TestHarness {
 
 
 		super.signOut();
+		
+	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: this is a listing, which implies that no data must be entered in any forms.
+		// HINT+ Then, there are not any negative test cases for this feature.
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT+ a) estando logueado como inventorX no poder ver los detalles de un item que no sea suyo;
+
 	}
 
 }
