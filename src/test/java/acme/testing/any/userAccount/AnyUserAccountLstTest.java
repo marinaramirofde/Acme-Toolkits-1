@@ -35,4 +35,11 @@ public class AnyUserAccountLstTest extends TestHarness{
 		// HINT+ Then, there are not any negative test cases for this feature.
 	}
 	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		//No tiene puesto que el role es any--> todo el mundo puede ver los chirridos recientes
+		
+	}
+	
 }

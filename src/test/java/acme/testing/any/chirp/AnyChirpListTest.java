@@ -1,6 +1,7 @@
 package acme.testing.any.chirp;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -26,6 +27,21 @@ public class AnyChirpListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 3, body);
 		super.checkColumnHasValue(recordIndex, 4, email);
 
+	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: this is a listing, which implies that no data must be entered in any forms.
+		// HINT+ Then, there are not any negative test cases for this feature.
+		
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		//No tiene puesto que el role es any--> todo el mundo puede ver los chirridos recientes
+		
 	}
 
 

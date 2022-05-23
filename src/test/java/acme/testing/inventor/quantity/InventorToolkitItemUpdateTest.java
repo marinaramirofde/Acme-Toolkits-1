@@ -1,6 +1,7 @@
 package acme.testing.inventor.quantity;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -74,6 +75,13 @@ public class InventorToolkitItemUpdateTest extends TestHarness{
 		
 		super.signOut();
 
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT+ a) update the configuration with a role other than "Administrator";
+		
 	}
 
 }

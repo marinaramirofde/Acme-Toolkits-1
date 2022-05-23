@@ -1,5 +1,6 @@
 package acme.testing.administrator.dashboard;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -8,7 +9,6 @@ import acme.testing.TestHarness;
 
 public class AdministratorDashboardShowTest extends TestHarness{
 
-	
 	@Test
 	public void positiveTest() {
 		super.signIn("administrator", "administrator");
@@ -28,5 +28,21 @@ public class AdministratorDashboardShowTest extends TestHarness{
         driver.locateMany(By.id("minBudgetOfPatronagesByStatus"));
         driver.locateMany(By.id("maxBudgetOfPatronagesByStatus"));
         super.signOut();
+        
 	}
+	
+	@Test
+	@Order(20)
+	public void negativeTest() {
+		// HINT: this is a listing, which implies that no data must be entered in any forms.
+		// HINT+ Then, there are not any negative test cases for this feature.
+	}
+
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		// HINT+ a) estando logueado como patron,anonimo e inventor no poder ver el panel de indicadores de administradores
+
+	}
+	
 }
