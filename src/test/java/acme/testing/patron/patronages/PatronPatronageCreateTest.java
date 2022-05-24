@@ -30,7 +30,7 @@ public class PatronPatronageCreateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 		
 		final BrowserDriver driver = super.getDriver();
-		driver.locateOne(By.id("inventorId")).click();
+		driver.locateOne(By.xpath("//*[@id=\"inventorId_proxy\"]/option[" + inventorId +"]")).click();
 		
 		super.clickOnSubmit("Create");
 
@@ -73,7 +73,7 @@ public class PatronPatronageCreateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 		
 		final BrowserDriver driver = super.getDriver();
-		driver.locateOne(By.id("inventorId")).click();
+		driver.locateOne(By.xpath("//*[@id=\"inventorId_proxy\"]/option[" + inventorId +"]")).click();
 		
 		super.clickOnSubmit("Create");
 
