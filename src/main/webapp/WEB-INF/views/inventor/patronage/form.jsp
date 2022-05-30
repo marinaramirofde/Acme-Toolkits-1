@@ -15,7 +15,7 @@
 	<acme:input-textbox code="inventor.patronage.form.label.email" path="patronProfileEmail" readonly="true"/>
 	<acme:input-textbox code="inventor.patronage.form.label.company" path="patronCompany" readonly="true"/>
 	<acme:input-textbox code="inventor.patronage.form.label.statement" path="patronStatement" readonly="true"/>
-	<acme:input-textbox code="inventor.patronage.form.label.link" path="patronLink" readonly="true"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron-link" path="patronLink" readonly="true"/>
 	
 	<jstl:if test="${status!='PROPOSED'}">
 		<acme:input-textbox code="inventor.patronage.form.label.status" path="status" readonly="true"/>
@@ -30,5 +30,5 @@
 	</jstl:if>
 	
 	<acme:submit test="${acme:anyOf(command, 'show, update') && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
-    <acme:button test="${status == 'ACCEPTED'}" code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${id}"/>
+    <acme:button test="${status == 'ACCEPTED' && published == true}" code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${id}"/>
 </acme:form>

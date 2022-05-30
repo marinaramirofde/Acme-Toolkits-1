@@ -10,7 +10,7 @@ inventor.patronage.form.label.fullName = Nombre completo del patrón:
 inventor.patronage.form.label.email = E-mail del patrón:
 inventor.patronage.form.label.company = Compañía del patrón:
 inventor.patronage.form.label.statement = Estamento del patrón:
-inventor.patronage.form.label.link = Link del patronage:
+inventor.patronage.form.label.patron-link = Link del patronage:
 
 inventor.patronage.form.button.update = Actualizar
 
