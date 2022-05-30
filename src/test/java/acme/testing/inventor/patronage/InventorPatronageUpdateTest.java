@@ -20,7 +20,7 @@ public class InventorPatronageUpdateTest extends TestHarness {
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My patronages");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
@@ -51,7 +51,7 @@ public class InventorPatronageUpdateTest extends TestHarness {
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My patronages");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
