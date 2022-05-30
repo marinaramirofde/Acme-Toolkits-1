@@ -6,16 +6,18 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
-public class InventorPatronageReportCreateTest extends TestHarness{
 
+public class InventorPatronageReportCreateTest extends TestHarness{
+	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronage-report/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndexP, final int recordIndex, final String memorandum, final String link,
-		final String confirmation) {
+	public void positiveTest(final int recordIndexP, final int recordIndex, final String memorandum, final String link, final String confirmation) {
 		
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My patronages");
+		
+		super.sortListing(1, "asc");
 		
 		super.clickOnListingRecord(recordIndexP);
 		super.checkButtonExists("Create patronage report");
@@ -39,8 +41,7 @@ public class InventorPatronageReportCreateTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronage-report/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void negativeTest(final int recordIndexP, final int recordIndex, final String memorandum, final String link,
-		final String confirmation) {
+	public void negativeTest(final int recordIndexP, final int recordIndex, final String memorandum, final String link, final String confirmation) {
 		
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My patronages");
