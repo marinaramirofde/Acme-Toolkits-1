@@ -30,5 +30,5 @@
 	</jstl:if>
 	
 	<acme:submit test="${acme:anyOf(command, 'show, update') && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
-    <acme:button code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${id}"/>
+    <acme:button test="${status == 'ACCEPTED'}" code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${id}"/>
 </acme:form>

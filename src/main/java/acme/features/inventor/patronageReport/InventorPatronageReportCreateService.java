@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patronageReports.PatronageReport;
 import acme.entities.patronages.Patronage;
+import acme.entities.patronages.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -23,7 +24,16 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int masterId;
+		Patronage patronage;
+		
+		masterId = request.getModel().getInteger("patronageId");
+		patronage = this.repository.findOnePatronageById(masterId);
+		result = (patronage != null && patronage.isPublished() && patronage.getStatus().equals(Status.ACCEPTED) && request.isPrincipal(patronage.getInventor()));
+		
+		return result;
+		
 	}
 
 	@Override
@@ -45,6 +55,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		request.unbind(entity, model, "automaticSequenceNumber", "creation", "memorandum", "link");
 
 		model.setAttribute("patronageId", entity.getPatronage().getId());
+		model.setAttribute("status", entity.getPatronage().getStatus());
 
 	}
 
@@ -72,6 +83,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		result.setAutomaticSequenceNumber(automaticSequenceNumber);
 
 		return result;
+		
 	}
 
 	@Override

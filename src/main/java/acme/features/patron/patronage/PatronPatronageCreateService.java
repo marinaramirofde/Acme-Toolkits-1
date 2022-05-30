@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronages.Patronage;
+import acme.entities.patronages.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -33,10 +34,10 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert errors != null;
 		
 		if(this.repository.findAllInventors().isEmpty()) {
-			request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link");
+			request.bind(entity, errors,"code","legalStuff","budget","initial","end","link");
 		} else {
 			entity.setInventor(this.repository.finOneInventorById(Integer.valueOf( request.getModel().getAttribute("inventorId").toString())));
-			request.bind(entity, errors,"status","code","legalStuff","budget","initial","end","link", "inventorId");
+			request.bind(entity, errors,"code","legalStuff","budget","initial","end","link", "inventorId");
 		}
 
 	}
@@ -47,7 +48,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"status","code","legalStuff","budget","initial","creation","end","link","published");
+		request.unbind(entity, model,"code","legalStuff","budget","initial","creation","end","link","published");
 		model.setAttribute("inventors", this.repository.findAllInventors());
 	}
 
@@ -66,6 +67,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		creation = new Date(System.currentTimeMillis()-1);
 
 		result.setCreation(creation);
+		
+		result.setStatus(Status.PROPOSED);
+		
 		return result;
 	}
 
@@ -102,7 +106,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			
 		}
 		
-		if(!errors.hasErrors("end")) {
+		if(!errors.hasErrors("end") && !errors.hasErrors("initial")) {
 			final Date minimumFinishDate=DateUtils.addMonths(entity.getInitial(), 1);
 			errors.state(request,entity.getEnd().after(minimumFinishDate), "end", "patron.patronage.form.error.one-month");
 			

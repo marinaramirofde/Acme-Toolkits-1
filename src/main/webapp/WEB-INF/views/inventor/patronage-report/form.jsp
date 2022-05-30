@@ -15,6 +15,6 @@
 		<acme:input-checkbox code="inventor.patronage-report.form.label.confirmation" path="confirmation"/>
 	</jstl:if>
 	
-	<acme:submit test="${command == 'create'}" code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${patronageId}"/>	
+	<acme:submit test="${command == 'create'  && status == 'ACCEPTED'}" code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?patronageId=${patronageId}"/>	
 			
 </acme:form>
